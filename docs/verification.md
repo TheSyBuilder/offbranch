@@ -1,6 +1,6 @@
 # Release verification
 
-Local release verification completed on 2026-11-02 for the full Chinese catalog and bilingual search update. Live deployment verification is still pending.
+Local and live release verification completed on 2026-11-02 for the full Chinese catalog and bilingual search update.
 
 ## Catalog and translation checks
 
@@ -54,4 +54,10 @@ Playlists are editorial selections from a pinned HackerTube archive, not a live 
 
 YouTube availability and regional restrictions change independently of the export. Playback and thumbnails come from YouTube. Reduced-motion and hidden-tab behavior are implemented; this is not exhaustive screen-reader or device certification.
 
-**Pending:** verify the published GitHub Pages deployment after release, including the final Chinese asset, a Chinese search/watch journey, screenshot availability and an English search. Local checks above do not establish that the new build is live.
+Live verification passed for application commit `1ec767c2a8862f7ac1501dde5d434ff6201fbe5a`, deployed by [GitHub Actions run 41424733607](https://github.com/TheSyBuilder/offbranch/actions/runs/41424733607).
+
+- The served `index-C3gpIFdc.js` bundle matches the production build. The deployed Chinese asset and manifest match the local SHA-256 and contain all 6,454 records with 242 reviewed overrides.
+- On the published site, `神经网络反向传播从零实现` returns eight direct results with micrograd first. Its full watch page displays the Chinese description and expands the original English source correctly.
+- Switching to English and searching `C++` returns 86 matches; returning to Chinese search restores the expected eight results.
+- All three README screenshots load on GitHub at their expected 1440px / 390px source widths. The Chinese search screenshot was refreshed from the deployed site.
+- Temporary preview tabs and the local development server are closed after verification; the live Chinese search remains available.
