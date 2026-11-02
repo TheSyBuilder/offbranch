@@ -11,6 +11,7 @@ import io
 import json
 import math
 from pathlib import Path
+import re
 import subprocess
 import zipfile
 
@@ -124,15 +125,36 @@ def main() -> None:
             selected.append({"url": mention["hn_url"], "author": mention["author"], "year": int(mention["month"][:4]), "text": text, "stance": mention["stance"]})
             if len(selected) == 3:
                 break
-        evidence.setdefault(vid[:2], {})[vid] = selected
-    # Remove obsolete shards only inside the generated evidence directory.
+        # Video IDs are case-sensitive; shard paths must not be. Keeping the full
+        # ID as the JSON key preserves distinct records on macOS and Windows.
+        evidence.setdefault(vid[:2].lower(), {})[vid] = selected
+    # Recreate only the generated two-character JSON shards. Removing their old
+    # names first also fixes case-only filename changes on case-insensitive disks.
     evidence_dir = OUT / "evidence"
     evidence_dir.mkdir(parents=True, exist_ok=True)
     for stale in evidence_dir.glob("*.json"):
-        if stale.stem not in evidence:
+        if re.fullmatch(r"[A-Za-z0-9_-]{2}", stale.stem):
             stale.unlink()
     for prefix in sorted(evidence):
         dump(f"evidence/{prefix}.json", {vid: evidence[prefix][vid] for vid in sorted(evidence[prefix])})
+    # Read the physical files back: validating only the in-memory dictionary
+    # would miss the filesystem collision that this check is designed to catch.
+    persisted_ids: set[str] = set()
+    persisted_shards: set[str] = set()
+    for shard in evidence_dir.glob("*.json"):
+        if not re.fullmatch(r"[A-Za-z0-9_-]{2}", shard.stem):
+            continue
+        assert shard.stem == shard.stem.lower(), f"Noncanonical evidence filename: {shard.name}"
+        records = json.loads(shard.read_text(encoding="utf-8"))
+        assert records == evidence[shard.stem], f"Evidence shard did not survive writing intact: {shard.name}"
+        persisted_shards.add(shard.stem)
+        for vid, excerpts in records.items():
+            assert vid not in persisted_ids, f"Duplicate evidence key: {vid}"
+            assert vid[:2].lower() == shard.stem, f"Wrong evidence shard for {vid}"
+            assert len(excerpts) <= 3 and all(excerpt["stance"] in ("rec", "strong_rec") for excerpt in excerpts)
+            persisted_ids.add(vid)
+    assert persisted_shards == set(evidence), "Missing or unexpected evidence shards"
+    assert persisted_ids == ids, f"Evidence coverage mismatch: missing {len(ids - persisted_ids)}, extra {len(persisted_ids - ids)}"
     for route in STARTERS:
         assert all(vid in ids for vid in route["videoIds"]), route["id"]
         assert len(route["videoIds"]) == len(set(route["videoIds"]))
@@ -146,7 +168,7 @@ def main() -> None:
         "derivations": ["Normalized catalog fields", "Top 8 cosine neighbors from source embeddings", "Up to 3 recommendation excerpts per video", "Four editorial starter sequences"],
         "notes": ["AI-labeled source summaries and categories may contain errors.", "Mentions are capped at 20 per video; counts describe the exported sample.", "Similarity and shared-recommender edges are not prerequisite relationships.", "No YouTube durations, view counts, upload dates, or availability metadata is redistributed."]
     })
-    print(f"Built {len(neighbors):,} neighborhoods and {len(evidence):,} evidence shards. Source SHA-256: {digest}")
+    print(f"Built {len(neighbors):,} neighborhoods and {len(evidence):,} evidence shards; verified all {len(persisted_ids):,} video IDs on disk. Source SHA-256: {digest}")
 
 
 if __name__ == "__main__":

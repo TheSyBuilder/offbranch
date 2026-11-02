@@ -5,7 +5,7 @@ Verified on 2026-11-02.
 ## Automated
 
 - TypeScript and Vite production build pass.
-- 22 tests pass: 9 search tests and 13 roadmap tests.
+- 23 tests pass: 10 search tests and 13 roadmap tests.
 - Production dependency audit reports no known vulnerabilities.
 - Search tests cover C++, C#, .NET, Rust, goal/background separation, misspellings, filters, empty results, and ranking.
 - Roadmap tests cover ordering, duplicate avoidance, watched exclusions, malformed/prototype-bearing payloads, unknown IDs, oversized links, import/export, and blocked or quota-denied storage.
@@ -22,6 +22,8 @@ Desktop at 1440 × 1000 and mobile at 390 × 844, with light and dark themes:
 - JSON export/import and PNG download work. A portable shared link creates an independent copy without watched progress; reloading does not import another copy.
 - A production-build fixture with the catalog file removed shows an actionable load error. Restoring it and using Reload collection recovers search.
 - Overview-only failure falls back to the catalog's taxonomy.
+- Malformed share links show an actionable notice; valid links also import when the app is already open.
+- The generated evidence was read back from disk: 1,379 case-safe shards preserve all 6,454 IDs. Repeating the pipeline produced byte-identical evidence files.
 
 ## Reviewed protections and limits
 

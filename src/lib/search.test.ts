@@ -41,6 +41,14 @@ describe('real catalog search', () => {
     expect(search('', { evidence: 'all', shelfLife: 'all' }).total).toBe(6454);
   });
 
+  it('returns every direct match so list pagination can reach beyond the first 80', () => {
+    const result = search('');
+    expect(result.total).toBeGreaterThan(80);
+    const ids = result.hits.filter(hit => hit.kind === 'direct').map(hit => hit.id);
+    expect(ids.length).toBe(result.total);
+    expect(new Set(ids)).toEqual(new Set(catalog.videos.filter(video => video.recommenders > 0 && video.shelfLife !== 'news').map(video => video.id)));
+  });
+
   it('applies strong evidence, type, level, and shelf-life filters together', () => {
     const result = search('', { evidence: 'strong', level: 'intro', type: 'lecture', shelfLife: 'evergreen' });
     expect(result.total).toBeGreaterThan(0);

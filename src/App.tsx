@@ -75,7 +75,6 @@ export default function App() {
   const workerRef = useRef<Worker | null>(null);
   const requestIdRef = useRef(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const importedRef = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
   const catalogById = useMemo(() => new Map(catalog?.videos.map(v => [v.id, v]) || []), [catalog]);
   const activeRoadmap = roadmaps.find(r => r.id === activeRoadmapId) || roadmaps[0];
@@ -174,15 +173,19 @@ export default function App() {
   useEffect(() => { try { localStorage.setItem('offbranch-watched', JSON.stringify(watchedIds)); } catch { setStorageWarning(true); } }, [watchedIds]);
   useEffect(() => { if (!status) return; const t = setTimeout(() => setStatus(''), 5000); return () => clearTimeout(t); }, [status]);
   useEffect(() => {
-    if (!catalog || importedRef.current) return;
-    importedRef.current = true;
-    if (!location.hash.startsWith('#roadmap=')) return;
-    try {
-      const imported = decodeRoadmap(location.hash, new Set(catalogById.keys()));
-      if (!imported) { setStatus('That roadmap link is incomplete or invalid. You can still explore the collection.'); return; }
-      setRoadmaps(existing => [...existing, imported]); setActiveRoadmapId(imported.id); setShowRoadmaps(true); setStatus('Your own copy is ready. Make it yours.');
-      history.replaceState({}, '', `${location.pathname}${location.search}`);
-    } catch { setStatus('That roadmap link couldn’t be opened. Try importing its JSON backup.'); }
+    if (!catalog) return;
+    const importSharedRoute = () => {
+      if (!location.hash.startsWith('#roadmap=')) return;
+      try {
+        const imported = decodeRoadmap(location.hash, new Set(catalogById.keys()));
+        if (!imported) { setStatus('That roadmap link is incomplete or invalid. You can still explore the collection.'); return; }
+        setRoadmaps(existing => [...existing, imported]); setActiveRoadmapId(imported.id); setShowRoadmaps(true); setStatus('Your own copy is ready. Make it yours.');
+        history.replaceState({}, '', `${location.pathname}${location.search}`);
+      } catch { setStatus('That roadmap link couldn’t be opened. Try importing its JSON backup.'); }
+    };
+    importSharedRoute();
+    window.addEventListener('hashchange', importSharedRoute);
+    return () => window.removeEventListener('hashchange', importSharedRoute);
   }, [catalog, catalogById]);
 
   const hits = response?.hits || [];

@@ -160,7 +160,7 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
       .sort((a, b) => b.overlap - a.overlap || b.topic.count - a.topic.count)
       .slice(0, 3).map(item => item.topic.name);
     if (direct.length === 0 && suggestions.length === 0) suggestions.push('Neural networks', 'Distributed systems', 'Linear algebra');
-    return { requestId: request.requestId, hits: [...direct.slice(0, 80), ...nearby], total: direct.length,
+    return { requestId: request.requestId, hits: [...direct, ...nearby], total: direct.length,
       facets, interpretation, suggestions, elapsedMs: Math.round((performance.now() - started) * 100) / 100 };
   }
   return { search };

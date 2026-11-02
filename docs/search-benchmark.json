@@ -1,8 +1,8 @@
 {
-  "measuredAt": "2026-11-02T06:10:05.157Z",
+  "measuredAt": "2026-11-02T06:28:08.801Z",
   "catalogVersion": "2026-10-31",
-  "indexMs": 352.185375,
-  "warmEngineP95Ms": 1.29,
+  "indexMs": 714.977959,
+  "warmEngineP95Ms": 1.76,
   "warmRunCount": 168,
   "results": [
     {
@@ -53,9 +53,9 @@
           "title": "\"Systems that run forever self-heal and scale\" by Joe Armstrong (2013)"
         }
       ],
-      "firstQueryMs": 2.38,
-      "medianWarmMs": 0.94,
-      "p95WarmMs": 1.61,
+      "firstQueryMs": 2.26,
+      "medianWarmMs": 0.98,
+      "p95WarmMs": 1.43,
       "interpretation": {
         "target": "distributed systems",
         "background": ""
@@ -160,9 +160,9 @@
           "title": "\"Systems that run forever self-heal and scale\" by Joe Armstrong (2013)"
         }
       ],
-      "firstQueryMs": 16.22,
-      "medianWarmMs": 0.81,
-      "p95WarmMs": 1.53,
+      "firstQueryMs": 16.95,
+      "medianWarmMs": 1.43,
+      "p95WarmMs": 1.72,
       "interpretation": {
         "target": "distibuted sytems",
         "background": "",
@@ -233,9 +233,9 @@
           "title": "Jeff Dean & Noam Shazeer — 25 years at Google: from PageRank to AGI"
         }
       ],
-      "firstQueryMs": 0.5,
-      "medianWarmMs": 0.35,
-      "p95WarmMs": 0.37,
+      "firstQueryMs": 0.87,
+      "medianWarmMs": 0.75,
+      "p95WarmMs": 0.93,
       "interpretation": {
         "target": "how a transformer works",
         "background": "Python"
@@ -321,9 +321,9 @@
           "title": "Large Language Models from scratch"
         }
       ],
-      "firstQueryMs": 0.33,
-      "medianWarmMs": 0.28,
-      "p95WarmMs": 0.3,
+      "firstQueryMs": 0.84,
+      "medianWarmMs": 0.4,
+      "p95WarmMs": 0.48,
       "interpretation": {
         "target": "backpropagation",
         "background": ""
@@ -417,9 +417,9 @@
           "title": "Large Language Models from scratch"
         }
       ],
-      "firstQueryMs": 1.86,
-      "medianWarmMs": 0.34,
-      "p95WarmMs": 0.51,
+      "firstQueryMs": 2.37,
+      "medianWarmMs": 0.57,
+      "p95WarmMs": 1.01,
       "interpretation": {
         "target": "backpropogation",
         "background": "",
@@ -502,9 +502,9 @@
           "title": "CS231n Winter 2016: Lecture1: Introduction and Historical Context"
         }
       ],
-      "firstQueryMs": 1.04,
-      "medianWarmMs": 0.69,
-      "p95WarmMs": 0.76,
+      "firstQueryMs": 1.46,
+      "medianWarmMs": 0.95,
+      "p95WarmMs": 1.28,
       "interpretation": {
         "target": "neural nets",
         "background": ""
@@ -610,9 +610,9 @@
           "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
         }
       ],
-      "firstQueryMs": 1.8,
-      "medianWarmMs": 1.29,
-      "p95WarmMs": 1.48,
+      "firstQueryMs": 2.8,
+      "medianWarmMs": 2.57,
+      "p95WarmMs": 2.77,
       "interpretation": {
         "target": "LLM",
         "background": ""
@@ -718,9 +718,9 @@
           "title": "Taking Vector Transposes Seriously | Jiahao Chen | JuliaCon 2017"
         }
       ],
-      "firstQueryMs": 0.66,
-      "medianWarmMs": 0.61,
-      "p95WarmMs": 0.81,
+      "firstQueryMs": 0.9,
+      "medianWarmMs": 0.98,
+      "p95WarmMs": 1.4,
       "interpretation": {
         "target": "linear algebra",
         "background": ""
@@ -826,9 +826,9 @@
           "title": "Taking Vector Transposes Seriously | Jiahao Chen | JuliaCon 2017"
         }
       ],
-      "firstQueryMs": 4.76,
-      "medianWarmMs": 0.59,
-      "p95WarmMs": 0.7,
+      "firstQueryMs": 7.59,
+      "medianWarmMs": 0.86,
+      "p95WarmMs": 0.99,
       "interpretation": {
         "target": "linera algebra",
         "background": "",
@@ -915,9 +915,9 @@
           "title": "Hilbert's Curve: Is infinite math useful?"
         }
       ],
-      "firstQueryMs": 0.51,
-      "medianWarmMs": 0.39,
-      "p95WarmMs": 0.49,
+      "firstQueryMs": 1.03,
+      "medianWarmMs": 0.84,
+      "p95WarmMs": 1,
       "interpretation": {
         "target": "3blue1brown",
         "background": ""
@@ -1020,9 +1020,9 @@
           "title": "Simon Peyton Jones: Data Parallel Haskell"
         }
       ],
-      "firstQueryMs": 1.64,
-      "medianWarmMs": 1.05,
-      "p95WarmMs": 1.16,
+      "firstQueryMs": 1.58,
+      "medianWarmMs": 1.48,
+      "p95WarmMs": 1.77,
       "interpretation": {
         "target": "simple made easy",
         "background": ""
@@ -1128,9 +1128,9 @@
           "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
         }
       ],
-      "firstQueryMs": 0.89,
-      "medianWarmMs": 0.66,
-      "p95WarmMs": 0.8,
+      "firstQueryMs": 0.92,
+      "medianWarmMs": 0.68,
+      "p95WarmMs": 0.92,
       "interpretation": {
         "target": "rich hickey",
         "background": ""
@@ -1235,9 +1235,9 @@
           "title": "Kilim: Fast, lightweight, cheap message passing in Java."
         }
       ],
-      "firstQueryMs": 0.57,
-      "medianWarmMs": 0.38,
-      "p95WarmMs": 0.43,
+      "firstQueryMs": 0.71,
+      "medianWarmMs": 0.41,
+      "p95WarmMs": 0.52,
       "interpretation": {
         "target": "concurrency",
         "background": ""
@@ -1339,9 +1339,9 @@
           "title": "Rust's Journey to Async/Await"
         }
       ],
-      "firstQueryMs": 0.59,
-      "medianWarmMs": 0.44,
-      "p95WarmMs": 0.53,
+      "firstQueryMs": 0.64,
+      "medianWarmMs": 0.47,
+      "p95WarmMs": 0.68,
       "interpretation": {
         "target": "rust",
         "background": ""
@@ -1441,9 +1441,9 @@
           "title": "Introducing a Memory-Safe Successor Language in Large C++ Code Bases - John McCall - CppNow 2023"
         }
       ],
-      "firstQueryMs": 5.46,
-      "medianWarmMs": 0.6,
-      "p95WarmMs": 0.73,
+      "firstQueryMs": 5.94,
+      "medianWarmMs": 0.74,
+      "p95WarmMs": 0.87,
       "interpretation": {
         "target": "C++",
         "background": ""
@@ -1519,9 +1519,9 @@
           "title": "TypeScript is being ported to Go | interview with Anders Hejlsberg"
         }
       ],
-      "firstQueryMs": 0.33,
-      "medianWarmMs": 0.27,
-      "p95WarmMs": 0.3,
+      "firstQueryMs": 0.38,
+      "medianWarmMs": 0.3,
+      "p95WarmMs": 0.33,
       "interpretation": {
         "target": "C#",
         "background": ""
@@ -1586,8 +1586,8 @@
         }
       ],
       "firstQueryMs": 0.29,
-      "medianWarmMs": 0.27,
-      "p95WarmMs": 0.3,
+      "medianWarmMs": 0.24,
+      "p95WarmMs": 0.24,
       "interpretation": {
         "target": ".NET",
         "background": ""
@@ -1679,9 +1679,9 @@
           "title": "What is Euler's formula actually saying? | Ep. 4 Lockdown live math"
         }
       ],
-      "firstQueryMs": 0.82,
-      "medianWarmMs": 0.54,
-      "p95WarmMs": 0.63,
+      "firstQueryMs": 0.77,
+      "medianWarmMs": 0.61,
+      "p95WarmMs": 0.77,
       "interpretation": {
         "target": "fourier transform",
         "background": ""
@@ -1783,9 +1783,9 @@
           "title": "Grace Hopper Lecture"
         }
       ],
-      "firstQueryMs": 1.65,
-      "medianWarmMs": 1.28,
-      "p95WarmMs": 1.5,
+      "firstQueryMs": 1.77,
+      "medianWarmMs": 1.29,
+      "p95WarmMs": 1.48,
       "interpretation": {
         "target": "computing history",
         "background": ""
@@ -1885,9 +1885,9 @@
           "title": "\"Transactions: myths, surprises and opportunities\" by Martin Kleppmann"
         }
       ],
-      "firstQueryMs": 0.54,
-      "medianWarmMs": 0.4,
-      "p95WarmMs": 0.42,
+      "firstQueryMs": 0.53,
+      "medianWarmMs": 0.41,
+      "p95WarmMs": 0.44,
       "interpretation": {
         "target": "database",
         "background": ""
@@ -1987,9 +1987,9 @@
           "title": "Netflix JavaScript Talks - Async JavaScript with Reactive Extensions"
         }
       ],
-      "firstQueryMs": 0.54,
-      "medianWarmMs": 0.44,
-      "p95WarmMs": 0.46,
+      "firstQueryMs": 0.56,
+      "medianWarmMs": 0.43,
+      "p95WarmMs": 0.45,
       "interpretation": {
         "target": "javascript",
         "background": ""
@@ -2089,8 +2089,8 @@
           "title": "Finding the Missing Memristor - R. Stanley Williams"
         }
       ],
-      "firstQueryMs": 1.26,
-      "medianWarmMs": 0.74,
+      "firstQueryMs": 1.23,
+      "medianWarmMs": 0.76,
       "p95WarmMs": 0.82,
       "interpretation": {
         "target": "computer architecture",
@@ -2191,9 +2191,9 @@
           "title": "RL Course by David Silver - Lecture 1: Introduction to Reinforcement Learning"
         }
       ],
-      "firstQueryMs": 1.12,
-      "medianWarmMs": 0.9,
-      "p95WarmMs": 1.04,
+      "firstQueryMs": 1.14,
+      "medianWarmMs": 0.87,
+      "p95WarmMs": 1.11,
       "interpretation": {
         "target": "machine learning",
         "background": ""
@@ -2252,9 +2252,9 @@
       "query": "qzxwvvjjqzzzz",
       "localCount": 0,
       "localTop": [],
-      "firstQueryMs": 2.93,
-      "medianWarmMs": 0.25,
-      "p95WarmMs": 0.27,
+      "firstQueryMs": 3.01,
+      "medianWarmMs": 0.24,
+      "p95WarmMs": 0.26,
       "interpretation": {
         "target": "qzxwvvjjqzzzz",
         "background": ""

@@ -12,7 +12,7 @@ export function VideoDetail({ video, related, videosById, saved, watched, onClos
   useEffect(() => {
     setPlaying(false); setEvidence([]); setFailedImage(false);
     const controller = new AbortController();
-    fetch(`${import.meta.env.BASE_URL}data/evidence/${video.id.slice(0, 2)}.json`, { signal: controller.signal })
+    fetch(`${import.meta.env.BASE_URL}data/evidence/${video.id.slice(0, 2).toLowerCase()}.json`, { signal: controller.signal })
       .then(async r => r.ok ? await r.json() as Record<string, Evidence[]> : {}).then(rows => setEvidence(rows[video.id] || [])).catch(() => {});
     return () => controller.abort();
   }, [video.id]);
@@ -26,7 +26,7 @@ export function VideoDetail({ video, related, videosById, saved, watched, onClos
       </button>}
     </div>
     <div className="detail-body">
-      <div className="detail-tags"><span>{video.type}</span><span>{video.level === 'general' ? 'All backgrounds' : video.level}</span></div>
+      <div className="detail-tags"><span>{video.type}</span><span>{video.level === 'general' ? 'Level unspecified' : video.level}</span></div>
       <h2>{video.title}</h2><p className="detail-channel">{video.channel}</p>
       <div className="detail-actions"><button className="primary-button" onClick={onAdd} disabled={saved}>{saved ? <Check size={17}/> : <Plus size={17}/>} {saved ? 'In your roadmap' : 'Add to roadmap'}</button><a className="quiet-button" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noreferrer">YouTube <ArrowUpRight size={16}/></a></div>
       <p className="video-summary">{video.summary}</p>
