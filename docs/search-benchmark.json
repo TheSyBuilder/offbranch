@@ -1,0 +1,2293 @@
+{
+  "measuredAt": "2026-11-02T06:10:05.157Z",
+  "catalogVersion": "2026-10-31",
+  "indexMs": 352.185375,
+  "warmEngineP95Ms": 1.29,
+  "warmRunCount": 168,
+  "results": [
+    {
+      "query": "distributed systems",
+      "target": [
+        "UEAMfLPZZhE"
+      ],
+      "localCount": 30,
+      "localTop": [
+        {
+          "id": "UEAMfLPZZhE",
+          "title": "Distributed Systems 1.1: Introduction"
+        },
+        {
+          "id": "QVvFVwyElLY",
+          "title": "AWS re:Invent 2014 | (SPOT302) Under the Covers of AWS: Its Core Distributed Systems"
+        },
+        {
+          "id": "cQP8WApzIQQ",
+          "title": "Lecture 1: Introduction"
+        },
+        {
+          "id": "4fFDFbi3toc",
+          "title": "\"Testing Distributed Systems w/ Deterministic Simulation\" by Will Wilson"
+        },
+        {
+          "id": "KTHOwgpMIiU",
+          "title": "Liberating Distributed Consensus - Heidi Howard"
+        },
+        {
+          "id": "modXC5IWTJI",
+          "title": "Building Software Systems At Google and Lessons Learned"
+        },
+        {
+          "id": "pQ0CvjAJXz4",
+          "title": "GigCityElixir23 - Bryan Hunter"
+        },
+        {
+          "id": "R2Aa4PivG0g",
+          "title": "\"I See What You Mean\" by Peter Alvaro"
+        },
+        {
+          "id": "B5NULPSiOGw",
+          "title": "CRDTs and the Quest for Distributed Consistency"
+        },
+        {
+          "id": "cNICGEwmXLU",
+          "title": "\"Systems that run forever self-heal and scale\" by Joe Armstrong (2013)"
+        }
+      ],
+      "firstQueryMs": 2.38,
+      "medianWarmMs": 0.94,
+      "p95WarmMs": 1.61,
+      "interpretation": {
+        "target": "distributed systems",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "distributed systems",
+        "elapsedMs": 1106,
+        "fetchedAt": "2026-11-02T06:08:47.841Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "UEAMfLPZZhE",
+            "title": "Distributed Systems 1.1: Introduction"
+          },
+          {
+            "id": "fU9hR3kiOK0",
+            "title": "\"Turning the database inside out with Apache Samza\" by Martin Kleppmann"
+          },
+          {
+            "id": "f6kdp27TYZs",
+            "title": "Google I/O 2012 - Go Concurrency Patterns"
+          },
+          {
+            "id": "PE4gwstWhmc",
+            "title": "How We've Scaled Dropbox"
+          },
+          {
+            "id": "2S0k12uZR14",
+            "title": "Velocity 2012:  Richard Cook, \"How Complex Systems Fail\""
+          },
+          {
+            "id": "pO4_Wlq8JeI",
+            "title": "Solid Ground // Saša Jurić"
+          },
+          {
+            "id": "37wFVVVZlVU",
+            "title": "Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt"
+          },
+          {
+            "id": "S2Hp_1jqpY8",
+            "title": "Differential Synchronization"
+          },
+          {
+            "id": "cQP8WApzIQQ",
+            "title": "Lecture 1: Introduction"
+          },
+          {
+            "id": "4fFDFbi3toc",
+            "title": "\"Testing Distributed Systems w/ Deterministic Simulation\" by Will Wilson"
+          }
+        ]
+      }
+    },
+    {
+      "query": "distibuted sytems",
+      "target": [
+        "UEAMfLPZZhE"
+      ],
+      "localCount": 30,
+      "localTop": [
+        {
+          "id": "UEAMfLPZZhE",
+          "title": "Distributed Systems 1.1: Introduction"
+        },
+        {
+          "id": "QVvFVwyElLY",
+          "title": "AWS re:Invent 2014 | (SPOT302) Under the Covers of AWS: Its Core Distributed Systems"
+        },
+        {
+          "id": "cQP8WApzIQQ",
+          "title": "Lecture 1: Introduction"
+        },
+        {
+          "id": "4fFDFbi3toc",
+          "title": "\"Testing Distributed Systems w/ Deterministic Simulation\" by Will Wilson"
+        },
+        {
+          "id": "KTHOwgpMIiU",
+          "title": "Liberating Distributed Consensus - Heidi Howard"
+        },
+        {
+          "id": "modXC5IWTJI",
+          "title": "Building Software Systems At Google and Lessons Learned"
+        },
+        {
+          "id": "pQ0CvjAJXz4",
+          "title": "GigCityElixir23 - Bryan Hunter"
+        },
+        {
+          "id": "R2Aa4PivG0g",
+          "title": "\"I See What You Mean\" by Peter Alvaro"
+        },
+        {
+          "id": "B5NULPSiOGw",
+          "title": "CRDTs and the Quest for Distributed Consistency"
+        },
+        {
+          "id": "cNICGEwmXLU",
+          "title": "\"Systems that run forever self-heal and scale\" by Joe Armstrong (2013)"
+        }
+      ],
+      "firstQueryMs": 16.22,
+      "medianWarmMs": 0.81,
+      "p95WarmMs": 1.53,
+      "interpretation": {
+        "target": "distibuted sytems",
+        "background": "",
+        "correction": "distributed systems"
+      },
+      "localTarget": true,
+      "upstreamTarget": false,
+      "baseline": {
+        "query": "distibuted sytems",
+        "elapsedMs": 850,
+        "fetchedAt": "2026-11-02T06:08:48.694Z",
+        "count": 1,
+        "weak": false,
+        "top": [
+          {
+            "id": "Ll6-eGDpimU",
+            "title": "I messed up. You're using too much detergent."
+          }
+        ]
+      }
+    },
+    {
+      "query": "I know Python and want to understand how a transformer works",
+      "target": [
+        "wjZofJX0v4M",
+        "kCc8FmEb1nY"
+      ],
+      "localCount": 16,
+      "localTop": [
+        {
+          "id": "OyFJWRnt_AY",
+          "title": "CS480/680 Lecture 19: Attention and Transformer Networks"
+        },
+        {
+          "id": "eMlx5fFNoYc",
+          "title": "Attention in transformers, step-by-step | Deep Learning Chapter 6"
+        },
+        {
+          "id": "wjZofJX0v4M",
+          "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
+        },
+        {
+          "id": "iDulhoQ2pro",
+          "title": "Attention Is All You Need"
+        },
+        {
+          "id": "S27pHKBEp30",
+          "title": "LSTM is dead. Long Live Transformers!"
+        },
+        {
+          "id": "rURRYI66E54",
+          "title": "AI Language Models & Transformers - Computerphile"
+        },
+        {
+          "id": "kCc8FmEb1nY",
+          "title": "Let's build GPT: from scratch, in code, spelled out."
+        },
+        {
+          "id": "WB2-2j9e4co",
+          "title": "Extreme transformer home in Hong Kong: Gary Chang's 24 rooms in 1"
+        },
+        {
+          "id": "FBeSKL9zVro",
+          "title": "The most deadly project on the Internet"
+        },
+        {
+          "id": "v0gjI__RyCY",
+          "title": "Jeff Dean & Noam Shazeer — 25 years at Google: from PageRank to AGI"
+        }
+      ],
+      "firstQueryMs": 0.5,
+      "medianWarmMs": 0.35,
+      "p95WarmMs": 0.37,
+      "interpretation": {
+        "target": "how a transformer works",
+        "background": "Python"
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "I know Python and want to understand how a transformer works",
+        "elapsedMs": 1310,
+        "fetchedAt": "2026-11-02T06:08:50.004Z",
+        "count": 8,
+        "weak": false,
+        "top": [
+          {
+            "id": "Obt-vMVdM8s",
+            "title": "Understanding the Python GIL"
+          },
+          {
+            "id": "kCc8FmEb1nY",
+            "title": "Let's build GPT: from scratch, in code, spelled out."
+          },
+          {
+            "id": "wjZofJX0v4M",
+            "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
+          },
+          {
+            "id": "spUNpyF58BY",
+            "title": "But what is the Fourier Transform?  A visual introduction."
+          },
+          {
+            "id": "h7apO7q16V0",
+            "title": "The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?"
+          },
+          {
+            "id": "iDulhoQ2pro",
+            "title": "Attention Is All You Need"
+          },
+          {
+            "id": "OSGv2VnC0go",
+            "title": "Transforming Code into Beautiful, Idiomatic Python"
+          },
+          {
+            "id": "OyFJWRnt_AY",
+            "title": "CS480/680 Lecture 19: Attention and Transformer Networks"
+          }
+        ]
+      }
+    },
+    {
+      "query": "backpropagation",
+      "target": [
+        "VMj-3S1tku0",
+        "Ilg3gGewQ5U"
+      ],
+      "localCount": 7,
+      "localTop": [
+        {
+          "id": "tIeHLnjs5U8",
+          "title": "Backpropagation calculus | Deep Learning Chapter 4"
+        },
+        {
+          "id": "Ilg3gGewQ5U",
+          "title": "Backpropagation, intuitively | Deep Learning Chapter 3"
+        },
+        {
+          "id": "VMj-3S1tku0",
+          "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+        },
+        {
+          "id": "bxe2T-V8XRs",
+          "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+        },
+        {
+          "id": "ne99laPUxN4",
+          "title": "The Simple Essence of Automatic Differentiation - Conal Elliott"
+        },
+        {
+          "id": "IkdziSLYzHw",
+          "title": "Will AI outsmart human intelligence? - with 'Godfather of AI' Geoffrey Hinton"
+        },
+        {
+          "id": "lnA9DMvHtfI",
+          "title": "Large Language Models from scratch"
+        }
+      ],
+      "firstQueryMs": 0.33,
+      "medianWarmMs": 0.28,
+      "p95WarmMs": 0.3,
+      "interpretation": {
+        "target": "backpropagation",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "backpropagation",
+        "elapsedMs": 3663,
+        "fetchedAt": "2026-11-02T06:08:53.667Z",
+        "count": 17,
+        "weak": false,
+        "top": [
+          {
+            "id": "Ilg3gGewQ5U",
+            "title": "Backpropagation, intuitively | Deep Learning Chapter 3"
+          },
+          {
+            "id": "tIeHLnjs5U8",
+            "title": "Backpropagation calculus | Deep Learning Chapter 4"
+          },
+          {
+            "id": "VMj-3S1tku0",
+            "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+          },
+          {
+            "id": "ne99laPUxN4",
+            "title": "The Simple Essence of Automatic Differentiation - Conal Elliott"
+          },
+          {
+            "id": "bxe2T-V8XRs",
+            "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+          },
+          {
+            "id": "IkdziSLYzHw",
+            "title": "Will AI outsmart human intelligence? - with 'Godfather of AI' Geoffrey Hinton"
+          },
+          {
+            "id": "lnA9DMvHtfI",
+            "title": "Large Language Models from scratch"
+          },
+          {
+            "id": "wjZofJX0v4M",
+            "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
+          },
+          {
+            "id": "UzxYlbK2c7E",
+            "title": "Lecture 1 | Machine Learning (Stanford)"
+          },
+          {
+            "id": "qv6UVOQ0F44",
+            "title": "MarI/O - Machine Learning for Video Games"
+          }
+        ]
+      }
+    },
+    {
+      "query": "backpropogation",
+      "target": [
+        "VMj-3S1tku0",
+        "Ilg3gGewQ5U"
+      ],
+      "localCount": 7,
+      "localTop": [
+        {
+          "id": "tIeHLnjs5U8",
+          "title": "Backpropagation calculus | Deep Learning Chapter 4"
+        },
+        {
+          "id": "Ilg3gGewQ5U",
+          "title": "Backpropagation, intuitively | Deep Learning Chapter 3"
+        },
+        {
+          "id": "VMj-3S1tku0",
+          "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+        },
+        {
+          "id": "bxe2T-V8XRs",
+          "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+        },
+        {
+          "id": "ne99laPUxN4",
+          "title": "The Simple Essence of Automatic Differentiation - Conal Elliott"
+        },
+        {
+          "id": "IkdziSLYzHw",
+          "title": "Will AI outsmart human intelligence? - with 'Godfather of AI' Geoffrey Hinton"
+        },
+        {
+          "id": "lnA9DMvHtfI",
+          "title": "Large Language Models from scratch"
+        }
+      ],
+      "firstQueryMs": 1.86,
+      "medianWarmMs": 0.34,
+      "p95WarmMs": 0.51,
+      "interpretation": {
+        "target": "backpropogation",
+        "background": "",
+        "correction": "backpropagation"
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "backpropogation",
+        "elapsedMs": 3892,
+        "fetchedAt": "2026-11-02T06:08:57.559Z",
+        "count": 4,
+        "weak": false,
+        "top": [
+          {
+            "id": "VMj-3S1tku0",
+            "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+          },
+          {
+            "id": "Ilg3gGewQ5U",
+            "title": "Backpropagation, intuitively | Deep Learning Chapter 3"
+          },
+          {
+            "id": "bxe2T-V8XRs",
+            "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+          },
+          {
+            "id": "tIeHLnjs5U8",
+            "title": "Backpropagation calculus | Deep Learning Chapter 4"
+          }
+        ]
+      }
+    },
+    {
+      "query": "neural nets",
+      "target": [
+        "aircAruvnKk",
+        "VMj-3S1tku0"
+      ],
+      "localCount": 38,
+      "localTop": [
+        {
+          "id": "bxe2T-V8XRs",
+          "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+        },
+        {
+          "id": "VMj-3S1tku0",
+          "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+        },
+        {
+          "id": "vT1JzLTH4G4",
+          "title": "Lecture 1 | Introduction to Convolutional Neural Networks for Visual Recognition"
+        },
+        {
+          "id": "IHZwWFHWa-w",
+          "title": "Gradient descent, how neural networks learn | Deep Learning Chapter 2"
+        },
+        {
+          "id": "rTawFwUvnLE",
+          "title": "Geoffrey Hinton talk \"What is wrong with convolutional neural nets ?\""
+        },
+        {
+          "id": "IkdziSLYzHw",
+          "title": "Will AI outsmart human intelligence? - with 'Godfather of AI' Geoffrey Hinton"
+        },
+        {
+          "id": "aircAruvnKk",
+          "title": "But what is a neural network? | Deep learning chapter 1"
+        },
+        {
+          "id": "iOWamCtnwTc",
+          "title": "Neural Network Learns The Physics of Fluids and Smoke | Two Minute Papers #118"
+        },
+        {
+          "id": "udPY5rQVoW0",
+          "title": "Playing a Neural Network's version of GTA V: GAN Theft Auto"
+        },
+        {
+          "id": "NfnWJUyUJYU",
+          "title": "CS231n Winter 2016: Lecture1: Introduction and Historical Context"
+        }
+      ],
+      "firstQueryMs": 1.04,
+      "medianWarmMs": 0.69,
+      "p95WarmMs": 0.76,
+      "interpretation": {
+        "target": "neural nets",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": false,
+      "baseline": {
+        "query": "neural nets",
+        "elapsedMs": 4901,
+        "fetchedAt": "2026-11-02T06:09:02.461Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "_L3gNaAVjQ4",
+            "title": "George Hotz: Hacking the Simulation & Learning to Drive with Neural Nets | Lex Fridman Podcast #132"
+          },
+          {
+            "id": "rTawFwUvnLE",
+            "title": "Geoffrey Hinton talk \"What is wrong with convolutional neural nets ?\""
+          },
+          {
+            "id": "AgkfIQ4IGaM",
+            "title": "Deep Visualization Toolbox"
+          },
+          {
+            "id": "hx7BXih7zx8",
+            "title": "Andrej Karpathy - AI for Full-Self Driving at Tesla"
+          },
+          {
+            "id": "bxe2T-V8XRs",
+            "title": "Neural Networks Demystified [Part 1: Data and Architecture]"
+          },
+          {
+            "id": "aircAruvnKk",
+            "title": "But what is a neural network? | Deep learning chapter 1"
+          },
+          {
+            "id": "DleXA5ADG78",
+            "title": "Brains, Sex, and Machine Learning"
+          },
+          {
+            "id": "VMj-3S1tku0",
+            "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+          },
+          {
+            "id": "YjjTPV2pXY0",
+            "title": "AI Learns Noise Filtering For Photorealistic Videos | Two Minute Papers #215"
+          },
+          {
+            "id": "Ecvv-EvOj8M",
+            "title": "Human brain mapping and brain decoding. | Jack Gallant | TEDxSanFrancisco"
+          }
+        ]
+      }
+    },
+    {
+      "query": "LLM",
+      "target": [
+        "zjkBMFhNj_g",
+        "7xTGNNLPyMI"
+      ],
+      "localCount": 33,
+      "localTop": [
+        {
+          "id": "lnA9DMvHtfI",
+          "title": "Large Language Models from scratch"
+        },
+        {
+          "id": "zjkBMFhNj_g",
+          "title": "[1hr Talk] Intro to Large Language Models"
+        },
+        {
+          "id": "rURRYI66E54",
+          "title": "AI Language Models & Transformers - Computerphile"
+        },
+        {
+          "id": "7xTGNNLPyMI",
+          "title": "Deep Dive into LLMs like ChatGPT"
+        },
+        {
+          "id": "jkrNMKz9pWU",
+          "title": "A Hackers' Guide to Language Models"
+        },
+        {
+          "id": "F3Jd9GI6XqE",
+          "title": "Edward Gibson: Human Language, Psycholinguistics, Syntax, Grammar & LLMs | Lex Fridman Podcast #426"
+        },
+        {
+          "id": "_P9HqHVPeik",
+          "title": "Stephen Wolfram's Introduction to the Wolfram Language"
+        },
+        {
+          "id": "lgivCGdmFrw",
+          "title": "Introducing a Memory-Safe Successor Language in Large C++ Code Bases - John McCall - CppNow 2023"
+        },
+        {
+          "id": "1ZTJ9omXOQ0",
+          "title": "Carbon Language Successor Strategy: From C++ Interop to Memory Safety - Chandler Carruth - CppNow 23"
+        },
+        {
+          "id": "wjZofJX0v4M",
+          "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
+        }
+      ],
+      "firstQueryMs": 1.8,
+      "medianWarmMs": 1.29,
+      "p95WarmMs": 1.48,
+      "interpretation": {
+        "target": "LLM",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "LLM",
+        "elapsedMs": 1658,
+        "fetchedAt": "2026-11-02T06:09:04.119Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "jkrNMKz9pWU",
+            "title": "A Hackers' Guide to Language Models"
+          },
+          {
+            "id": "1sd26pWhfmg",
+            "title": "Nicholas Carlini - Black-hat LLMs | [un]prompted 2026"
+          },
+          {
+            "id": "lnA9DMvHtfI",
+            "title": "Large Language Models from scratch"
+          },
+          {
+            "id": "zjkBMFhNj_g",
+            "title": "[1hr Talk] Intro to Large Language Models"
+          },
+          {
+            "id": "zduSFxRajkE",
+            "title": "Let's build the GPT Tokenizer"
+          },
+          {
+            "id": "wjZofJX0v4M",
+            "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5"
+          },
+          {
+            "id": "7xTGNNLPyMI",
+            "title": "Deep Dive into LLMs like ChatGPT"
+          },
+          {
+            "id": "d6sVWEu9HWU",
+            "title": "Future of Elder Scrolls & RPG - Skyrim NPCs & Inworld AI (like GPT-4 for gaming)"
+          },
+          {
+            "id": "eMlx5fFNoYc",
+            "title": "Attention in transformers, step-by-step | Deep Learning Chapter 6"
+          },
+          {
+            "id": "LCEmiRjPEtQ",
+            "title": "Andrej Karpathy: Software Is Changing (Again)"
+          }
+        ]
+      }
+    },
+    {
+      "query": "linear algebra",
+      "target": [
+        "fNk_zzaMoSs",
+        "ZK3O402wf1c"
+      ],
+      "localCount": 13,
+      "localTop": [
+        {
+          "id": "kjBOesZCoqc",
+          "title": "Essence of linear algebra preview"
+        },
+        {
+          "id": "fNk_zzaMoSs",
+          "title": "Vectors | Chapter 1, Essence of linear algebra"
+        },
+        {
+          "id": "Ip3X9LOh2dk",
+          "title": "The determinant | Chapter 6, Essence of linear algebra"
+        },
+        {
+          "id": "ZK3O402wf1c",
+          "title": "Lec 1 | MIT 18.06 Linear Algebra, Spring 2005"
+        },
+        {
+          "id": "PFDu9oVAE-g",
+          "title": "Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra"
+        },
+        {
+          "id": "xnez6tloNSQ",
+          "title": "Lower Latency Graph Queries in Cypher with Redis GraphRoi Lipman, Redis LabsTim Davis, Texas A&M U"
+        },
+        {
+          "id": "F_Riqjdh2oM",
+          "title": "Quantum Computing for Computer Scientists"
+        },
+        {
+          "id": "GNO_CYUjMK8",
+          "title": "[JSConfUS 2013] Steven Wittens: Making WebGL Dance"
+        },
+        {
+          "id": "McLq1hEq3UY",
+          "title": "Lecture 1 | Convex Optimization I (Stanford)"
+        },
+        {
+          "id": "C2RO34b_oPM",
+          "title": "Taking Vector Transposes Seriously | Jiahao Chen | JuliaCon 2017"
+        }
+      ],
+      "firstQueryMs": 0.66,
+      "medianWarmMs": 0.61,
+      "p95WarmMs": 0.81,
+      "interpretation": {
+        "target": "linear algebra",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "linear algebra",
+        "elapsedMs": 1948,
+        "fetchedAt": "2026-11-02T06:09:06.067Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "ZK3O402wf1c",
+            "title": "Lec 1 | MIT 18.06 Linear Algebra, Spring 2005"
+          },
+          {
+            "id": "fNk_zzaMoSs",
+            "title": "Vectors | Chapter 1, Essence of linear algebra"
+          },
+          {
+            "id": "kjBOesZCoqc",
+            "title": "Essence of linear algebra preview"
+          },
+          {
+            "id": "Ip3X9LOh2dk",
+            "title": "The determinant | Chapter 6, Essence of linear algebra"
+          },
+          {
+            "id": "PFDu9oVAE-g",
+            "title": "Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra"
+          },
+          {
+            "id": "GNO_CYUjMK8",
+            "title": "[JSConfUS 2013] Steven Wittens: Making WebGL Dance"
+          },
+          {
+            "id": "F_Riqjdh2oM",
+            "title": "Quantum Computing for Computer Scientists"
+          },
+          {
+            "id": "C2RO34b_oPM",
+            "title": "Taking Vector Transposes Seriously | Jiahao Chen | JuliaCon 2017"
+          },
+          {
+            "id": "iJfw6lDlTuA",
+            "title": "Lecture 1 | The Theoretical Minimum"
+          },
+          {
+            "id": "xnez6tloNSQ",
+            "title": "Lower Latency Graph Queries in Cypher with Redis GraphRoi Lipman, Redis LabsTim Davis, Texas A&M U"
+          }
+        ]
+      }
+    },
+    {
+      "query": "linera algebra",
+      "target": [
+        "fNk_zzaMoSs",
+        "ZK3O402wf1c"
+      ],
+      "localCount": 13,
+      "localTop": [
+        {
+          "id": "kjBOesZCoqc",
+          "title": "Essence of linear algebra preview"
+        },
+        {
+          "id": "fNk_zzaMoSs",
+          "title": "Vectors | Chapter 1, Essence of linear algebra"
+        },
+        {
+          "id": "Ip3X9LOh2dk",
+          "title": "The determinant | Chapter 6, Essence of linear algebra"
+        },
+        {
+          "id": "ZK3O402wf1c",
+          "title": "Lec 1 | MIT 18.06 Linear Algebra, Spring 2005"
+        },
+        {
+          "id": "PFDu9oVAE-g",
+          "title": "Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra"
+        },
+        {
+          "id": "xnez6tloNSQ",
+          "title": "Lower Latency Graph Queries in Cypher with Redis GraphRoi Lipman, Redis LabsTim Davis, Texas A&M U"
+        },
+        {
+          "id": "F_Riqjdh2oM",
+          "title": "Quantum Computing for Computer Scientists"
+        },
+        {
+          "id": "GNO_CYUjMK8",
+          "title": "[JSConfUS 2013] Steven Wittens: Making WebGL Dance"
+        },
+        {
+          "id": "McLq1hEq3UY",
+          "title": "Lecture 1 | Convex Optimization I (Stanford)"
+        },
+        {
+          "id": "C2RO34b_oPM",
+          "title": "Taking Vector Transposes Seriously | Jiahao Chen | JuliaCon 2017"
+        }
+      ],
+      "firstQueryMs": 4.76,
+      "medianWarmMs": 0.59,
+      "p95WarmMs": 0.7,
+      "interpretation": {
+        "target": "linera algebra",
+        "background": "",
+        "correction": "linear algebra"
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "linera algebra",
+        "elapsedMs": 1678,
+        "fetchedAt": "2026-11-02T06:09:07.745Z",
+        "count": 6,
+        "weak": false,
+        "top": [
+          {
+            "id": "ZK3O402wf1c",
+            "title": "Lec 1 | MIT 18.06 Linear Algebra, Spring 2005"
+          },
+          {
+            "id": "kjBOesZCoqc",
+            "title": "Essence of linear algebra preview"
+          },
+          {
+            "id": "fNk_zzaMoSs",
+            "title": "Vectors | Chapter 1, Essence of linear algebra"
+          },
+          {
+            "id": "YScIPA8RbVE",
+            "title": "The Algebra of Algebraic Data Types"
+          },
+          {
+            "id": "tX4H_ctggYo",
+            "title": "Siggraph2019 Geometric Algebra"
+          },
+          {
+            "id": "60z_hpEAtD8",
+            "title": "A Swift Introduction to Geometric Algebra"
+          }
+        ]
+      }
+    },
+    {
+      "query": "3blue1brown",
+      "localCount": 46,
+      "localTop": [
+        {
+          "id": "rbu7Zu5X1zI",
+          "title": "How I animate 3Blue1Brown | A Manim demo with Ben Sparks"
+        },
+        {
+          "id": "OkmNXy7er84",
+          "title": "The hardest problem on the hardest test"
+        },
+        {
+          "id": "NaL_Cb42WyY",
+          "title": "Pi hiding in prime regularities"
+        },
+        {
+          "id": "AmgkSdhK4K8",
+          "title": "Who cares about topology?   (Old version)"
+        },
+        {
+          "id": "sULa9Lc4pck",
+          "title": "Triangle of Power"
+        },
+        {
+          "id": "WUvTyaaNkzM",
+          "title": "The essence of calculus"
+        },
+        {
+          "id": "spUNpyF58BY",
+          "title": "But what is the Fourier Transform?  A visual introduction."
+        },
+        {
+          "id": "PFDu9oVAE-g",
+          "title": "Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra"
+        },
+        {
+          "id": "EmKQsSDlaa4",
+          "title": "How are holograms possible?"
+        },
+        {
+          "id": "3s7h2MHQtxc",
+          "title": "Hilbert's Curve: Is infinite math useful?"
+        }
+      ],
+      "firstQueryMs": 0.51,
+      "medianWarmMs": 0.39,
+      "p95WarmMs": 0.49,
+      "interpretation": {
+        "target": "3blue1brown",
+        "background": ""
+      },
+      "baseline": {
+        "query": "3blue1brown",
+        "elapsedMs": 731,
+        "fetchedAt": "2026-11-02T06:09:08.476Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "rbu7Zu5X1zI",
+            "title": "How I animate 3Blue1Brown | A Manim demo with Ben Sparks"
+          },
+          {
+            "id": "6_yU9eJ0NxA",
+            "title": "Darts in Higher Dimensions (with 3blue1brown) - Numberphile"
+          },
+          {
+            "id": "mH0oCDa74tE",
+            "title": "Group theory, abstraction, and the 196,883-dimensional monster"
+          },
+          {
+            "id": "mZBwsm6B280",
+            "title": "Bertrand's Paradox (with 3blue1brown) - Numberphile"
+          },
+          {
+            "id": "OkmNXy7er84",
+            "title": "The hardest problem on the hardest test"
+          },
+          {
+            "id": "gxAaO2rsdIs",
+            "title": "Simulating an epidemic"
+          },
+          {
+            "id": "zwAD6dRSVyI",
+            "title": "Thinking outside the 10-dimensional box"
+          },
+          {
+            "id": "v0YEaeIClKY",
+            "title": "e^(iπ) in 3.14 minutes, using dynamics | DE5"
+          },
+          {
+            "id": "HZGCoVF3YvM",
+            "title": "Bayes theorem, the geometry of changing beliefs"
+          },
+          {
+            "id": "sULa9Lc4pck",
+            "title": "Triangle of Power"
+          }
+        ]
+      }
+    },
+    {
+      "query": "simple made easy",
+      "target": [
+        "SxdOUGdseq4"
+      ],
+      "localCount": 14,
+      "localTop": [
+        {
+          "id": "SxdOUGdseq4",
+          "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+        },
+        {
+          "id": "LKtk3HCgTa8",
+          "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+        },
+        {
+          "id": "rI8tNMsozo0",
+          "title": "Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey"
+        },
+        {
+          "id": "21j_OCNLuYg",
+          "title": "Life is easy. Why do we make it so hard? | Jon Jandai | TEDxDoiSuthep"
+        },
+        {
+          "id": "aSEQfqNYNAc",
+          "title": "Rich Hickey rants about HttpServletRequest in 1080p: Death By Specificity from Clojure Made Simple"
+        },
+        {
+          "id": "-xTaAHSFHUU",
+          "title": "Are Seed Oils Inflammatory?! (The *Evidence* No One Shows)"
+        },
+        {
+          "id": "cidchWg74Y4",
+          "title": "Simplicity Ain't Easy - Stuart Halloway"
+        },
+        {
+          "id": "w_znRopGtbE",
+          "title": "Homebrew NMOS Transistor Step by Step - So Easy Even Jeri Can Do It"
+        },
+        {
+          "id": "Uo08uS904Rg",
+          "title": "Why Is It So Hard to Do Something That Should Be Easy? (Wall of Awful pt. 1)"
+        },
+        {
+          "id": "NWSZ4c9yqW8",
+          "title": "Simon Peyton Jones: Data Parallel Haskell"
+        }
+      ],
+      "firstQueryMs": 1.64,
+      "medianWarmMs": 1.05,
+      "p95WarmMs": 1.16,
+      "interpretation": {
+        "target": "simple made easy",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "simple made easy",
+        "elapsedMs": 1175,
+        "fetchedAt": "2026-11-02T06:09:09.652Z",
+        "count": 12,
+        "weak": false,
+        "top": [
+          {
+            "id": "SxdOUGdseq4",
+            "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+          },
+          {
+            "id": "LKtk3HCgTa8",
+            "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+          },
+          {
+            "id": "rI8tNMsozo0",
+            "title": "Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey"
+          },
+          {
+            "id": "cidchWg74Y4",
+            "title": "Simplicity Ain't Easy - Stuart Halloway"
+          },
+          {
+            "id": "21j_OCNLuYg",
+            "title": "Life is easy. Why do we make it so hard? | Jon Jandai | TEDxDoiSuthep"
+          },
+          {
+            "id": "6Maq5IyHSuc",
+            "title": "A simple guide to electronic components."
+          },
+          {
+            "id": "ShEez0JkOFw",
+            "title": "Tim Ewald - Clojure: Programming with Hand Tools"
+          },
+          {
+            "id": "Sp9H0MO-qS8",
+            "title": "Drip Coffee Makers — super simple, super cheap"
+          },
+          {
+            "id": "-C-JoyNuQJs",
+            "title": "Douglas Crockford: The JSON Saga"
+          },
+          {
+            "id": "WUvTyaaNkzM",
+            "title": "The essence of calculus"
+          }
+        ]
+      }
+    },
+    {
+      "query": "rich hickey",
+      "target": [
+        "SxdOUGdseq4",
+        "ROor6_NGIWU"
+      ],
+      "localCount": 19,
+      "localTop": [
+        {
+          "id": "dGVqrGmwOAw",
+          "title": "Clojure Concurrency - Rich Hickey"
+        },
+        {
+          "id": "6mTbuzafcII",
+          "title": "\"Transducers\" by Rich Hickey"
+        },
+        {
+          "id": "cPNkH-7PRTk",
+          "title": "Clojure for Lisp Programmers Part 1 - Rich Hickey"
+        },
+        {
+          "id": "YR5WdGrpoug",
+          "title": "Maybe Not - Rich Hickey"
+        },
+        {
+          "id": "ROor6_NGIWU",
+          "title": "The Language of the System - Rich Hickey"
+        },
+        {
+          "id": "Cym4TZwTCNU",
+          "title": "Rich Hickey: Deconstructing the Database"
+        },
+        {
+          "id": "oyLBGkS5ICk",
+          "title": "Spec-ulation Keynote - Rich Hickey"
+        },
+        {
+          "id": "f84n5oFoZBc",
+          "title": "Hammock Driven Development - Rich Hickey"
+        },
+        {
+          "id": "ScEPu1cs4l0",
+          "title": "Are We There Yet - Rich Hickey"
+        },
+        {
+          "id": "SxdOUGdseq4",
+          "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+        }
+      ],
+      "firstQueryMs": 0.89,
+      "medianWarmMs": 0.66,
+      "p95WarmMs": 0.8,
+      "interpretation": {
+        "target": "rich hickey",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": false,
+      "baseline": {
+        "query": "rich hickey",
+        "elapsedMs": 2305,
+        "fetchedAt": "2026-11-02T06:09:11.957Z",
+        "count": 29,
+        "weak": false,
+        "top": [
+          {
+            "id": "ScEPu1cs4l0",
+            "title": "Are We There Yet - Rich Hickey"
+          },
+          {
+            "id": "f84n5oFoZBc",
+            "title": "Hammock Driven Development - Rich Hickey"
+          },
+          {
+            "id": "aSEQfqNYNAc",
+            "title": "Rich Hickey rants about HttpServletRequest in 1080p: Death By Specificity from Clojure Made Simple"
+          },
+          {
+            "id": "Cym4TZwTCNU",
+            "title": "Rich Hickey: Deconstructing the Database"
+          },
+          {
+            "id": "-6BsiVyC1kM",
+            "title": "The Value of Values with Rich Hickey"
+          },
+          {
+            "id": "ROor6_NGIWU",
+            "title": "The Language of the System - Rich Hickey"
+          },
+          {
+            "id": "oyLBGkS5ICk",
+            "title": "Spec-ulation Keynote - Rich Hickey"
+          },
+          {
+            "id": "SxdOUGdseq4",
+            "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+          },
+          {
+            "id": "LKtk3HCgTa8",
+            "title": "\"Simple Made Easy\" - Rich Hickey (2011)"
+          },
+          {
+            "id": "2V1FtfBDsLU",
+            "title": "Effective Programs - 10 Years of Clojure - Rich Hickey"
+          }
+        ]
+      }
+    },
+    {
+      "query": "concurrency",
+      "target": [
+        "f6kdp27TYZs"
+      ],
+      "localCount": 40,
+      "localTop": [
+        {
+          "id": "oV9rvDllKEg",
+          "title": "Concurrency is not Parallelism by Rob Pike"
+        },
+        {
+          "id": "oLkfnc_UMcE",
+          "title": "Nathaniel J. Smith - Trio: Async concurrency for mere mortals - PyCon 2018"
+        },
+        {
+          "id": "JpqnNCx7wVY",
+          "title": "Parallelism, Concurrency, and Asynchrony in Perl 6 / Jonathan Worthington"
+        },
+        {
+          "id": "3DtUzH3zoFo",
+          "title": "Origins of Go Concurrency style by Rob Pike"
+        },
+        {
+          "id": "dGVqrGmwOAw",
+          "title": "Clojure Concurrency - Rich Hickey"
+        },
+        {
+          "id": "9zinZmE3Ogk",
+          "title": "Raymond Hettinger, Keynote on Concurrency, PyBay 2017"
+        },
+        {
+          "id": "f6kdp27TYZs",
+          "title": "Google I/O 2012 - Go Concurrency Patterns"
+        },
+        {
+          "id": "_9B__0S21y8",
+          "title": "\"Tackling Concurrency Bugs with TLA+\" by Hillel Wayne"
+        },
+        {
+          "id": "-K11rY57K7k",
+          "title": "Dmitry Vyukov — Go scheduler: Implementing language with lightweight concurrency"
+        },
+        {
+          "id": "37NaHRE0Sqw",
+          "title": "Kilim: Fast, lightweight, cheap message passing in Java."
+        }
+      ],
+      "firstQueryMs": 0.57,
+      "medianWarmMs": 0.38,
+      "p95WarmMs": 0.43,
+      "interpretation": {
+        "target": "concurrency",
+        "background": ""
+      },
+      "localTarget": false,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "concurrency",
+        "elapsedMs": 4175,
+        "fetchedAt": "2026-11-02T06:09:16.132Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "f6kdp27TYZs",
+            "title": "Google I/O 2012 - Go Concurrency Patterns"
+          },
+          {
+            "id": "37wFVVVZlVU",
+            "title": "Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt"
+          },
+          {
+            "id": "oV9rvDllKEg",
+            "title": "Concurrency is not Parallelism by Rob Pike"
+          },
+          {
+            "id": "JpqnNCx7wVY",
+            "title": "Parallelism, Concurrency, and Asynchrony in Perl 6 / Jonathan Worthington"
+          },
+          {
+            "id": "dGVqrGmwOAw",
+            "title": "Clojure Concurrency - Rich Hickey"
+          },
+          {
+            "id": "9zinZmE3Ogk",
+            "title": "Raymond Hettinger, Keynote on Concurrency, PyBay 2017"
+          },
+          {
+            "id": "oLkfnc_UMcE",
+            "title": "Nathaniel J. Smith - Trio: Async concurrency for mere mortals - PyCon 2018"
+          },
+          {
+            "id": "_9B__0S21y8",
+            "title": "\"Tackling Concurrency Bugs with TLA+\" by Hillel Wayne"
+          },
+          {
+            "id": "3DtUzH3zoFo",
+            "title": "Origins of Go Concurrency style by Rob Pike"
+          },
+          {
+            "id": "JvBT4XBdoUE",
+            "title": "The Soul of Erlang and Elixir • Sasa Juric • GOTO 2019"
+          }
+        ]
+      }
+    },
+    {
+      "query": "rust",
+      "localCount": 46,
+      "localTop": [
+        {
+          "id": "QAz-maaH0KM",
+          "title": "Rust NYC: Jon Gjengset - Demystifying unsafe code"
+        },
+        {
+          "id": "4YTfxresvS8",
+          "title": "Data Oriented GUI in Rust by Raph Levien - Bay Area Rust Meetup"
+        },
+        {
+          "id": "rC4FCS-oMpg",
+          "title": "Makepad: Designing modern UIs with Rust - Rik Arends - RustNL 2023"
+        },
+        {
+          "id": "skos4B5x7qE",
+          "title": "RustLatam 2019 - Without Boats: Zero-Cost Async IO"
+        },
+        {
+          "id": "aKLntZcp27M",
+          "title": "RustConf 2018 - Closing Keynote - Using Rust For Game Development by Catherine West"
+        },
+        {
+          "id": "rAl-9HwD858",
+          "title": "Crust of Rust: Lifetime Annotations"
+        },
+        {
+          "id": "ThjvMReOXYM",
+          "title": "Crust of Rust: async/await"
+        },
+        {
+          "id": "SKtQgFBRUvQ",
+          "title": "RustConf 2016 - A Modern Editor Built in Rust by Raph Levien"
+        },
+        {
+          "id": "DkMwYxfSYNQ",
+          "title": "The Why, What, and How of Pinning in Rust"
+        },
+        {
+          "id": "lJ3NC-R3gSI",
+          "title": "Rust's Journey to Async/Await"
+        }
+      ],
+      "firstQueryMs": 0.59,
+      "medianWarmMs": 0.44,
+      "p95WarmMs": 0.53,
+      "interpretation": {
+        "target": "rust",
+        "background": ""
+      },
+      "baseline": {
+        "query": "rust",
+        "elapsedMs": 1069,
+        "fetchedAt": "2026-11-02T06:09:17.202Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "A3AdN7U24iU",
+            "title": "Rust: A Language for the Next 40 Years - Carol Nichols"
+          },
+          {
+            "id": "s19G6n0UjsM",
+            "title": "Rust at speed — building a fast concurrent database"
+          },
+          {
+            "id": "lJ3NC-R3gSI",
+            "title": "Rust's Journey to Async/Await"
+          },
+          {
+            "id": "SKtQgFBRUvQ",
+            "title": "RustConf 2016 - A Modern Editor Built in Rust by Raph Levien"
+          },
+          {
+            "id": "1VgptLwP588",
+            "title": "Microsoft is Getting Rusty: A Review of Successes and Challenges - Mark Russinovich"
+          },
+          {
+            "id": "aKLntZcp27M",
+            "title": "RustConf 2018 - Closing Keynote - Using Rust For Game Development by Catherine West"
+          },
+          {
+            "id": "TGfQu0bQTKc",
+            "title": "Interview with Senior Rust Developer"
+          },
+          {
+            "id": "ThjvMReOXYM",
+            "title": "Crust of Rust: async/await"
+          },
+          {
+            "id": "skos4B5x7qE",
+            "title": "RustLatam 2019 - Without Boats: Zero-Cost Async IO"
+          },
+          {
+            "id": "4YTfxresvS8",
+            "title": "Data Oriented GUI in Rust by Raph Levien - Bay Area Rust Meetup"
+          }
+        ]
+      }
+    },
+    {
+      "query": "C++",
+      "localCount": 86,
+      "localTop": [
+        {
+          "id": "nLv_INgaLq8",
+          "title": "C++ Weekly - Ep 19 C++14 For The Commodore 64"
+        },
+        {
+          "id": "qH6sSOr-yk8",
+          "title": "C++ Seasoning"
+        },
+        {
+          "id": "xnqTKD8uD64",
+          "title": "CppCon 2014: Herb Sutter \"Back to the Basics! Essentials of Modern C++ Style\""
+        },
+        {
+          "id": "eR34r7HOU14",
+          "title": "2013 Keynote: Chandler Carruth: Optimizing the Emergent Structures of C++"
+        },
+        {
+          "id": "lkgszkPnV8g",
+          "title": "CppCon 2017: Louis Brandy “Curiously Recurring C++ Bugs at Facebook”"
+        },
+        {
+          "id": "bY2FlayomlE",
+          "title": "C++ Exceptions for Smaller Firmware - Khalil Estell - CppCon 2024"
+        },
+        {
+          "id": "ELeZAKCN4tY",
+          "title": "Can C++ be 10x Simpler & Safer?  - Herb Sutter - CppCon 2022"
+        },
+        {
+          "id": "ARYP83yNAWk",
+          "title": "De-fragmenting C++: Making Exceptions and RTTI More Affordable and Usable - Herb Sutter  CppCon 2019"
+        },
+        {
+          "id": "ZQc9-seU-5k",
+          "title": "\"Swift as C++ Successor in FoundationDB\" by Konrad Malawski (Strange Loop 2023)"
+        },
+        {
+          "id": "lgivCGdmFrw",
+          "title": "Introducing a Memory-Safe Successor Language in Large C++ Code Bases - John McCall - CppNow 2023"
+        }
+      ],
+      "firstQueryMs": 5.46,
+      "medianWarmMs": 0.6,
+      "p95WarmMs": 0.73,
+      "interpretation": {
+        "target": "C++",
+        "background": ""
+      },
+      "baseline": {
+        "query": "C++",
+        "elapsedMs": 2372,
+        "fetchedAt": "2026-11-02T06:09:19.575Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "qH6sSOr-yk8",
+            "title": "C++ Seasoning"
+          },
+          {
+            "id": "A8eCGOqgvH4",
+            "title": "C++ and Beyond 2012: Herb Sutter - atomic Weapons 1 of 2"
+          },
+          {
+            "id": "xnqTKD8uD64",
+            "title": "CppCon 2014: Herb Sutter \"Back to the Basics! Essentials of Modern C++ Style\""
+          },
+          {
+            "id": "nLv_INgaLq8",
+            "title": "C++ Weekly - Ep 19 C++14 For The Commodore 64"
+          },
+          {
+            "id": "hEx5DNLWGgA",
+            "title": "CppCon 2015: Herb Sutter \"Writing Good C++14... By Default\""
+          },
+          {
+            "id": "KeLBd2EJLOU",
+            "title": "C++ and Beyond 2012: Herb Sutter - atomic Weapons 2 of 2"
+          },
+          {
+            "id": "ARYP83yNAWk",
+            "title": "De-fragmenting C++: Making Exceptions and RTTI More Affordable and Usable - Herb Sutter  CppCon 2019"
+          },
+          {
+            "id": "YnWhqhNdYyk",
+            "title": "CppCon 2015: Kate Gregory “Stop Teaching C\""
+          },
+          {
+            "id": "1OEu9C51K2A",
+            "title": "CppCon 2015: Bjarne Stroustrup “Writing Good C++14”"
+          },
+          {
+            "id": "JfmTagWcqoE",
+            "title": "CppCon 2016: Herb Sutter “Leak-Freedom in C++... By Default.”"
+          }
+        ]
+      }
+    },
+    {
+      "query": "C#",
+      "localCount": 4,
+      "localTop": [
+        {
+          "id": "wgHIkdUQbp0",
+          "title": "Episode 1: A basic expression evaluator"
+        },
+        {
+          "id": "tzt36EGKEZo",
+          "title": "Miguel de Icaza: Swift Godot: Fixing the Multi-million dollar mistake  #GodotCon2023"
+        },
+        {
+          "id": "5kj5ApnhPAE",
+          "title": "OSCON 2010:  Rob Pike, \"Public Static Void\""
+        },
+        {
+          "id": "10qowKUW82U",
+          "title": "TypeScript is being ported to Go | interview with Anders Hejlsberg"
+        }
+      ],
+      "firstQueryMs": 0.33,
+      "medianWarmMs": 0.27,
+      "p95WarmMs": 0.3,
+      "interpretation": {
+        "target": "C#",
+        "background": ""
+      },
+      "baseline": {
+        "query": "C#",
+        "elapsedMs": 1384,
+        "fetchedAt": "2026-11-02T06:09:20.960Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "wgHIkdUQbp0",
+            "title": "Episode 1: A basic expression evaluator"
+          },
+          {
+            "id": "tzt36EGKEZo",
+            "title": "Miguel de Icaza: Swift Godot: Fixing the Multi-million dollar mistake  #GodotCon2023"
+          },
+          {
+            "id": "5kj5ApnhPAE",
+            "title": "OSCON 2010:  Rob Pike, \"Public Static Void\""
+          },
+          {
+            "id": "443UNeGrFoM",
+            "title": "How I program C"
+          },
+          {
+            "id": "Ee3EtYb8d1o",
+            "title": "Handmade Hero Day 001 - Setting Up the Windows Build"
+          },
+          {
+            "id": "FITJMJjASUs",
+            "title": "Ruby Conf 12 - Y Not- Adventures in Functional Programming by Jim Weirich"
+          },
+          {
+            "id": "8aGhZQkoFbQ",
+            "title": "What the heck is the event loop anyway? | Philip Roberts | JSConf EU"
+          },
+          {
+            "id": "-5wpm-gesOY",
+            "title": "The Problem with Time & Timezones - Computerphile"
+          },
+          {
+            "id": "2y5Pv4yN0b0",
+            "title": "Brian Goetz - Stewardship: the Sobering Parts"
+          },
+          {
+            "id": "hQVTIJBZook",
+            "title": "JavaScript: The Good Parts"
+          }
+        ]
+      }
+    },
+    {
+      "query": ".NET",
+      "localCount": 1,
+      "localTop": [
+        {
+          "id": "wgHIkdUQbp0",
+          "title": "Episode 1: A basic expression evaluator"
+        }
+      ],
+      "firstQueryMs": 0.29,
+      "medianWarmMs": 0.27,
+      "p95WarmMs": 0.3,
+      "interpretation": {
+        "target": ".NET",
+        "background": ""
+      },
+      "baseline": {
+        "query": ".NET",
+        "elapsedMs": 2803,
+        "fetchedAt": "2026-11-02T06:09:23.763Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "wgHIkdUQbp0",
+            "title": "Episode 1: A basic expression evaluator"
+          },
+          {
+            "id": "fpbOEoRrHyU",
+            "title": "Net Neutrality: Last Week Tonight with John Oliver (HBO)"
+          },
+          {
+            "id": "gORNmfpD0ak",
+            "title": "PdF 2011 | Eben Moglen: The alternate net we need, and how we can build it ourselves"
+          },
+          {
+            "id": "noQcWra6sbU",
+            "title": "Netanel Rubin: The Perl Jam: Exploiting a 20 Year-old Vulnerability"
+          },
+          {
+            "id": "92vuuZt7wak",
+            "title": "Net Neutrality II: Last Week Tonight with John Oliver (HBO)"
+          },
+          {
+            "id": "XxbJw8PrIkc",
+            "title": "Steve Ballmer at .NET presentation: Developers (HQ, Extended)"
+          },
+          {
+            "id": "o2HBHckrdQc",
+            "title": "Netdev 0x16 - Keynote: It's Time to Replace TCP in the Datacenter"
+          },
+          {
+            "id": "CS01Hmjv1pQ",
+            "title": "Ralph Langner: Cracking Stuxnet, a 21st-century cyber weapon"
+          },
+          {
+            "id": "0MeRN7LE1LQ",
+            "title": "The Ranks of Global Billionaires: Not All Billionaires Are Made Equal"
+          },
+          {
+            "id": "lEplzHraw3c",
+            "title": "Cuba's Underground Gaming Network"
+          }
+        ]
+      }
+    },
+    {
+      "query": "fourier transform",
+      "target": [
+        "spUNpyF58BY",
+        "h7apO7q16V0"
+      ],
+      "localCount": 7,
+      "localTop": [
+        {
+          "id": "spUNpyF58BY",
+          "title": "But what is the Fourier Transform?  A visual introduction."
+        },
+        {
+          "id": "h7apO7q16V0",
+          "title": "The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?"
+        },
+        {
+          "id": "MBnnXbOM5S4",
+          "title": "The more general uncertainty principle, regarding Fourier transforms"
+        },
+        {
+          "id": "Y9FZ4igNxNA",
+          "title": "Fourier Optics used for Optical Pattern Recognition"
+        },
+        {
+          "id": "nmgFG7PUHfo",
+          "title": "The Most Underrated Algorithm"
+        },
+        {
+          "id": "r6sGWTCMz2k",
+          "title": "But what is a Fourier series?  From heat flow to drawing with circles | DE4"
+        },
+        {
+          "id": "ZxYOEwM6Wbk",
+          "title": "What is Euler's formula actually saying? | Ep. 4 Lockdown live math"
+        }
+      ],
+      "firstQueryMs": 0.82,
+      "medianWarmMs": 0.54,
+      "p95WarmMs": 0.63,
+      "interpretation": {
+        "target": "fourier transform",
+        "background": ""
+      },
+      "localTarget": true,
+      "upstreamTarget": true,
+      "baseline": {
+        "query": "fourier transform",
+        "elapsedMs": 7976,
+        "fetchedAt": "2026-11-02T06:09:31.739Z",
+        "count": 25,
+        "weak": false,
+        "top": [
+          {
+            "id": "spUNpyF58BY",
+            "title": "But what is the Fourier Transform?  A visual introduction."
+          },
+          {
+            "id": "nmgFG7PUHfo",
+            "title": "The Most Underrated Algorithm"
+          },
+          {
+            "id": "MBnnXbOM5S4",
+            "title": "The more general uncertainty principle, regarding Fourier transforms"
+          },
+          {
+            "id": "h7apO7q16V0",
+            "title": "The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?"
+          },
+          {
+            "id": "Y9FZ4igNxNA",
+            "title": "Fourier Optics used for Optical Pattern Recognition"
+          },
+          {
+            "id": "cIQ9IXSUzuM",
+            "title": "D/A and A/D | Digital Show and Tell (Monty Montgomery @ xiph.org)"
+          },
+          {
+            "id": "NAsM30MAHLg",
+            "title": "(1/4) Intro/History: Introducing a 100-year-old mechanical computer"
+          },
+          {
+            "id": "r6sGWTCMz2k",
+            "title": "But what is a Fourier series?  From heat flow to drawing with circles | DE4"
+          },
+          {
+            "id": "7FeqF1-Z1g0",
+            "title": "David Kriesel: Traue keinem Scan, den du nicht selbst gefälscht hast"
+          },
+          {
+            "id": "wpOxbesRNBc",
+            "title": "Dasher: information-efficient text entry"
+          }
+        ]
+      }
+    },
+    {
+      "query": "computing history",
+      "localCount": 73,
+      "localTop": [
+        {
+          "id": "g2tMcMQqSbA",
+          "title": "Colossus - The Greatest Secret in the History of Computing"
+        },
+        {
+          "id": "HMYiktO0D64",
+          "title": "Part 1 - Training Video for Bell Labs' Holmdel Computing Center - AT&T Archives"
+        },
+        {
+          "id": "_2NI6t2r_Hs",
+          "title": "The History of Unix, Rob Pike"
+        },
+        {
+          "id": "MVEKt_H3FsI",
+          "title": "Oral History of Gary Davidian, part 2 of 2"
+        },
+        {
+          "id": "jtMWEiCdsfc",
+          "title": "The Computer Programme (1): It's Happening Now (Introduction to Computing)"
+        },
+        {
+          "id": "Wp7GAKLSGnI",
+          "title": "Oral History of Donald Knuth Part 1"
+        },
+        {
+          "id": "dDsWTyLEgbk",
+          "title": "Oral History of John Backus"
+        },
+        {
+          "id": "KdnGPQaICjk",
+          "title": "Computers for Cynics 0 - The Myth of Technology"
+        },
+        {
+          "id": "FvmTSpJU-Xc",
+          "title": "Alan Kay - Normal Considered Harmful"
+        },
+        {
+          "id": "ZR0ujwlvbkQ",
+          "title": "Grace Hopper Lecture"
+        }
+      ],
+      "firstQueryMs": 1.65,
+      "medianWarmMs": 1.28,
+      "p95WarmMs": 1.5,
+      "interpretation": {
+        "target": "computing history",
+        "background": ""
+      },
+      "baseline": {
+        "query": "computing history",
+        "elapsedMs": 4900,
+        "fetchedAt": "2026-11-02T06:09:36.640Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "s1i-dnAH9Y4",
+            "title": "Mechanical Computer (All Parts) - Basic Mechanisms In Fire Control Computers"
+          },
+          {
+            "id": "gwf5mAlI7Ug",
+            "title": "U.S. NAVY  BASIC MECHANISMS OF FIRE CONTROL COMPUTERS  MECHANICAL COMPUTER INSTRUCTIONAL FILM  27794"
+          },
+          {
+            "id": "xx7Lfh5SKUQ",
+            "title": "34C3 -  The Ultimate Apollo Guidance Computer Talk"
+          },
+          {
+            "id": "hSyfZkVgasI",
+            "title": "Paul Otlet, visioning a web in 1934"
+          },
+          {
+            "id": "g2tMcMQqSbA",
+            "title": "Colossus - The Greatest Secret in the History of Computing"
+          },
+          {
+            "id": "jtMWEiCdsfc",
+            "title": "The Computer Programme (1): It's Happening Now (Introduction to Computing)"
+          },
+          {
+            "id": "z6yL0_sDnX0",
+            "title": "James Burke Connections, Ep. 4 \"Faith in Numbers\""
+          },
+          {
+            "id": "KdnGPQaICjk",
+            "title": "Computers for Cynics 0 - The Myth of Technology"
+          },
+          {
+            "id": "yJDv-zdhzMY",
+            "title": "The Mother of All Demos, presented by Douglas Engelbart (1968)"
+          },
+          {
+            "id": "HMYiktO0D64",
+            "title": "Part 1 - Training Video for Bell Labs' Holmdel Computing Center - AT&T Archives"
+          }
+        ]
+      }
+    },
+    {
+      "query": "database",
+      "localCount": 42,
+      "localTop": [
+        {
+          "id": "Cym4TZwTCNU",
+          "title": "Rich Hickey: Deconstructing the Database"
+        },
+        {
+          "id": "oeYBdghaIjc",
+          "title": "01 - Course Introduction & Relational Model (CMU Databases Systems / Fall 2019)"
+        },
+        {
+          "id": "tLdRBsuvVKc",
+          "title": "Dev Deletes Entire Production Database, Chaos Ensues"
+        },
+        {
+          "id": "PFUZlNQIndo",
+          "title": "DuckDB – The SQLite for Analytics (Mark Raasveldt, CWI)"
+        },
+        {
+          "id": "s19G6n0UjsM",
+          "title": "Rust at speed — building a fast concurrent database"
+        },
+        {
+          "id": "Jib2AmRb_rk",
+          "title": "SQLite: The Database at the Edge of the Network with Dr. Richard Hipp"
+        },
+        {
+          "id": "v2RJQELoM6Y",
+          "title": "Martin Kleppmann | Kafka Summit SF 2018 Keynote (Is Kafka a Database?)"
+        },
+        {
+          "id": "fHMoDt3nSHs",
+          "title": "Comic Database: Steve Hughes... Offended?"
+        },
+        {
+          "id": "fU9hR3kiOK0",
+          "title": "\"Turning the database inside out with Apache Samza\" by Martin Kleppmann"
+        },
+        {
+          "id": "5ZjhNTM8XU8",
+          "title": "\"Transactions: myths, surprises and opportunities\" by Martin Kleppmann"
+        }
+      ],
+      "firstQueryMs": 0.54,
+      "medianWarmMs": 0.4,
+      "p95WarmMs": 0.42,
+      "interpretation": {
+        "target": "database",
+        "background": ""
+      },
+      "baseline": {
+        "query": "database",
+        "elapsedMs": 833,
+        "fetchedAt": "2026-11-02T06:09:37.473Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "Cym4TZwTCNU",
+            "title": "Rich Hickey: Deconstructing the Database"
+          },
+          {
+            "id": "wTPGW1PNy_Y",
+            "title": "How Modern SQL Databases Come up with Algorithms that You Would Have Never Dreamed Of by Lukas Eder"
+          },
+          {
+            "id": "Jib2AmRb_rk",
+            "title": "SQLite: The Database at the Edge of the Network with Dr. Richard Hipp"
+          },
+          {
+            "id": "-6BsiVyC1kM",
+            "title": "The Value of Values with Rich Hickey"
+          },
+          {
+            "id": "HaEPXoXVf2k",
+            "title": "AWS re:Invent 2018: Amazon DynamoDB Deep Dive: Advanced Design Patterns for DynamoDB (DAT401)"
+          },
+          {
+            "id": "qI_g07C_Q5I",
+            "title": "Introduction to NoSQL • Martin Fowler • GOTO 2012"
+          },
+          {
+            "id": "oeYBdghaIjc",
+            "title": "01 - Course Introduction & Relational Model (CMU Databases Systems / Fall 2019)"
+          },
+          {
+            "id": "79fvDDPaIoY",
+            "title": "Bryan Cantrill from Joyent on Manta: internet-facing object storage facility that features compute"
+          },
+          {
+            "id": "R2Aa4PivG0g",
+            "title": "\"I See What You Mean\" by Peter Alvaro"
+          },
+          {
+            "id": "NVl9_6J1G60",
+            "title": "Breakout Session Presented by Dan Robinson of Heap at PGConf Silicon Valley 2015"
+          }
+        ]
+      }
+    },
+    {
+      "query": "javascript",
+      "localCount": 63,
+      "localTop": [
+        {
+          "id": "mHtdZgou0qU",
+          "title": "Speed Up Your JavaScript"
+        },
+        {
+          "id": "D5xh0ZIEUOE",
+          "title": "James Mickens on JavaScript"
+        },
+        {
+          "id": "hQVTIJBZook",
+          "title": "JavaScript: The Good Parts"
+        },
+        {
+          "id": "Bv_5Zv5c-Ts",
+          "title": "JavaScript: Understanding the Weird Parts - The First 3.5 Hours"
+        },
+        {
+          "id": "vXjVFPosQHw",
+          "title": "Nicholas Zakas: Scalable JavaScript Application Architecture"
+        },
+        {
+          "id": "JxAXlJEmNMg",
+          "title": "Crockford on JavaScript - Volume 1: The Early Years"
+        },
+        {
+          "id": "iukBMY4apvI",
+          "title": "Javascript in 2015"
+        },
+        {
+          "id": "krB0enBeSiE",
+          "title": "Brendan Eich: JavaScript, Firefox, Mozilla, and Brave | Lex Fridman Podcast #160"
+        },
+        {
+          "id": "5AqbCQuK0gM",
+          "title": "Anders Hejlsberg and Lars Bak: TypeScript, JavaScript, and Dart"
+        },
+        {
+          "id": "XRYN2xt11Ek",
+          "title": "Netflix JavaScript Talks - Async JavaScript with Reactive Extensions"
+        }
+      ],
+      "firstQueryMs": 0.54,
+      "medianWarmMs": 0.44,
+      "p95WarmMs": 0.46,
+      "interpretation": {
+        "target": "javascript",
+        "background": ""
+      },
+      "baseline": {
+        "query": "javascript",
+        "elapsedMs": 994,
+        "fetchedAt": "2026-11-02T06:09:38.468Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "hQVTIJBZook",
+            "title": "JavaScript: The Good Parts"
+          },
+          {
+            "id": "D5xh0ZIEUOE",
+            "title": "James Mickens on JavaScript"
+          },
+          {
+            "id": "Uo3cL4nrGOk",
+            "title": "Interview with Senior JS Developer"
+          },
+          {
+            "id": "aWfYxg-Ypm4",
+            "title": "Interview with Senior JS Developer 2024 [NEW]"
+          },
+          {
+            "id": "Bv_5Zv5c-Ts",
+            "title": "JavaScript: Understanding the Weird Parts - The First 3.5 Hours"
+          },
+          {
+            "id": "krB0enBeSiE",
+            "title": "Brendan Eich: JavaScript, Firefox, Mozilla, and Brave | Lex Fridman Podcast #160"
+          },
+          {
+            "id": "iukBMY4apvI",
+            "title": "Javascript in 2015"
+          },
+          {
+            "id": "mHtdZgou0qU",
+            "title": "Speed Up Your JavaScript"
+          },
+          {
+            "id": "JxAXlJEmNMg",
+            "title": "Crockford on JavaScript - Volume 1: The Early Years"
+          },
+          {
+            "id": "taaEzHI9xyY",
+            "title": "Crockford on JavaScript - Section 8: Programming Style & Your Brain"
+          }
+        ]
+      }
+    },
+    {
+      "query": "computer architecture",
+      "localCount": 13,
+      "localTop": [
+        {
+          "id": "kFT54hO1X8M",
+          "title": "David Patterson - A New Golden Age for Computer Architecture: History, Challenges and Opportunities"
+        },
+        {
+          "id": "xx7Lfh5SKUQ",
+          "title": "34C3 -  The Ultimate Apollo Guidance Computer Talk"
+        },
+        {
+          "id": "QGw-cy0ylCc",
+          "title": "The Mill CPU Architecture - the Belt (2 of 13)"
+        },
+        {
+          "id": "SbO0tqH8f5I",
+          "title": "[Minecraft Computer Engineering] - Quad-Core Redstone Computer v5.0 [12k sub special!]"
+        },
+        {
+          "id": "3LVeEjsn8Ts",
+          "title": "John Hennessy and David Patterson 2017 ACM A.M. Turing Award Lecture"
+        },
+        {
+          "id": "xY45YE7ggng",
+          "title": "The Charming Genius of the Apollo Guidance Computer - Brian Troutwine"
+        },
+        {
+          "id": "G4hL5Om4IJ4",
+          "title": "Jim Keller: The Future of Computing, AI, Life, and Consciousness | Lex Fridman Podcast #162"
+        },
+        {
+          "id": "MVEKt_H3FsI",
+          "title": "Oral History of Gary Davidian, part 2 of 2"
+        },
+        {
+          "id": "7hwO8Q_TyCA",
+          "title": "Robust-first computing: Beyond efficiency"
+        },
+        {
+          "id": "bKGhvKyjgLY",
+          "title": "Finding the Missing Memristor - R. Stanley Williams"
+        }
+      ],
+      "firstQueryMs": 1.26,
+      "medianWarmMs": 0.74,
+      "p95WarmMs": 0.82,
+      "interpretation": {
+        "target": "computer architecture",
+        "background": ""
+      },
+      "baseline": {
+        "query": "computer architecture",
+        "elapsedMs": 1269,
+        "fetchedAt": "2026-11-02T06:09:39.737Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "36myc8wQhLo",
+            "title": "USENIX ATC '21/OSDI '21 Joint Keynote Address-It's Time for Operating Systems to Rediscover Hardware"
+          },
+          {
+            "id": "vvZA9n3e5pc",
+            "title": "Stanford Seminar - The Soul of a New Machine: Rethinking the Computer"
+          },
+          {
+            "id": "NWSZ4c9yqW8",
+            "title": "Simon Peyton Jones: Data Parallel Haskell"
+          },
+          {
+            "id": "dXdoim96v5A",
+            "title": "8-bit CPU control logic: Part 1"
+          },
+          {
+            "id": "WDIkqP4JbkE",
+            "title": "code::dive conference 2014 - Scott Meyers: Cpu Caches and Why You Care"
+          },
+          {
+            "id": "aP0Y1uAA-2Y",
+            "title": "Stanford Seminar: Beyond Floating Point: Next Generation Computer Arithmetic"
+          },
+          {
+            "id": "kLiwvnr4L80",
+            "title": "Trends in Deep Learning Hardware: Bill Dally (NVIDIA)"
+          },
+          {
+            "id": "_9mzmvhwMqw",
+            "title": "Sophie Wilson - The Future of Microprocessors"
+          },
+          {
+            "id": "f-b4QOzMyfU",
+            "title": "Industrial Strength High Performance RISC V Processors For Energy Efficient Computing"
+          },
+          {
+            "id": "9npebeVFbFw",
+            "title": "Protected KVM on Arm64: A Technical Deep Dive - Quentin Perret, Google"
+          }
+        ]
+      }
+    },
+    {
+      "query": "machine learning",
+      "localCount": 51,
+      "localTop": [
+        {
+          "id": "UzxYlbK2c7E",
+          "title": "Lecture 1 | Machine Learning (Stanford)"
+        },
+        {
+          "id": "cKxRvEZd3Mw",
+          "title": "Hello World - Machine Learning Recipes #1"
+        },
+        {
+          "id": "PmlRbfSavbI",
+          "title": "Stealing Baseball Signs with a Phone (Machine Learning)"
+        },
+        {
+          "id": "mbyG85GZ0PI",
+          "title": "Lecture 01 - The Learning Problem"
+        },
+        {
+          "id": "s65BigoMV_I",
+          "title": "Swift for TensorFlow: The Next-Generation Machine Learning Framework (TF Dev Summit '19)"
+        },
+        {
+          "id": "kTiP0zKF9bc",
+          "title": "Robocalypse Now: Using Deep Learning to Combat Cheating in Counter-Strike: Global Offensive"
+        },
+        {
+          "id": "R9c-_neaxeU",
+          "title": "MENACE: the pile of matchboxes which can learn"
+        },
+        {
+          "id": "ObhK8lUfIlc",
+          "title": "GDC 2018: John McDonald (Valve) - Using Deep Learning to Combat Cheating in CSGO"
+        },
+        {
+          "id": "qv6UVOQ0F44",
+          "title": "MarI/O - Machine Learning for Video Games"
+        },
+        {
+          "id": "2pWv7GOvuf0",
+          "title": "RL Course by David Silver - Lecture 1: Introduction to Reinforcement Learning"
+        }
+      ],
+      "firstQueryMs": 1.12,
+      "medianWarmMs": 0.9,
+      "p95WarmMs": 1.04,
+      "interpretation": {
+        "target": "machine learning",
+        "background": ""
+      },
+      "baseline": {
+        "query": "machine learning",
+        "elapsedMs": 3071,
+        "fetchedAt": "2026-11-02T06:09:42.809Z",
+        "count": 30,
+        "weak": false,
+        "top": [
+          {
+            "id": "cKxRvEZd3Mw",
+            "title": "Hello World - Machine Learning Recipes #1"
+          },
+          {
+            "id": "UzxYlbK2c7E",
+            "title": "Lecture 1 | Machine Learning (Stanford)"
+          },
+          {
+            "id": "mbyG85GZ0PI",
+            "title": "Lecture 01 - The Learning Problem"
+          },
+          {
+            "id": "VMj-3S1tku0",
+            "title": "The spelled-out intro to neural networks and backpropagation: building micrograd"
+          },
+          {
+            "id": "7xTGNNLPyMI",
+            "title": "Deep Dive into LLMs like ChatGPT"
+          },
+          {
+            "id": "kCc8FmEb1nY",
+            "title": "Let's build GPT: from scratch, in code, spelled out."
+          },
+          {
+            "id": "jkrNMKz9pWU",
+            "title": "A Hackers' Guide to Language Models"
+          },
+          {
+            "id": "zjkBMFhNj_g",
+            "title": "[1hr Talk] Intro to Large Language Models"
+          },
+          {
+            "id": "zduSFxRajkE",
+            "title": "Let's build the GPT Tokenizer"
+          },
+          {
+            "id": "ne99laPUxN4",
+            "title": "The Simple Essence of Automatic Differentiation - Conal Elliott"
+          }
+        ]
+      }
+    },
+    {
+      "query": "qzxwvvjjqzzzz",
+      "localCount": 0,
+      "localTop": [],
+      "firstQueryMs": 2.93,
+      "medianWarmMs": 0.25,
+      "p95WarmMs": 0.27,
+      "interpretation": {
+        "target": "qzxwvvjjqzzzz",
+        "background": ""
+      },
+      "baseline": {
+        "query": "qzxwvvjjqzzzz",
+        "elapsedMs": 4033,
+        "fetchedAt": "2026-11-02T06:09:46.843Z",
+        "count": 5,
+        "weak": true,
+        "top": [
+          {
+            "id": "eRlhKaxcKpA",
+            "title": "sCrAmBlEd?HaCkZ!"
+          },
+          {
+            "id": "bJ5ppf0po3k",
+            "title": "I made a talking banana"
+          },
+          {
+            "id": "2y5Pv4yN0b0",
+            "title": "Brian Goetz - Stewardship: the Sobering Parts"
+          },
+          {
+            "id": "Eq3bUFgEcb4",
+            "title": "Notation Must Die: The Battle For How We Read Music"
+          },
+          {
+            "id": "ExwqNreocpg",
+            "title": "Can you fit a whole game into a QR code?"
+          }
+        ]
+      }
+    }
+  ]
+}

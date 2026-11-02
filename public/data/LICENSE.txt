@@ -1,0 +1,11 @@
+Data license: Open Data Commons Attribution License (ODC-By) v1.0
+https://opendatacommons.org/licenses/by/1-0/
+
+Credit HackerTube (https://hackertube.org) and the open-index/hacker-news dataset
+(https://huggingface.co/datasets/open-index/hacker-news).
+Hacker News data is provided by Y Combinator. Comments remain the work of their
+authors. Video titles and channel names belong to their creators.
+
+Derived from the HackerTube export dated 2026-10-31. See provenance.json for the
+source checksum and transformation details. Similarity links are not prerequisites.
+This project is not affiliated with YouTube, Google, Hacker News or Y Combinator.
