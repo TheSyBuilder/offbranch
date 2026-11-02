@@ -98,7 +98,7 @@ export default function App() {
   useEffect(() => {
     const pop = () => { const state = readLocation(); setQuery(state.query); setFilters(state.filters); setSelectedId(state.selected); };
     window.addEventListener('popstate', pop);
-    const keyboard = (e: KeyboardEvent) => { if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName) && !showRoadmaps && !selectedId && !showAbout)) { e.preventDefault(); inputRef.current?.focus(); } };
+    const keyboard = (e: KeyboardEvent) => { if (document.querySelector('[aria-modal="true"]')) return; if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName) && !showRoadmaps && !selectedId && !showAbout)) { e.preventDefault(); inputRef.current?.focus(); } };
     window.addEventListener('keydown', keyboard);
     return () => { window.removeEventListener('popstate', pop); window.removeEventListener('keydown', keyboard); };
   }, [showRoadmaps, selectedId, showAbout]);
