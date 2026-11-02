@@ -1,5 +1,6 @@
 import MiniSearch from 'minisearch';
 import type { Catalog, RelatedIndex, SearchFilters, SearchHit, SearchRequest, SearchResponse, Video } from '../types';
+import { normalizeChineseQuery } from './taxonomy-zh';
 
 const STOP_WORDS = new Set('a an the and or of to for in on with from about is are was were i me my it its this that these those how what why want know learn understand understanding explain explained video videos talk talks good best works'.split(' '));
 const ALIASES: Record<string, string> = {
@@ -79,7 +80,7 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
 
   function search(request: SearchRequest): SearchResponse {
     const started = performance.now();
-    const interpretation: SearchResponse['interpretation'] = interpret(request.query);
+    const interpretation: SearchResponse['interpretation'] = interpret(normalizeChineseQuery(request.query.slice(0, 400)));
     const normalized = normalize(interpretation.target);
     let expanded = ALIASES[normalized] ?? normalized;
     // Longest aliases first so "neural nets" stays a phrase rather than a pair of guesses.

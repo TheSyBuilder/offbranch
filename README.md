@@ -14,6 +14,7 @@ Explore 6,454 videos from HackerTube's collection, see how ideas connect, and wa
 - Open a dedicated playlist page, choose any video, and follow the next video from its watch page.
 - Track watched videos locally and continue from the first unwatched item.
 - Read HN recommendation evidence, watch on YouTube, use light or dark mode, and share playlist URLs.
+- Switch between English and Simplified Chinese. Interface text, all 12 playlists, 16 areas and 150 topic labels are localized. Common Chinese concept queries and learning goals search the original catalog.
 
 Roadmap building is hidden. Existing local roadmap data is left untouched; the active interface uses curated playlists.
 
@@ -62,7 +63,7 @@ Durations, upload dates, view counts, and current availability are not in the re
 
 Curated sequences are reviewed ID lists in `scripts/build_playlists.py`, exported to `public/data/playlists.json`. The build validates metadata, topic IDs, video membership, recommendations, cover membership, and duplicates. See `docs/playlists.md` for the selection rationale and current-interest research. Playlists are editorial collections from a pinned archive, not a live popularity ranking.
 
-Watched IDs and theme preferences stay in browser local storage. Clearing that storage removes progress. Playlist URLs use `?playlist=SLUG`; watch URLs keep that parameter alongside `?v=VIDEO_ID` so the next item and return link survive reload. No server or runtime secrets are needed.
+Watched IDs, language and theme preferences stay in browser local storage. Clearing that storage removes progress. Playlist URLs use `?playlist=SLUG`; watch URLs keep that parameter alongside `?v=VIDEO_ID` so the next item and return link survive reload. A `lang=zh-CN` or `lang=en` query parameter pins the interface language for a shared link. Otherwise an explicit saved choice takes precedence over the browser language. Video titles, descriptions and HN comments retain their original text. No server or runtime secrets are needed.
 
 ## Architecture
 

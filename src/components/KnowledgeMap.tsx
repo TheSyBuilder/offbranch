@@ -5,6 +5,8 @@ import { zoom, zoomIdentity } from 'd3-zoom';
 import type { ZoomBehavior, ZoomTransform } from 'd3-zoom';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Expand, Focus, Minus, Plus, Shrink, X } from 'lucide-react';
 import type { Overview, RelatedIndex, Topic, Video } from '../types';
+import { useLocale } from '../lib/i18n';
+import { AREA_ZH, TOPIC_ZH } from '../lib/taxonomy-zh';
 import './KnowledgeMap.css';
 
 interface KnowledgeMapProps {
@@ -71,6 +73,31 @@ function hash(input: string) {
 }
 
 function wrapLabel(text: string, width: number, maxLines = 2) {
+  const isWide = (character: string) => /[\u2e80-\u9fff\uf900-\ufaff\uff00-\uffef]/u.test(character);
+  if (Array.from(text).some(isWide)) {
+    const lines: string[] = [];
+    let line = '';
+    let units = 0;
+    for (const character of Array.from(text)) {
+      const size = isWide(character) ? 2 : 1;
+      if (line && units + size > width) {
+        lines.push(line.trim());
+        if (lines.length === maxLines) {
+          const last = Array.from(lines[maxLines - 1]);
+          let lastWidth = last.reduce((total, letter) => total + (isWide(letter) ? 2 : 1), 0);
+          while (last.length && lastWidth > width - 1) lastWidth -= isWide(last.pop()!) ? 2 : 1;
+          lines[maxLines - 1] = `${last.join('').trim()}…`;
+          return lines;
+        }
+        line = '';
+        units = 0;
+      }
+      line += character;
+      units += size;
+    }
+    if (line.trim()) lines.push(line.trim());
+    return lines;
+  }
   const words = text.split(/\s+/);
   const lines: string[] = [];
   let line = '';
@@ -221,6 +248,8 @@ function positionMapLabels(world: SVGGElement, nodes: MapNode[], width: number, 
 }
 
 export function KnowledgeMap({ overview, videos, related, selectedVideoId, activeTopic, activeArea, roadmapVideoIds, searching, query = '', onSelectVideo, onSelectTopic, onSelectArea }: KnowledgeMapProps) {
+  const { locale, t } = useLocale();
+  const numberFormatter = useMemo(() => new Intl.NumberFormat(locale), [locale]);
   const hostRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const worldRef = useRef<SVGGElement>(null);
@@ -347,7 +376,7 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
     void document.fonts.ready.then(position);
     document.fonts.addEventListener('loadingdone', position);
     return () => { active = false; document.fonts.removeEventListener('loadingdone', position); };
-  }, [nodes, hoveredId, selectedVideoId, width, compact, origin.x, origin.y]);
+  }, [nodes, hoveredId, selectedVideoId, width, compact, origin.x, origin.y, locale]);
 
   const signature = `${mode}:${activeArea}:${activeTopic}:${query}:${nodes.map(node => node.id).join(',')}`;
   useEffect(() => {
@@ -428,23 +457,28 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
   const focusedNode = nodes.find(node => node.id === hoveredId);
   const previewVideo = focusedNode?.video || (selectedNode ? selectedVideo : undefined);
   const accent = activeAreaData?.color || 'var(--accent)';
-  const title = mode === 'topics' ? AREA_LABELS[activeArea] || activeAreaData?.name || 'Explore this branch' : activeTopicData?.name || (query.trim() ? `Following “${query.trim()}”` : 'Related videos');
+  const areaName = (id: string, fallback = '') => (locale === 'zh-CN' ? AREA_ZH[id] : AREA_LABELS[id]) || fallback;
+  const topicName = (id: string, fallback = '') => (locale === 'zh-CN' ? TOPIC_ZH[id] : undefined) || fallback;
+  const countLabel = (count: number, kind: 'topics' | 'videos') => t(`${numberFormatter.format(count)} ${kind}`, `${numberFormatter.format(count)} ${kind === 'topics' ? '个主题' : '个视频'}`);
+  const title = mode === 'topics' ? areaName(activeArea, activeAreaData?.name) || t('Explore this branch', '探索这个分支') : (activeTopicData && topicName(activeTopicData.id, activeTopicData.name)) || (query.trim() ? t(`Following “${query.trim()}”`, `探索“${query.trim()}”`) : t('Related videos', '相关视频'));
+  const expandLabel = expanded ? t('Close expanded map', '收起地图') : t('Expand map', '展开地图');
+  const backLabel = query.trim() ? t('Clear focus', '清除选择') : t('All fields', '全部领域');
 
   return (
-    <div ref={hostRef} className={`knowledge-map${expanded ? ' knowledge-map--expanded' : ''}${compact ? ' knowledge-map--compact' : ''}${searching ? ' knowledge-map--searching' : ''}${!documentVisible ? ' knowledge-map--inactive' : ''}`} role={expanded ? 'dialog' : 'region'} aria-modal={expanded || undefined} aria-label="Interactive knowledge map" tabIndex={expanded ? -1 : undefined} onKeyDown={handleKey}>
+    <div ref={hostRef} lang={locale} className={`knowledge-map${expanded ? ' knowledge-map--expanded' : ''}${compact ? ' knowledge-map--compact' : ''}${searching ? ' knowledge-map--searching' : ''}${!documentVisible ? ' knowledge-map--inactive' : ''}`} role={expanded ? 'dialog' : 'region'} aria-modal={expanded || undefined} aria-label={t('Interactive knowledge map', '交互式知识地图')} tabIndex={expanded ? -1 : undefined} onKeyDown={handleKey}>
       <div className="knowledge-map__heading">
         <div className="knowledge-map__context">
-          {mode === 'overview' ? <p>Pick a field, or follow one of its smaller branches.</p> : <h3>{title}</h3>}
+          {mode === 'overview' ? <p>{t('Pick a field, or follow one of its smaller branches.', '选择一个领域，或沿着小分支继续探索。')}</p> : <h3>{title}</h3>}
         </div>
         <div className="knowledge-map__heading-actions">
-          {mode !== 'overview' && (activeArea || activeTopic || selectedVideoId) && <button className="knowledge-map__back" onClick={() => onSelectArea('')}><ArrowLeft size={15} />{query.trim() ? 'Clear focus' : 'All fields'}</button>}
-          <button className="knowledge-map__expand" aria-label={expanded ? 'Close expanded map' : 'Expand map'} title={expanded ? 'Close expanded map' : 'Expand map'} onClick={() => setExpanded(value => !value)}>{expanded ? <Shrink size={18} /> : <Expand size={18} />}</button>
+          {mode !== 'overview' && (activeArea || activeTopic || selectedVideoId) && <button className="knowledge-map__back" aria-label={backLabel} onClick={() => onSelectArea('')}><ArrowLeft size={15} />{backLabel}</button>}
+          <button className="knowledge-map__expand" aria-label={expandLabel} title={expandLabel} onClick={() => setExpanded(value => !value)}>{expanded ? <Shrink size={18} /> : <Expand size={18} />}</button>
         </div>
       </div>
 
       <div className="knowledge-map__stage">
-        {mode !== 'overview' && <div className="knowledge-map__coordinate knowledge-map__coordinate--top">{mode === 'topics' ? `${nodes.length} topics in view` : `${nodes.length} videos in view`}</div>}
-        <svg ref={svgRef} className="knowledge-map__svg" viewBox={`0 0 ${width} ${WORLD_HEIGHT}`} aria-label="Explore connected fields, topics, and videos" onPointerMove={event => {
+        {mode !== 'overview' && <div className="knowledge-map__coordinate knowledge-map__coordinate--top">{t(`${countLabel(nodes.length, mode === 'topics' ? 'topics' : 'videos')} in view`, `当前显示 ${countLabel(nodes.length, mode === 'topics' ? 'topics' : 'videos')}`)}</div>}
+        <svg ref={svgRef} className="knowledge-map__svg" viewBox={`0 0 ${width} ${WORLD_HEIGHT}`} aria-label={t('Explore connected fields, topics, and videos', '探索相互关联的领域、主题和视频')} onPointerMove={event => {
           if (event.pointerType !== 'mouse' || reducedMotion || document.hidden) return;
           const { clientX, clientY } = event;
           window.cancelAnimationFrame(pointerFrameRef.current);
@@ -476,7 +510,7 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
               <circle className="knowledge-map__origin-halo" r={mode === 'overview' ? 33 : 29} />
               <circle className="knowledge-map__origin-disc" r={mode === 'overview' ? 20 : 18} />
               <path d="M-7 8V-7M-7 0C-7 0 6 0 6-8M-7 5C-7 5 6 5 6 11" fill="none" stroke={accent} strokeWidth="2.4" strokeLinecap="round" />
-              {!compact && mode !== 'overview' && <text className="knowledge-map__origin-caption" textAnchor="middle" y="49">Your starting point</text>}
+              {!compact && mode !== 'overview' && <text className="knowledge-map__origin-caption" textAnchor="middle" y="49">{t('Your starting point', '探索起点')}</text>}
             </g>}
 
             {nodes.map(node => {
@@ -487,8 +521,9 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
               const radius = node.secondary ? 2.8 : isVideo ? node.rank < 3 ? 8 : 5.5 : node.kind === 'area' ? 7.5 : 6;
               const labelVisible = node.secondary ? hovered : !isVideo || selected || hovered || node.rank < (compact ? 4 : 9);
               const labelWidth = isVideo ? compact ? 17 : 22 : compact ? node.kind === 'topic' && !node.secondary ? 15 : 18 : 24;
-              const lines = wrapLabel(node.kind === 'area' ? AREA_LABELS[node.id] || node.name : node.name, labelWidth);
-              return <g key={node.id} data-map-node="true" className={`knowledge-map__node knowledge-map__node--${node.kind}${node.secondary ? ' knowledge-map__node--bud' : ''}${selected ? ' is-selected' : ''}${hovered ? ' is-hovered' : ''}${routeIndex >= 0 ? ' is-on-route' : ''}`} transform={`translate(${node.x} ${node.y})`} style={{ '--node-color': node.color } as CSSProperties} role="button" tabIndex={0} aria-label={`${isVideo ? 'View video' : 'Explore'}: ${node.name}${node.count ? `, ${node.count} ${node.countKind || 'videos'}` : ''}`} aria-pressed={selected || (node.kind === 'topic' && node.id === activeTopic) || (node.kind === 'area' && node.id === activeArea)} onClick={() => actOnNode(node)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); actOnNode(node); } }} onPointerEnter={() => setHoveredId(node.id)} onPointerLeave={() => setHoveredId(null)} onFocus={() => setHoveredId(node.id)} onBlur={() => setHoveredId(null)}>
+              const displayName = node.kind === 'area' ? areaName(node.id, node.name) : node.kind === 'topic' ? topicName(node.id, node.name) : node.name;
+              const lines = wrapLabel(displayName, labelWidth);
+              return <g key={node.id} data-map-node="true" className={`knowledge-map__node knowledge-map__node--${node.kind}${node.secondary ? ' knowledge-map__node--bud' : ''}${selected ? ' is-selected' : ''}${hovered ? ' is-hovered' : ''}${routeIndex >= 0 ? ' is-on-route' : ''}`} transform={`translate(${node.x} ${node.y})`} style={{ '--node-color': node.color } as CSSProperties} role="button" tabIndex={0} aria-label={`${isVideo ? t('View video', '查看视频') : t('Explore', '探索')}${t(': ', '：')}${displayName}${node.count ? `${t(', ', '，')}${countLabel(node.count, node.countKind || 'videos')}` : ''}`} aria-pressed={selected || (node.kind === 'topic' && node.id === activeTopic) || (node.kind === 'area' && node.id === activeArea)} onClick={() => actOnNode(node)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); actOnNode(node); } }} onPointerEnter={() => setHoveredId(node.id)} onPointerLeave={() => setHoveredId(null)} onFocus={() => setHoveredId(node.id)} onBlur={() => setHoveredId(null)}>
                 {labelVisible && <path className="knowledge-map__label-leader" data-map-label-leader="true" />}
                 <circle className="knowledge-map__hit-area" r={node.secondary ? 16 : 24} />
                 <circle className="knowledge-map__node-halo" r={radius + 9} />
@@ -500,7 +535,7 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
                   <rect className="knowledge-map__label-plate" data-map-label-plate="true" rx="4" />
                   <g data-map-label-copy="true">
                     <text className="knowledge-map__node-title">{lines.map((line, i) => <tspan key={i} x="0" dy={i ? '1.22em' : '0'}>{line}</tspan>)}</text>
-                    {!isVideo && <text className="knowledge-map__node-count" y={lines.length > 1 ? 33 : 18}>{(node.count ?? 0).toLocaleString()} {node.countKind || 'videos'}</text>}
+                    {!isVideo && <text className="knowledge-map__node-count" y={lines.length > 1 ? 33 : 18}>{countLabel(node.count ?? 0, node.countKind || 'videos')}</text>}
                   </g>
                 </g>}
               </g>;
@@ -508,29 +543,29 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
           </g>
         </svg>
 
-        {!overview && <div className="knowledge-map__loading" role="status"><span className="knowledge-map__loading-line" />Opening the map…</div>}
-        {overview && !nodes.length && <div className="knowledge-map__empty">No connections in this view.<span>Try another topic or a broader search.</span></div>}
+        {!overview && <div className="knowledge-map__loading" role="status"><span className="knowledge-map__loading-line" />{t('Opening the map…', '正在加载地图…')}</div>}
+        {overview && !nodes.length && <div className="knowledge-map__empty">{t('No connections in this view.', '当前视图中没有关联内容。')}<span>{t('Try another topic or a broader search.', '试试其他主题，或扩大搜索范围。')}</span></div>}
 
         {previewVideo && <div className="knowledge-map__preview" key={previewVideo.id}>
           <div className="knowledge-map__preview-image">{!imageFailed ? <img src={`https://i.ytimg.com/vi/${encodeURIComponent(previewVideo.id)}/hq2.jpg`} alt="" loading="lazy" onError={() => setImageFailed(true)} /> : <span>Offbranch</span>}<span className="knowledge-map__preview-play" aria-hidden="true">▶</span></div>
-          <div className="knowledge-map__preview-copy"><span>{previewVideo.channel}</span><strong>{previewVideo.title}</strong><small>{previewVideo.recommenders} people recommended this</small></div>
-          {!focusedNode && <button onClick={() => onSelectVideo('')} aria-label="Close video selection"><X size={15} /></button>}
+          <div className="knowledge-map__preview-copy"><span>{previewVideo.channel}</span><strong>{previewVideo.title}</strong><small>{t(`${numberFormatter.format(previewVideo.recommenders)} people recommended this`, `${numberFormatter.format(previewVideo.recommenders)} 人推荐了这个视频`)}</small></div>
+          {!focusedNode && <button onClick={() => onSelectVideo('')} aria-label={t('Close video selection', '关闭视频预览')}><X size={15} /></button>}
         </div>}
 
-        <div className="knowledge-map__tools" aria-label="Map controls">
-          <button aria-label="Zoom in" title="Zoom in" onClick={() => scaleBy(1.25)} disabled={zoomLevel >= 2.79}><Plus size={17} /></button>
+        <div className="knowledge-map__tools" aria-label={t('Map controls', '地图控制')}>
+          <button aria-label={t('Zoom in', '放大')} title={t('Zoom in', '放大')} onClick={() => scaleBy(1.25)} disabled={zoomLevel >= 2.79}><Plus size={17} /></button>
           <span className="knowledge-map__zoom-value" aria-hidden="true">{Math.round(zoomLevel * 100)}%</span>
-          <button aria-label="Zoom out" title="Zoom out" onClick={() => scaleBy(.8)} disabled={zoomLevel <= .66}><Minus size={17} /></button>
+          <button aria-label={t('Zoom out', '缩小')} title={t('Zoom out', '缩小')} onClick={() => scaleBy(.8)} disabled={zoomLevel <= .66}><Minus size={17} /></button>
           <span className="knowledge-map__tool-divider" />
-          <button aria-label="Reset map position and zoom" title="Reset view" onClick={resetView}><Focus size={17} /></button>
-          <details className="knowledge-map__pan-menu"><summary aria-label="Pan map" title="Pan map"><Expand size={16} /></summary><div><button aria-label="Pan map left" onClick={() => panBy(90, 0)}><ArrowLeft size={15} /></button><button aria-label="Pan map up" onClick={() => panBy(0, 90)}><ArrowUp size={15} /></button><button aria-label="Pan map down" onClick={() => panBy(0, -90)}><ArrowDown size={15} /></button><button aria-label="Pan map right" onClick={() => panBy(-90, 0)}><ArrowRight size={15} /></button></div></details>
+          <button aria-label={t('Reset map position and zoom', '重置地图位置和缩放')} title={t('Reset view', '重置视图')} onClick={resetView}><Focus size={17} /></button>
+          <details className="knowledge-map__pan-menu"><summary aria-label={t('Pan map', '平移地图')} title={t('Pan map', '平移地图')}><Expand size={16} /></summary><div><button aria-label={t('Pan map left', '向左平移地图')} onClick={() => panBy(90, 0)}><ArrowLeft size={15} /></button><button aria-label={t('Pan map up', '向上平移地图')} onClick={() => panBy(0, 90)}><ArrowUp size={15} /></button><button aria-label={t('Pan map down', '向下平移地图')} onClick={() => panBy(0, -90)}><ArrowDown size={15} /></button><button aria-label={t('Pan map right', '向右平移地图')} onClick={() => panBy(-90, 0)}><ArrowRight size={15} /></button></div></details>
         </div>
-        {compact && mode === 'overview' && areas.length > 8 && <button className="knowledge-map__next-areas" onClick={() => setAreaPage(page => (page + 1) % Math.ceil(areas.length / 8))}>{areaPage === 0 ? 'More fields' : 'First fields'}<ArrowRight size={14} /></button>}
+        {compact && mode === 'overview' && areas.length > 8 && <button className="knowledge-map__next-areas" onClick={() => setAreaPage(page => (page + 1) % Math.ceil(areas.length / 8))}>{areaPage === 0 ? t('More fields', '更多领域') : t('First fields', '第一组领域')}<ArrowRight size={14} /></button>}
       </div>
 
       <div className="knowledge-map__footer">
-        <div className="knowledge-map__legend"><span><i />{mode === 'overview' ? 'Fields of curiosity' : mode === 'topics' ? 'Topics in this field' : 'Related ideas'}</span>{mode === 'videos' && roadmapVideoIds.length > 0 && <span><i className="knowledge-map__legend-route" />Your watch order</span>}</div>
-        <span className="knowledge-map__hint">{focusedNode ? focusedNode.kind === 'video' ? 'Select to take a closer look' : 'Select to explore this branch' : compact ? 'Tap a node to explore' : 'Drag to explore · ⌘ / Ctrl + scroll to zoom'}</span>
+        <div className="knowledge-map__legend"><span><i />{mode === 'overview' ? t('Fields of curiosity', '探索领域') : mode === 'topics' ? t('Topics in this field', '领域内的主题') : t('Related ideas', '相关内容')}</span>{mode === 'videos' && roadmapVideoIds.length > 0 && <span><i className="knowledge-map__legend-route" />{t('Your watch order', '你的观看顺序')}</span>}</div>
+        <span className="knowledge-map__hint">{focusedNode ? focusedNode.kind === 'video' ? t('Select to take a closer look', '选择视频查看详情') : t('Select to explore this branch', '选择节点探索这个分支') : compact ? t('Tap a node to explore', '轻点节点开始探索') : t('Drag to explore · ⌘ / Ctrl + scroll to zoom', '拖动探索 · ⌘ / Ctrl + 滚轮缩放')}</span>
       </div>
     </div>
   );

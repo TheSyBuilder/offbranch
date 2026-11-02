@@ -23,8 +23,9 @@ export function parseLocation(search: string): AppLocation {
   return { page: selected ? 'video' : playlist ? 'playlist' : 'explore', query: params.get('q') || '', filters, selected, playlist };
 }
 
-export function locationUrl(pathname: string, state: AppLocation, hash = '') {
+export function locationUrl(pathname: string, state: AppLocation, hash = '', locale?: 'en' | 'zh-CN') {
   const params = new URLSearchParams();
+  if (locale) params.set('lang', locale);
   if (state.query) params.set('q', state.query);
   Object.keys(DEFAULT_FILTERS).forEach(key => {
     const k = key as keyof SearchFilters;

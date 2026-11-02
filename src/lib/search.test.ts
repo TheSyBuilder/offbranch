@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { createSearchEngine } from './search';
 import { DEFAULT_FILTERS, type Catalog, type RelatedIndex, type SearchFilters, type Video } from '../types';
+import { AREA_ZH, TOPIC_ZH, normalizeChineseQuery, localizeSearchReason } from './taxonomy-zh';
 
 const catalog: Catalog = JSON.parse(readFileSync(new URL('../../public/data/catalog.json', import.meta.url), 'utf8'));
 const related: RelatedIndex = JSON.parse(readFileSync(new URL('../../public/data/related.json', import.meta.url), 'utf8'));
@@ -24,6 +25,26 @@ describe('real catalog search', () => {
     const result = search('I know Python and want to understand how a transformer works');
     expect(result.interpretation.background).toBe('Python');
     expect(result.interpretation.target).toBe('how a transformer works');
+    expect(result.hits.slice(0, 5).some(hit => hit.id === 'wjZofJX0v4M')).toBe(true);
+    expect(result.hits.slice(0, 5).some(hit => hit.id === 'Obt-vMVdM8s')).toBe(false);
+  });
+
+  it.each([
+    ['强化学习', 'reinforcement learning', '2pWv7GOvuf0'],
+    ['数据采集', 'data collection', 'hx7BXih7zx8'],
+    ['分布式系统', 'distributed systems', 'UEAMfLPZZhE'],
+  ])('finds real English catalog content for %s without requiring a UI locale', (chinese, english, expectedId) => {
+    const result = search(chinese);
+    expect(result.total).toBeGreaterThan(0);
+    expect(result.hits.map(hit => hit.id)).toEqual(search(english).hits.map(hit => hit.id));
+    expect(result.hits.some(hit => hit.kind === 'direct' && hit.id === expectedId)).toBe(true);
+  });
+
+  it.each(['我会Python，想学习Transformer', '我懂Python，想了解Transformer', '我已经会 Python，希望理解 Transformer'])('separates Chinese learning goals from existing background: %s', query => {
+    const result = search(query);
+    expect(result.interpretation.background).toBe('Python');
+    expect(result.interpretation.target).toBe('Transformer');
+    expect(result.hits.map(hit => hit.id)).toEqual(search('Transformer').hits.map(hit => hit.id));
     expect(result.hits.slice(0, 5).some(hit => hit.id === 'wjZofJX0v4M')).toBe(true);
     expect(result.hits.slice(0, 5).some(hit => hit.id === 'Obt-vMVdM8s')).toBe(false);
   });
@@ -99,4 +120,45 @@ it('distinguishes language punctuation and never matches Rust inside trust', () 
   expect(run('C++')).toEqual(['cpp']); expect(run('C#')).toEqual(['cs']); expect(run('.NET')).toEqual(['net']);
   expect(run('C')).toEqual(['c']);
   expect(run('Rust')).toEqual(['rust']);
+  expect(run('我想学习C++')).toEqual(['cpp']);
+  expect(run('我会Python，想了解C#')).toEqual(['cs']);
+  expect(run('我会C#，想学习.NET')).toEqual(['net']);
+  expect(run('我懂Python，想学习Rust')).toEqual(['rust']);
+});
+
+describe('Chinese taxonomy and explanations', () => {
+  it('covers every actual area and topic ID with no stale keys or empty labels', () => {
+    expect(Object.keys(AREA_ZH).sort()).toEqual(catalog.areas.map(area => area.id).sort());
+    expect(Object.keys(TOPIC_ZH).sort()).toEqual(catalog.topics.map(topic => topic.id).sort());
+    expect(Object.keys(AREA_ZH)).toHaveLength(16);
+    expect(Object.keys(TOPIC_ZH)).toHaveLength(150);
+    expect([...Object.values(AREA_ZH), ...Object.values(TOPIC_ZH)].every(label => /\p{Script=Han}/u.test(label))).toBe(true);
+  });
+
+  it('preserves English punctuation tokens and unknown Chinese instead of inventing translations', () => {
+    expect(normalizeChineseQuery('C++ C# .NET Rust Node.js')).toBe('C++ C# .NET Rust Node.js');
+    expect(normalizeChineseQuery('我会C#，想学习.NET')).toBe('I know C# and want to learn .NET');
+    expect(normalizeChineseQuery('我想了解人类反馈强化学习')).toBe('I want to learn reinforcement learning human feedback');
+    expect(normalizeChineseQuery('请帮我找分布式系统的入门视频')).toBe('distributed systems');
+    expect(normalizeChineseQuery('我的未知主题')).toBe('我的未知主题');
+    expect(search('我的未知主题').hits).toEqual([]);
+  });
+
+  it('localizes generated reasons while preserving source titles and creator names', () => {
+    const title = 'What is in a Lucene index?';
+    expect(localizeSearchReason('Title matches your search', 'en')).toBe('Title matches your search');
+    expect(localizeSearchReason('Title matches your search', 'zh-CN')).toBe('标题与你的搜索匹配');
+    expect(localizeSearchReason('From 3Blue1Brown', 'zh-CN')).toBe('来自 3Blue1Brown');
+    expect(localizeSearchReason('Recommended in 18 distinct months on HN', 'zh-CN')).toContain('18');
+    expect(localizeSearchReason(`Similar to “${title}” · 1 shared HN recommender`, 'zh-CN')).toBe(`与《${title}》相关 · 1 位 HN 用户共同推荐`);
+    expect(localizeSearchReason(`Similar to “${title}” · 2 shared HN recommenders`, 'zh-CN')).toBe(`与《${title}》相关 · 2 位 HN 用户共同推荐`);
+    expect(localizeSearchReason(`Similar to “${title}”`, 'zh-CN')).toBe(`与《${title}》相关`);
+    expect(localizeSearchReason('A future reason format', 'zh-CN')).toBe('A future reason format');
+  });
+});
+
+it('supports the Chinese landing-page example queries', () => {
+  for (const [chinese, english] of [['神经网络', 'Neural networks'], ['分布式系统', 'Distributed systems'], ['计算机发展史', 'The history of computing'], ['可视化数学', 'Visual mathematics']]) {
+    expect(search(chinese).hits.map(hit => hit.id)).toEqual(search(english).hits.map(hit => hit.id));
+  }
 });
