@@ -1,0 +1,252 @@
+[
+  {
+    "id": "reinforcement-learning",
+    "title": "Reinforcement learning",
+    "description": "Learning by trying. From a box of matchsticks to self-play and human feedback.",
+    "eyebrow": "Rewards & decisions",
+    "topic": "machine-learning",
+    "videoIds": [
+      "R9c-_neaxeU",
+      "2pWv7GOvuf0",
+      "WXuK6gekU1Y",
+      "Dw3BZ6O_8LY",
+      "kopoLzvh5jY",
+      "PYylPRX6z4Q",
+      "hhiLw5Q_UFg"
+    ],
+    "coverIds": [
+      "2pWv7GOvuf0",
+      "WXuK6gekU1Y",
+      "Dw3BZ6O_8LY"
+    ]
+  },
+  {
+    "id": "data-collection-curation",
+    "title": "Data collection & curation",
+    "description": "Where training data comes from, how people label it, and why the dataset becomes the work.",
+    "eyebrow": "Before the model",
+    "topic": "ai-data-other",
+    "videoIds": [
+      "tx082gDwGcM",
+      "-Ht4qiDRZE8",
+      "yvDCzhbjYWs",
+      "y57wwucbXR8",
+      "hx7BXih7zx8",
+      "ODSJsviD_SU"
+    ],
+    "coverIds": [
+      "-Ht4qiDRZE8",
+      "yvDCzhbjYWs",
+      "hx7BXih7zx8"
+    ]
+  },
+  {
+    "id": "neural-networks",
+    "title": "Neural networks, explained",
+    "description": "See the network, follow the gradient, then build the machinery yourself.",
+    "eyebrow": "The fundamentals",
+    "topic": "machine-learning",
+    "videoIds": [
+      "mbyG85GZ0PI",
+      "aircAruvnKk",
+      "bxe2T-V8XRs",
+      "IHZwWFHWa-w",
+      "Ilg3gGewQ5U",
+      "tIeHLnjs5U8",
+      "VMj-3S1tku0",
+      "8SF_h3xF3cE",
+      "vq2nnJ4g6N0",
+      "ne99laPUxN4"
+    ],
+    "coverIds": [
+      "aircAruvnKk",
+      "VMj-3S1tku0",
+      "Ilg3gGewQ5U"
+    ]
+  },
+  {
+    "id": "transformers",
+    "title": "Inside transformers",
+    "description": "Tokens, attention and the original paper. Then a look at what could replace attention.",
+    "eyebrow": "Architecture",
+    "topic": "llms-generative-ai",
+    "videoIds": [
+      "OQQ-W_63UgQ",
+      "wjZofJX0v4M",
+      "zduSFxRajkE",
+      "eMlx5fFNoYc",
+      "iDulhoQ2pro",
+      "OyFJWRnt_AY",
+      "S27pHKBEp30",
+      "dKJEpOtVgXc"
+    ],
+    "coverIds": [
+      "wjZofJX0v4M",
+      "eMlx5fFNoYc",
+      "iDulhoQ2pro"
+    ]
+  },
+  {
+    "id": "build-language-model",
+    "title": "Build a language model",
+    "description": "From autocomplete to a working GPT: probabilities, tokenization and code you can follow.",
+    "eyebrow": "From scratch",
+    "topic": "llms-generative-ai",
+    "videoIds": [
+      "7xTGNNLPyMI",
+      "VMj-3S1tku0",
+      "PaCmpygFfXo",
+      "zduSFxRajkE",
+      "wjZofJX0v4M",
+      "eMlx5fFNoYc",
+      "kCc8FmEb1nY",
+      "bZQun8Y4L2A",
+      "jkrNMKz9pWU"
+    ],
+    "coverIds": [
+      "PaCmpygFfXo",
+      "zduSFxRajkE",
+      "kCc8FmEb1nY"
+    ]
+  },
+  {
+    "id": "coding-agents",
+    "title": "Coding agents in practice",
+    "description": "Inside an AI editor, at the controls of Emacs, and in a real Rust session that tests the limits.",
+    "eyebrow": "Tools & autonomy",
+    "topic": "llms-generative-ai",
+    "videoIds": [
+      "LCEmiRjPEtQ",
+      "oFfVt3S51T4",
+      "ZJUyVVFOXOc",
+      "EL7Au1tzNxE"
+    ],
+    "coverIds": [
+      "LCEmiRjPEtQ",
+      "ZJUyVVFOXOc",
+      "EL7Au1tzNxE"
+    ]
+  },
+  {
+    "id": "search-storage-scale",
+    "title": "Search, storage & scale",
+    "description": "Inside a search index, through large datasets, and into the streams that keep derived data fresh.",
+    "eyebrow": "Retrieval foundations",
+    "topic": "databases-storage",
+    "videoIds": [
+      "T5RmMNDR5XI",
+      "KRcecxdGxvQ",
+      "S0mviKhVmBI",
+      "fU9hR3kiOK0"
+    ],
+    "coverIds": [
+      "T5RmMNDR5XI",
+      "fU9hR3kiOK0",
+      "KRcecxdGxvQ"
+    ]
+  },
+  {
+    "id": "better-experiments",
+    "title": "Better experiments",
+    "description": "Sampling, base rates and measurement traps. Build better judgment before trusting a benchmark.",
+    "eyebrow": "Statistics & evaluation",
+    "topic": "data-science-statistics",
+    "videoIds": [
+      "Iq9DzN6mvYA",
+      "1tSqSMOyNFE",
+      "lG4VkPoG3ko",
+      "42QuXLucH3Q",
+      "Qi1Yry33TQE",
+      "r-TLSBdHe1A"
+    ],
+    "coverIds": [
+      "Iq9DzN6mvYA",
+      "42QuXLucH3Q",
+      "r-TLSBdHe1A"
+    ]
+  },
+  {
+    "id": "ai-alignment",
+    "title": "AI alignment",
+    "description": "Goals, side effects and systems that learn the wrong lesson. The ideas behind the safety debate.",
+    "eyebrow": "Intent & behavior",
+    "topic": "ai-safety-impact",
+    "videoIds": [
+      "pYXy-A4siMw",
+      "hEUO6pjwFOo",
+      "ZeecOKBus3Q",
+      "lqJUIqZNzP8",
+      "zkbPdEHEyEI"
+    ],
+    "coverIds": [
+      "pYXy-A4siMw",
+      "hEUO6pjwFOo",
+      "ZeecOKBus3Q"
+    ]
+  },
+  {
+    "id": "vision-generation",
+    "title": "Vision & generation",
+    "description": "What a network sees, what its hidden layers learn, and how it starts making worlds of its own.",
+    "eyebrow": "Pixels to models",
+    "topic": "computer-vision-speech",
+    "videoIds": [
+      "vT1JzLTH4G4",
+      "ZmNOAtZIgIk",
+      "AgkfIQ4IGaM",
+      "rTawFwUvnLE",
+      "iv-5mZ_9CPY",
+      "udPY5rQVoW0"
+    ],
+    "coverIds": [
+      "AgkfIQ4IGaM",
+      "iv-5mZ_9CPY",
+      "udPY5rQVoW0"
+    ]
+  },
+  {
+    "id": "hardware-ai",
+    "title": "Hardware for AI",
+    "description": "The chips beneath the models: precision, memory movement, accelerators and the compiler in between.",
+    "eyebrow": "Compute & constraints",
+    "topic": "computer-architecture",
+    "videoIds": [
+      "kLiwvnr4L80",
+      "aP0Y1uAA-2Y",
+      "Gh-Tff7DdzU",
+      "yCd3CzGSte8",
+      "rsxCZAE8QNA"
+    ],
+    "coverIds": [
+      "kLiwvnr4L80",
+      "Gh-Tff7DdzU",
+      "rsxCZAE8QNA"
+    ]
+  },
+  {
+    "id": "math-machine-learning",
+    "title": "Math for machine learning",
+    "description": "Build intuition for vectors, change and uncertainty. Finish with a deeper look at sampling.",
+    "eyebrow": "Useful intuition",
+    "topic": "pure-mathematics",
+    "videoIds": [
+      "fNk_zzaMoSs",
+      "ZK3O402wf1c",
+      "Ip3X9LOh2dk",
+      "PFDu9oVAE-g",
+      "WUvTyaaNkzM",
+      "IHZwWFHWa-w",
+      "McLq1hEq3UY",
+      "KbB0FjPg0mw",
+      "HZGCoVF3YvM",
+      "BCiZc0n6COY",
+      "uU_Q2a0S0zI",
+      "pHsuIaPbNbY"
+    ],
+    "coverIds": [
+      "fNk_zzaMoSs",
+      "WUvTyaaNkzM",
+      "HZGCoVF3YvM"
+    ]
+  }
+]

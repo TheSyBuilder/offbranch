@@ -1,20 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, CircleCheck, GitBranch, MessageSquare, Play, Plus } from 'lucide-react';
-import type { Evidence, RelatedIndex, Roadmap, Video } from '../types';
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, CircleCheck, GitBranch, MessageSquare, Play } from 'lucide-react';
+import type { Evidence, RelatedIndex, Playlist, Video } from '../types';
 import './VideoPage.css';
 
 export interface VideoPageProps {
   video: Video;
   related: RelatedIndex;
   videosById: Map<string, Video>;
-  saved: boolean;
   watched: boolean;
-  activeRoadmap?: Roadmap;
+  playlist?: Playlist;
   onBack: () => void;
-  onAdd: () => void;
+  onExplore: () => void;
   onWatch: () => void;
   onSelect: (id: string) => void;
-  onOpenRoadmap: () => void;
+  onOpenPlaylist: () => void;
 }
 
 const LEVELS: Record<Video['level'], string> = { general: 'Level unspecified', intro: 'Introductory', intermediate: 'Intermediate', advanced: 'Advanced' };
@@ -27,7 +26,7 @@ function VideoFrame({ video, eager = false }: { video: Video; eager?: boolean })
   </span>;
 }
 
-function VideoPageContent({ video, related, videosById, saved, watched, activeRoadmap, onBack, onAdd, onWatch, onSelect, onOpenRoadmap }: VideoPageProps) {
+function VideoPageContent({ video, related, videosById, watched, playlist, onBack, onExplore, onWatch, onSelect, onOpenPlaylist }: VideoPageProps) {
   // Tie playback to the video ID so navigating never autoplays the next video.
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [evidence, setEvidence] = useState<{ videoId: string; rows: Evidence[] }>({ videoId: '', rows: [] });
@@ -63,9 +62,9 @@ function VideoPageContent({ video, related, videosById, saved, watched, activeRo
     }).slice(0, 6);
   }, [video.id, related, videosById]);
 
-  const routePosition = activeRoadmap?.steps.findIndex(step => step.videoId === video.id) ?? -1;
+  const routePosition = playlist?.videoIds.indexOf(video.id) ?? -1;
   const nextInRoute = routePosition >= 0
-    ? activeRoadmap?.steps.slice(routePosition + 1).map(step => videosById.get(step.videoId)).find((item): item is Video => !!item)
+    ? playlist?.videoIds.slice(routePosition + 1).map(id => videosById.get(id)).find((item): item is Video => !!item)
     : undefined;
   const excerpts = useMemo(() => {
     const rows: { text: string; url: string; year: number; author?: string }[] = [];
@@ -77,7 +76,7 @@ function VideoPageContent({ video, related, videosById, saved, watched, activeRo
 
   return <article className="watch-page" aria-labelledby="watch-title">
     <nav className="watch-navigation" aria-label="Video navigation">
-      <button onClick={onBack}><ArrowLeft size={16}/><span>Back to explore</span></button>
+      <button onClick={onBack}><ArrowLeft size={16}/><span>{playlist ? 'Back to playlist' : 'Back to explore'}</span></button>
       <span className="watch-location"><span/>From the collection</span>
     </nav>
 
@@ -102,7 +101,7 @@ function VideoPageContent({ video, related, videosById, saved, watched, activeRo
         <h1 id="watch-title">{video.title}</h1>
       </div>
       <div className="watch-actions">
-        <button className={`watch-save ${saved ? 'is-saved' : ''}`} onClick={onAdd} disabled={saved}>{saved ? <Check size={16}/> : <Plus size={16}/>}<span>{saved ? 'In your roadmap' : 'Add to roadmap'}</span></button>
+
         <button className={`watch-state ${watched ? 'is-watched' : ''}`} onClick={onWatch} aria-pressed={watched}><CircleCheck size={17}/><span>{watched ? 'Watched' : 'Mark watched'}</span></button>
         <a className="watch-external" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noreferrer" aria-label={`Open ${video.title} on YouTube`}><ArrowUpRight size={18}/><span>YouTube</span></a>
       </div>
@@ -120,17 +119,17 @@ function VideoPageContent({ video, related, videosById, saved, watched, activeRo
       </div>
     </div>
 
-    {activeRoadmap && routePosition >= 0 && <aside className="watch-route" aria-label="Continue your roadmap">
+    {playlist && routePosition >= 0 && <aside className="watch-route" aria-label="Continue this playlist">
       <div className="watch-route-marker"><GitBranch size={20}/></div>
-      <div className="watch-route-context"><span>YOUR ROADMAP · {routePosition + 1} OF {activeRoadmap.steps.length}</span><button onClick={onOpenRoadmap}>{activeRoadmap.title}<ArrowUpRight size={13}/></button></div>
+      <div className="watch-route-context"><span>IN THIS PLAYLIST · {routePosition + 1} OF {playlist.videoIds.length}</span><button onClick={onOpenPlaylist}>{playlist.title}<ArrowUpRight size={13}/></button></div>
       {nextInRoute ? <>
         <span className="watch-route-connector" aria-hidden="true"/>
-        <button className="watch-route-next" onClick={() => onSelect(nextInRoute.id)}><VideoFrame video={nextInRoute}/><span><small>Next in your route</small><strong>{nextInRoute.title}</strong></span><ArrowRight size={18}/></button>
-      </> : <button className="watch-route-complete" onClick={onOpenRoadmap}><span>Last stop in this route</span>View roadmap<ArrowRight size={15}/></button>}
+        <button className="watch-route-next" onClick={() => onSelect(nextInRoute.id)}><VideoFrame video={nextInRoute}/><span><small>Next in this playlist</small><strong>{nextInRoute.title}</strong></span><ArrowRight size={18}/></button>
+      </> : <button className="watch-route-complete" onClick={onOpenPlaylist}><span>Last video in this playlist</span>View playlist<ArrowRight size={15}/></button>}
     </aside>}
 
     <section className="watch-next" aria-labelledby="watch-next-heading">
-      <div className="watch-section-heading"><div><span>KEEP FOLLOWING THE IDEA</span><h2 id="watch-next-heading">Up next</h2></div><button onClick={onBack}>Explore the collection<ArrowUpRight size={14}/></button></div>
+      <div className="watch-section-heading"><div><span>KEEP FOLLOWING THE IDEA</span><h2 id="watch-next-heading">Up next</h2></div><button onClick={onExplore}>Explore the collection<ArrowUpRight size={14}/></button></div>
       {recommendations.length > 0 ? <div className="watch-recommendations">
         {recommendations.map(({ video: next, sharedRecommenders }) => <button className="watch-recommendation" key={next.id} onClick={() => onSelect(next.id)}>
           <span className="watch-recommendation-image"><VideoFrame video={next}/><span className="watch-recommendation-play"><Play size={14} fill="currentColor"/></span><span className="watch-recommendation-type">{next.type}</span></span>
@@ -138,7 +137,7 @@ function VideoPageContent({ video, related, videosById, saved, watched, activeRo
           <h3>{next.title}</h3>
           <span className="watch-recommendation-connection">{sharedRecommenders > 0 ? `${sharedRecommenders} shared HN recommender${sharedRecommenders === 1 ? '' : 's'}` : 'Similar ideas'}<ArrowUpRight size={13}/></span>
         </button>)}
-      </div> : <div className="watch-no-neighbors"><p>No related videos in this snapshot yet.</p><button onClick={onBack}>Find your next idea<ArrowRight size={15}/></button></div>}
+      </div> : <div className="watch-no-neighbors"><p>No related videos in this snapshot yet.</p><button onClick={onExplore}>Find your next idea<ArrowRight size={15}/></button></div>}
     </section>
 
     <details className="watch-evidence" key={video.id}>

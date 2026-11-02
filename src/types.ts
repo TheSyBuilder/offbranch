@@ -34,3 +34,5 @@ export type SearchWorkerOutput = { type: 'ready' } | { type: 'result'; payload: 
 export interface RoadmapStep { videoId: string; reason: string; }
 export interface Roadmap { version: 1; id: string; title: string; steps: RoadmapStep[]; createdAt: string; updatedAt: string; }
 export interface StarterRoadmap { id: string; title: string; description: string; topic: string; videoIds: string[]; }
+
+export interface Playlist { id: string; title: string; description: string; eyebrow: string; topic: string; videoIds: string[]; coverIds: string[]; }

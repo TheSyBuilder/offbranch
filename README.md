@@ -4,16 +4,18 @@
 
 [Open Offbranch](https://thesybuilder.github.io/offbranch/) · [TheSyBuilder on X](https://x.com/TheSyBuilder)
 
-Explore 6,454 videos from HackerTube's collection, see how ideas connect, and make a roadmap of your own. No account, API key, analytics, or live AI calls.
+Explore 6,454 videos from HackerTube's collection, see how ideas connect, and watch curated topic playlists. No account, API key, analytics, or live AI calls.
 
 ## What you can do
 
-- Search titles, creators, topics, and recommendation context. Typo correction, explicit topic aliases, and a small set of editable goal/background patterns help you get to useful results.
-- Explore 16 fields and 150 topics through a responsive, keyboard-accessible map. Related content and the order of your own roadmap are different kinds of connections.
-- Open a dedicated watch page with a click-to-load player, thumbnail recommendations, and the next video in your roadmap. Source evidence stays available in an expandable section.
-- Organize a dedicated roadmap library: create, name, reorder, and share routes; track watched videos locally; suggest 3-, 5-, or 8-video routes.
-- Share a route with a portable link, remix someone else's, and export JSON or a branded image. Shared links exclude watched history.
-- Use light or dark mode, reduced motion, and mobile layouts.
+- Search titles, creators, topics, and recommendation context, with typo correction and editable goal/background patterns.
+- Explore 16 fields and 150 topics through a responsive, keyboard-accessible map.
+- Browse 12 curated playlists in a four-column desktop grid. Collections cover reinforcement learning, data collection, language models, coding agents, AI hardware, and related subjects. Each sequence is as long as its available material warrants.
+- Open a dedicated playlist page, choose any video, and follow the next video from its watch page.
+- Track watched videos locally and continue from the first unwatched item.
+- Read HN recommendation evidence, watch on YouTube, use light or dark mode, and share playlist URLs.
+
+Roadmap building is hidden. Existing local roadmap data is left untouched; the active interface uses curated playlists.
 
 ## Run locally
 
@@ -43,6 +45,7 @@ To reproduce the pinned data assets:
 ```sh
 python3 -m pip install -r requirements.txt
 npm run data:build
+python3 scripts/build_playlists.py
 ```
 
 The script verifies the archive's SHA-256. Raw source downloads stay in ignored `.cache/`. Evidence is split into small shards so opening a video loads only the relevant source context. See `public/data/provenance.json` for source metadata and `docs/search-benchmark.md` for the measured comparison and limitations.
@@ -55,13 +58,15 @@ Default search excludes news and videos with no actual recommendations. The stro
 
 Durations, upload dates, view counts, and current availability are not in the reusable export. Offbranch does not invent them. Playback and thumbnails come directly from YouTube. Some videos may have become unavailable.
 
-## Storage and sharing
+## Playlists, storage, and navigation
 
-Roadmaps, active route, theme, and watched IDs stay in browser local storage. Clearing that storage removes them; JSON export is the portable backup. A share link contains a versioned route payload in its fragment and creates a new local copy when opened. It is not cloud synchronization. Long routes that exceed the link limit can be exported as JSON. Route images can be shared alongside the link; static hosting uses a general social preview rather than a custom server-rendered preview for each route.
+Curated sequences are reviewed ID lists in `scripts/build_playlists.py`, exported to `public/data/playlists.json`. The build validates metadata, topic IDs, video membership, recommendations, cover membership, and duplicates. See `docs/playlists.md` for the selection rationale and current-interest research. Playlists are editorial collections from a pinned archive, not a live popularity ranking.
+
+Watched IDs and theme preferences stay in browser local storage. Clearing that storage removes progress. Playlist URLs use `?playlist=SLUG`; watch URLs keep that parameter alongside `?v=VIDEO_ID` so the next item and return link survive reload. No server or runtime secrets are needed.
 
 ## Architecture
 
-React + TypeScript + Vite, custom CSS, SVG/D3 map controls, MiniSearch worker, and a Python/NumPy data pipeline. Watch pages use `?v=VIDEO_ID` and the roadmap library uses `?view=roadmaps`, so direct links and reloads work on GitHub Pages. Browser history preserves search context and scroll. No server or runtime secrets. Tests cover search relevance and tokenization, filters, sharing/import validation, route generation, and storage failures.
+React + TypeScript + Vite, custom CSS, SVG/D3 map controls, MiniSearch worker, and a Python/NumPy data pipeline. Browser history preserves search context and scroll. Tests cover search relevance, tokenization, filters, playlist integrity, and page navigation; legacy roadmap validation tests remain while that interface is hidden.
 
 ## Credits
 
