@@ -26,15 +26,15 @@ export function createRoadmap(title = 'Untitled roadmap'): Roadmap {
 }
 
 function readSteps(value: unknown, validIds?: Set<string>): RoadmapStep[] {
-  if (!Array.isArray(value) || value.length > MAX_STEPS) throw new Error('A roadmap can contain up to 60 talks.');
+  if (!Array.isArray(value) || value.length > MAX_STEPS) throw new Error('A roadmap can contain up to 60 videos.');
   const seen = new Set<string>();
   return value.map((step: unknown) => {
     if (!record(step) || typeof step.videoId !== 'string' || !ID_PATTERN.test(step.videoId)
       || typeof step.reason !== 'string' || step.reason.length > MAX_REASON) {
       throw new Error('This roadmap contains an invalid step.');
     }
-    if (validIds && !validIds.has(step.videoId)) throw new Error('This roadmap includes a talk that is not in this catalog.');
-    if (seen.has(step.videoId)) throw new Error('This roadmap contains the same talk more than once.');
+    if (validIds && !validIds.has(step.videoId)) throw new Error('This roadmap includes a video that is not in this catalog.');
+    if (seen.has(step.videoId)) throw new Error('This roadmap contains the same video more than once.');
     seen.add(step.videoId);
     return { videoId: step.videoId, reason: step.reason.replace(/[\u0000-\u001f\u007f]/g, '') };
   });
@@ -90,7 +90,7 @@ export function saveRoadmaps(roads: Roadmap[]): boolean {
 
 export function addVideoToRoadmap(road: Roadmap, video: Video): Roadmap {
   if (road.steps.some((step) => step.videoId === video.id)) return road;
-  if (road.steps.length >= MAX_STEPS) throw new Error('This roadmap has 60 talks. Start another route to keep exploring.');
+  if (road.steps.length >= MAX_STEPS) throw new Error('This roadmap has 60 videos. Start another route to keep exploring.');
   return { ...road, steps: [...road.steps, { videoId: video.id, reason: reasonForVideo(video) }], updatedAt: new Date().toISOString() };
 }
 
@@ -240,7 +240,7 @@ export async function exportRoadmapImage(road: Roadmap, videosById: Map<string, 
   context.fillStyle = '#19343e'; context.font = '600 44px "Bricolage Grotesque Variable", sans-serif';
   wrappedLines(context, checked.title, 1060, 2).forEach((line, index) => context.fillText(line, 55, 157 + index * 49));
   context.fillStyle = '#63777e'; context.font = '500 15px "Manrope Variable", sans-serif';
-  context.fillText(`${checked.steps.length} ${checked.steps.length === 1 ? 'talk' : 'talks'} · Built by TheSyBuilder`, 58, 236);
+  context.fillText(`${checked.steps.length} ${checked.steps.length === 1 ? 'video' : 'videos'} · A roadmap to make your own`, 58, 236);
   const shown = checked.steps.slice(0, 8);
   const rowsPerColumn = Math.max(1, Math.ceil(shown.length / 2));
   shown.forEach((step, index) => {
@@ -256,7 +256,7 @@ export async function exportRoadmapImage(road: Roadmap, videosById: Map<string, 
     context.fillText(String(index + 1).padStart(2, '0'), x, y + 4); context.textAlign = 'left';
     const video = videosById.get(step.videoId);
     context.fillStyle = '#19343e'; context.font = '600 16px "Manrope Variable", sans-serif';
-    const titleLines = wrappedLines(context, video?.title ?? 'A talk from the HackerTube archive', 458, 2);
+    const titleLines = wrappedLines(context, video?.title ?? 'A video from the HackerTube archive', 458, 2);
     titleLines.forEach((line, lineIndex) => context.fillText(line, x + 28, y + 2 + lineIndex * 20));
     if (video?.channel) {
       context.fillStyle = '#63777e'; context.font = '500 11px "Manrope Variable", sans-serif';
@@ -269,7 +269,7 @@ export async function exportRoadmapImage(road: Roadmap, videosById: Map<string, 
   context.fillStyle = '#63777e'; context.font = '500 11px "Manrope Variable", sans-serif';
   context.fillText('Curated from the HackerTube archive · hackertube.org', 58, 600);
   context.font = '500 12px "Manrope Variable", sans-serif';
-  context.textAlign = 'right'; context.fillText(checked.steps.length > 8 ? `+ ${checked.steps.length - 8} more talks in the full roadmap` : 'Find a talk. Follow an idea.', 1142, 585);
+  context.textAlign = 'right'; context.fillText(checked.steps.length > 8 ? `+ ${checked.steps.length - 8} more videos in the full roadmap` : 'Find a video. Follow an idea.', 1142, 585);
   const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error('The image could not be exported.')), 'image/png'));
   download(blob, `offbranch-${filename(checked.title)}.png`);
 }

@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity } from 'd3-zoom';
@@ -80,8 +80,8 @@ function wrapLabel(text: string, width: number, maxLines = 2) {
       line = word;
     } else line = line ? `${line} ${word}` : word;
   }
-  if (line) lines.push(line.length > width + 9 ? `${line.slice(0, width + 6).trim()}…` : line);
-  return lines;
+  if (line) lines.push(line);
+  return lines.map(value => value.length > width ? `${value.slice(0, width - 1).trim()}…` : value);
 }
 
 function branchPath(edge: MapEdge) {
@@ -97,11 +97,11 @@ function branchPath(edge: MapEdge) {
 
 function forestPosition(index: number, total: number, compact: boolean, kind: 'topic' | 'video') {
   if (compact) {
-    const columns = kind === 'video' ? 3 : 2;
+    const columns = 3;
     const rows = Math.ceil(total / columns);
     const col = index % columns;
     const row = Math.floor(index / columns);
-    return { x: (kind === 'topic' ? 100 : 65) + col * ((kind === 'topic' ? 220 : 290) / (columns - 1)), y: 125 + row * Math.min(92, 365 / Math.max(1, rows - 1)) + (col % 2 ? 14 : 0) };
+    return { x: 65 + col * (290 / (columns - 1)), y: 125 + row * Math.min(92, 365 / Math.max(1, rows - 1)) + (col % 2 ? 14 : 0) };
   }
   const columns = kind === 'video' ? Math.min(7, Math.max(3, Math.ceil(total / 5))) : Math.min(4, Math.max(2, Math.ceil(total / 4)));
   const rows = Math.ceil(total / columns);
@@ -143,6 +143,81 @@ function addTopicBuds(areaNodes: MapNode[], topics: Topic[], compact: boolean, w
     });
   }
   return [...areaNodes, ...buds];
+}
+
+interface LabelBox { x: number; y: number; width: number; height: number }
+
+function boxesOverlap(a: LabelBox, b: LabelBox, gap = 5) {
+  return a.x < b.x + b.width + gap && a.x + a.width + gap > b.x && a.y < b.y + b.height + gap && a.y + a.height + gap > b.y;
+}
+
+// Measure the filled glyphs, then place a separate backplate. Stroked text can
+// lose its counters at small sizes and is unnecessary for separating branches.
+function positionMapLabels(world: SVGGElement, nodes: MapNode[], width: number, compact: boolean, origin: { x: number; y: number }) {
+  const occupied: LabelBox[] = [{ x: origin.x - 35, y: origin.y - 35, width: 70, height: 70 }];
+  const nodeBounds = nodes.map(node => ({ x: node.x - (node.secondary ? 7 : 11), y: node.y - (node.secondary ? 7 : 11), width: node.secondary ? 14 : 22, height: node.secondary ? 14 : 22 }));
+  const labels = Array.from(world.querySelectorAll<SVGGElement>('[data-map-label]'));
+  // Keep permanent names stable when a small branch receives focus.
+  labels.sort((a, b) => Number(a.dataset.secondary === 'true') - Number(b.dataset.secondary === 'true'));
+  for (const label of labels) {
+    const node = nodes.find(item => item.id === label.dataset.mapLabel);
+    const copy = label.querySelector<SVGGElement>('[data-map-label-copy]');
+    const plate = label.querySelector<SVGRectElement>('[data-map-label-plate]');
+    if (!node || !copy || !plate) continue;
+    const bounds = copy.getBBox();
+    const paddingX = 5;
+    const paddingY = 4;
+    const boxWidth = bounds.width + paddingX * 2;
+    const boxHeight = bounds.height + paddingY * 2;
+    const below = node.kind === 'video' || compact || node.secondary;
+    const left = !below && node.x > width * .74;
+    const preferred = below
+      ? { x: node.x - boxWidth / 2, y: node.y + 16 }
+      : { x: left ? node.x - boxWidth - 15 : node.x + 15, y: node.y - boxHeight / 2 };
+    const candidates = [preferred,
+      { x: node.x - boxWidth / 2, y: node.y - boxHeight - 16 },
+      { x: node.x + 16, y: node.y - boxHeight / 2 },
+      { x: node.x - boxWidth - 16, y: node.y - boxHeight / 2 },
+      { x: node.x - boxWidth / 2, y: node.y + 16 },
+    ];
+    for (const distance of [36, 58, 82, 112]) {
+      for (let direction = 0; direction < 8; direction++) {
+        const angle = direction * Math.PI / 4;
+        candidates.push({ x: node.x + Math.cos(angle) * (boxWidth / 2 + distance) - boxWidth / 2, y: node.y + Math.sin(angle) * (boxHeight / 2 + distance) - boxHeight / 2 });
+      }
+    }
+    const fits = (candidate: { x: number; y: number }) => {
+      const box = { ...candidate, width: boxWidth, height: boxHeight };
+      return box.x >= 5 && box.x + box.width <= width - 5 && box.y >= 8 && box.y + box.height <= WORLD_HEIGHT - 34
+        && !occupied.some(other => boxesOverlap(box, other)) && !nodeBounds.some(other => boxesOverlap(box, other, 1));
+    };
+    let position = candidates.map(candidate => ({
+      x: Math.max(5, Math.min(width - boxWidth - 5, candidate.x)),
+      y: Math.max(8, Math.min(WORLD_HEIGHT - boxHeight - 34, candidate.y)),
+    })).find(fits);
+    // Crowded result views can have long titles. Use a vacant slot and a leader
+    // rather than painting one label over another or covering a clickable node.
+    if (!position) {
+      const slots: { x: number; y: number }[] = [];
+      for (let y = 12; y + boxHeight < WORLD_HEIGHT - 34; y += 20) {
+        for (let x = 8; x + boxWidth < width - 5; x += 20) slots.push({ x, y });
+      }
+      position = slots.filter(fits).sort((a, b) => Math.hypot(a.x - preferred.x, a.y - preferred.y) - Math.hypot(b.x - preferred.x, b.y - preferred.y))[0];
+    }
+    label.style.visibility = position ? 'visible' : 'hidden';
+    const leader = label.parentElement?.querySelector<SVGPathElement>('[data-map-label-leader]');
+    if (!position) { leader?.setAttribute('d', ''); continue; }
+    const box = { ...position, width: boxWidth, height: boxHeight };
+    occupied.push(box);
+    plate.setAttribute('x', String(bounds.x - paddingX));
+    plate.setAttribute('y', String(bounds.y - paddingY));
+    plate.setAttribute('width', String(boxWidth));
+    plate.setAttribute('height', String(boxHeight));
+    label.setAttribute('transform', `translate(${box.x - node.x - bounds.x + paddingX} ${box.y - node.y - bounds.y + paddingY})`);
+    const anchorX = Math.max(box.x, Math.min(node.x, box.x + box.width));
+    const anchorY = Math.max(box.y, Math.min(node.y, box.y + box.height));
+    leader?.setAttribute('d', Math.hypot(anchorX - node.x, anchorY - node.y) > 27 ? `M0 0 L${anchorX - node.x} ${anchorY - node.y}` : '');
+  }
 }
 
 export function KnowledgeMap({ overview, videos, related, selectedVideoId, activeTopic, activeArea, roadmapVideoIds, searching, query = '', onSelectVideo, onSelectTopic, onSelectArea }: KnowledgeMapProps) {
@@ -262,6 +337,18 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
     return result;
   }, [nodes, mode, roadmapVideoIds, related, origin.x, origin.y, compact]);
 
+  useLayoutEffect(() => {
+    let active = true;
+    const position = () => {
+      if (active && worldRef.current) positionMapLabels(worldRef.current, nodes, width, compact, origin);
+    };
+    position();
+    // Re-measure if the variable fonts arrive after the initial map render.
+    void document.fonts.ready.then(position);
+    document.fonts.addEventListener('loadingdone', position);
+    return () => { active = false; document.fonts.removeEventListener('loadingdone', position); };
+  }, [nodes, hoveredId, selectedVideoId, width, compact, origin.x, origin.y]);
+
   const signature = `${mode}:${activeArea}:${activeTopic}:${query}:${nodes.map(node => node.id).join(',')}`;
   useEffect(() => {
     setHoveredId(null);
@@ -302,7 +389,7 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
     const overflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     hostRef.current?.focus();
-    return () => { document.body.style.overflow = overflow; previousFocus?.focus(); };
+    return () => { document.body.style.overflow = overflow; if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true }); };
   }, [expanded]);
 
   useEffect(() => { setImageFailed(false); }, [selectedVideoId, hoveredId]);
@@ -399,21 +486,22 @@ export function KnowledgeMap({ overview, videos, related, selectedVideoId, activ
               const isVideo = node.kind === 'video';
               const radius = node.secondary ? 2.8 : isVideo ? node.rank < 3 ? 8 : 5.5 : node.kind === 'area' ? 7.5 : 6;
               const labelVisible = node.secondary ? hovered : !isVideo || selected || hovered || node.rank < (compact ? 4 : 9);
-              const labelWidth = isVideo ? compact ? 17 : 22 : compact ? 18 : 24;
+              const labelWidth = isVideo ? compact ? 17 : 22 : compact ? node.kind === 'topic' && !node.secondary ? 15 : 18 : 24;
               const lines = wrapLabel(node.kind === 'area' ? AREA_LABELS[node.id] || node.name : node.name, labelWidth);
-              const labelBelow = isVideo || compact || node.secondary;
-              const labelLeft = !labelBelow && node.x > width * .74;
               return <g key={node.id} data-map-node="true" className={`knowledge-map__node knowledge-map__node--${node.kind}${node.secondary ? ' knowledge-map__node--bud' : ''}${selected ? ' is-selected' : ''}${hovered ? ' is-hovered' : ''}${routeIndex >= 0 ? ' is-on-route' : ''}`} transform={`translate(${node.x} ${node.y})`} style={{ '--node-color': node.color } as CSSProperties} role="button" tabIndex={0} aria-label={`${isVideo ? 'View video' : 'Explore'}: ${node.name}${node.count ? `, ${node.count} ${node.countKind || 'videos'}` : ''}`} aria-pressed={selected || (node.kind === 'topic' && node.id === activeTopic) || (node.kind === 'area' && node.id === activeArea)} onClick={() => actOnNode(node)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); actOnNode(node); } }} onPointerEnter={() => setHoveredId(node.id)} onPointerLeave={() => setHoveredId(null)} onFocus={() => setHoveredId(node.id)} onBlur={() => setHoveredId(null)}>
-                <title>{node.name}</title>
+                {labelVisible && <path className="knowledge-map__label-leader" data-map-label-leader="true" />}
                 <circle className="knowledge-map__hit-area" r={node.secondary ? 16 : 24} />
                 <circle className="knowledge-map__node-halo" r={radius + 9} />
                 <circle className="knowledge-map__node-ring" r={radius + 4} />
                 <circle className="knowledge-map__node-dot" r={radius} />
                 {!isVideo && !node.secondary && <circle className="knowledge-map__node-core" r="2.2" />}
                 {routeIndex >= 0 && <g className="knowledge-map__route-number" transform="translate(12 -14)"><circle r="9" /><text textAnchor="middle" dy=".35em">{routeIndex + 1}</text></g>}
-                {labelVisible && <g className="knowledge-map__node-label" transform={`translate(${labelBelow ? 0 : labelLeft ? -17 : 17} ${labelBelow ? 23 : -3})`}>
-                  <text className="knowledge-map__node-title" textAnchor={labelBelow ? 'middle' : labelLeft ? 'end' : 'start'}>{lines.map((line, i) => <tspan key={i} x="0" dy={i ? '1.22em' : '0'}>{line}</tspan>)}</text>
-                  {!isVideo && <text className="knowledge-map__node-count" textAnchor={labelBelow ? 'middle' : labelLeft ? 'end' : 'start'} y={lines.length > 1 ? 33 : 18}>{(node.count ?? 0).toLocaleString()} {node.countKind || 'videos'}</text>}
+                {labelVisible && <g className="knowledge-map__node-label" data-map-label={node.id} data-secondary={node.secondary || undefined} aria-hidden="true">
+                  <rect className="knowledge-map__label-plate" data-map-label-plate="true" rx="4" />
+                  <g data-map-label-copy="true">
+                    <text className="knowledge-map__node-title">{lines.map((line, i) => <tspan key={i} x="0" dy={i ? '1.22em' : '0'}>{line}</tspan>)}</text>
+                    {!isVideo && <text className="knowledge-map__node-count" y={lines.length > 1 ? 33 : 18}>{(node.count ?? 0).toLocaleString()} {node.countKind || 'videos'}</text>}
+                  </g>
                 </g>}
               </g>;
             })}

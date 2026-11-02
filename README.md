@@ -10,8 +10,8 @@ Explore 6,454 videos from HackerTube's collection, see how ideas connect, and ma
 
 - Search titles, creators, topics, and recommendation context. Typo correction, explicit topic aliases, and a small set of editable goal/background patterns help you get to useful results.
 - Explore 16 fields and 150 topics through a responsive, keyboard-accessible map. Related content and the order of your own roadmap are different kinds of connections.
-- Read real HN recommendation evidence, watch on YouTube, and follow related videos.
-- Create and reorder roadmaps; track watched videos locally; suggest 3-, 5-, or 8-video routes.
+- Open a dedicated watch page with a click-to-load player, thumbnail recommendations, and the next video in your roadmap. Source evidence stays available in an expandable section.
+- Organize a dedicated roadmap library: create, name, reorder, and share routes; track watched videos locally; suggest 3-, 5-, or 8-video routes.
 - Share a route with a portable link, remix someone else's, and export JSON or a branded image. Shared links exclude watched history.
 - Use light or dark mode, reduced motion, and mobile layouts.
 
@@ -61,10 +61,10 @@ Roadmaps, active route, theme, and watched IDs stay in browser local storage. Cl
 
 ## Architecture
 
-React + TypeScript + Vite, custom CSS, SVG/D3 map controls, MiniSearch worker, and a Python/NumPy data pipeline. No server or runtime secrets. Tests cover search relevance and tokenization, filters, sharing/import validation, route generation, and storage failures.
+React + TypeScript + Vite, custom CSS, SVG/D3 map controls, MiniSearch worker, and a Python/NumPy data pipeline. Watch pages use `?v=VIDEO_ID` and the roadmap library uses `?view=roadmaps`, so direct links and reloads work on GitHub Pages. Browser history preserves search context and scroll. No server or runtime secrets. Tests cover search relevance and tokenization, filters, sharing/import validation, route generation, and storage failures.
 
 ## Credits
 
-Built by [TheSyBuilder](https://github.com/TheSyBuilder). Inspired by [HackerTube](https://hackertube.org), created by Andrej Karpathy. Data derives from [open-index/hacker-news](https://huggingface.co/datasets/open-index/hacker-news).
+Inspired by [HackerTube](https://hackertube.org), created by Andrej Karpathy. Data derives from [open-index/hacker-news](https://huggingface.co/datasets/open-index/hacker-news).
 
 Application code is MIT licensed. The dataset is ODC-By 1.0; see `DATA-LICENSE.md`. Comments belong to their authors; videos, titles, and channel names belong to their creators. Not affiliated with YouTube, Google, Hacker News, or Y Combinator.

@@ -1,0 +1,75 @@
+/* The collection stays quiet; light and motion are concentrated around search. */
+#main-content { outline: none; min-height: 60vh; }
+.hero { position: relative; isolation: isolate; }
+.search-atmosphere {
+  --light-x: 50%; --light-y: 70%;
+  position: absolute; inset: 0 -7% -24px; z-index: -1; pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(ellipse 240px 100px at var(--light-x) var(--light-y), #c6b18016, transparent 100%);
+}
+.search-atmosphere > span { position: absolute; width: 460px; height: 150px; left: 16%; bottom: 10px; border-radius: 50%; background: radial-gradient(ellipse, #7ca5a41c, transparent 70%); animation: search-light-drift 15s ease-in-out infinite alternate; }
+.search-atmosphere > span + span { left: auto; right: 14%; bottom: 3px; background: radial-gradient(ellipse, #c2a7771c, transparent 70%); animation-delay: -7s; animation-direction: alternate-reverse; }
+[data-theme=dark] .search-atmosphere { background: radial-gradient(ellipse 260px 120px at var(--light-x) var(--light-y), #d5c69e0c, transparent); }
+[data-theme=dark] .search-atmosphere > span { background: radial-gradient(ellipse, #9fb08d0d, transparent 70%); }
+[data-theme=dark] .search-atmosphere > span + span { background: radial-gradient(ellipse, #d0aa7914, transparent 70%); }
+.search-form {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(110deg, var(--line), #a6bdbb, var(--line), #c8b58b, var(--line)) border-box;
+  background-size: 100% 100%, 250% 100%;
+  animation: search-border-drift 15s ease-in-out infinite alternate;
+  box-shadow: 0 5px 30px #19343e06;
+}
+[data-theme=dark] .search-form {
+  background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(110deg, var(--line), #686b5c, var(--line), #816f51, var(--line)) border-box;
+  background-size: 100% 100%, 250% 100%;
+  box-shadow: 0 7px 32px #0000001c;
+}
+.search-form:focus-within { border-color: transparent; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent), 0 8px 32px #00000008; }
+.search-atmosphere.is-paused > span, .hero[data-motion-paused=true] .search-form { animation-play-state: paused; }
+@keyframes search-light-drift { from { transform: translate(-45px, 8px) scale(.9); } to { transform: translate(65px, -15px) scale(1.15); } }
+@keyframes search-border-drift { from { background-position: 0 0, 0% 50%; } to { background-position: 0 0, 100% 50%; } }
+.nav-roadmaps[aria-current=page]::after { content: ''; position: absolute; width: 3px; height: 3px; background: var(--route); border-radius: 50%; left: 50%; bottom: -7px; }
+.starter-section { margin-bottom: 76px; }
+.starter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 28px; }
+.collection-card { display: flex; flex-direction: column; text-align: left; padding: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); transition: border-color .2s ease, transform .25s ease; }
+.collection-card:hover { border-color: color-mix(in srgb, var(--muted) 55%, var(--line)); transform: translateY(-3px); }
+.collection-cover { position: relative; width: 100%; aspect-ratio: 2.15; overflow: hidden; background: #252524; isolation: isolate; }
+.collection-cover-main { position: absolute; inset: 0; display: block; }
+.collection-cover-main img { height: 100%; object-fit: cover; object-position: 50% 45%; transition: transform .6s ease; filter: saturate(.7); }
+.collection-card:hover .collection-cover-main img { transform: scale(1.035); }
+.collection-cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, #101010aa), linear-gradient(0deg, #0008, transparent 40%); pointer-events: none; z-index: 1; }
+.collection-filmstrip { position: absolute; z-index: 2; right: 16px; top: 16px; bottom: 16px; display: flex; flex-direction: column; justify-content: center; gap: 9px; width: 25%; }
+.collection-film-frame { display: block; min-height: 0; aspect-ratio: 16/9; border: 2px solid #e9e7e2cf; border-radius: 3px; overflow: hidden; background: #30302e; box-shadow: 0 5px 15px #0005; }
+.collection-film-frame img { height: 100%; object-fit: cover; }
+.collection-number { position: absolute; top: 17px; left: 18px; z-index: 3; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-shadow: 0 1px 8px #000; }
+.collection-count { position: absolute; bottom: 16px; left: 17px; display: flex; align-items: center; gap: 6px; color: #fff; font-size: 10px; padding: 6px 9px; border: 1px solid #ffffff30; border-radius: 5px; background: #11111185; z-index: 3; backdrop-filter: blur(6px); }
+.collection-card-body { padding: 24px 25px 20px; display: flex; flex-direction: column; flex: 1; }
+.collection-eyebrow { font-size: 9px; color: var(--muted); letter-spacing: .13em; font-weight: 650; margin-bottom: 11px; }
+.collection-card h3 { font-family: var(--font-display); font-size: clamp(22px, 2.1vw, 29px); font-weight: 550; letter-spacing: -.7px; line-height: 1.15; }
+.collection-card p { font-size: 12px; color: var(--muted); line-height: 1.7; max-width: 390px; margin: 12px 0 24px; }
+.collection-card-foot { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-top: 1px solid var(--line); padding-top: 15px; margin-top: auto; color: var(--muted); font-size: 10px; }
+.collection-card-foot > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.collection-card-foot > svg { color: var(--ink); flex-shrink: 0; transition: transform .2s; }
+.collection-card:hover .collection-card-foot > svg { transform: translate(2px, -2px); }
+.page-state { max-width: 1000px; margin: 60px auto 120px; padding: 40px 28px; }
+.page-state h1 { font-family: var(--font-display); font-size: 40px; }
+.page-state p { color: var(--muted); margin: 15px 0 24px; }
+@media(max-width:700px) {
+  .search-atmosphere { inset: 50px 0 0; }
+  .search-atmosphere > span { width: 270px; left: -20%; }
+  .search-atmosphere > span + span { right: -20%; }
+  .hero h1 { text-wrap: balance; }
+  .collection-card-body { padding: 19px; }
+  .collection-card h3 { font-size: 25px; }
+  .collection-card p { font-size: 12px; margin-bottom: 18px; }
+  .collection-card-foot { font-size: 10px; }
+}
+@media(max-width:560px) {
+  .starter-grid { grid-template-columns: 1fr; gap: 22px; }
+  .collection-cover { aspect-ratio: 1.95; }
+  .starter-section { margin-bottom: 45px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .search-atmosphere > span, .search-form { animation: none !important; }
+  .collection-card:hover, .collection-card:hover .collection-cover-main img { transform: none; }
+}

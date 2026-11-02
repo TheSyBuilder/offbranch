@@ -1,9 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, Compass, GitBranch, Github, Info, ListFilter, LoaderCircle, Moon, Plus, Search, Sun, X } from 'lucide-react';
 import { KnowledgeMap } from './components/KnowledgeMap';
-import { RoadmapPanel } from './components/RoadmapPanel';
+import { RoadmapsPage } from './components/RoadmapsPage';
 import { Overlay } from './components/Overlay';
-import { VideoDetail } from './components/VideoDetail';
+import { VideoPage } from './components/VideoPage';
+import { StarterCard } from './components/StarterCard';
+import { SearchAtmosphere } from './components/SearchAtmosphere';
+import { locationUrl, parseLocation, type AppPage } from './lib/navigation';
 import { addVideoToRoadmap, createRoadmap, decodeRoadmap, loadRoadmaps, saveRoadmaps, suggestRoadmap } from './lib/roadmaps';
 import { DEFAULT_FILTERS, type Catalog, type Overview, type RelatedIndex, type Roadmap, type SearchFilters, type SearchResponse, type SearchWorkerInput, type SearchWorkerOutput, type StarterRoadmap, type Video } from './types';
 
@@ -11,15 +14,7 @@ const dataUrl = (name: string) => `${import.meta.env.BASE_URL}data/${name}.json`
 const exampleQueries = ['Neural networks', 'Distributed systems', 'The history of computing', 'Visual mathematics'];
 const formatter = new Intl.NumberFormat('en');
 
-function readLocation() {
-  const p = new URLSearchParams(location.search);
-  const filters = { ...DEFAULT_FILTERS };
-  (['topic', 'area', 'type', 'level'] as const).forEach(k => { filters[k] = p.get(k) || ''; });
-  if (['recommended', 'strong', 'all'].includes(p.get('evidence') || '')) filters.evidence = p.get('evidence') as SearchFilters['evidence'];
-  if (['not-news', 'evergreen', 'all'].includes(p.get('shelfLife') || '')) filters.shelfLife = p.get('shelfLife') as SearchFilters['shelfLife'];
-  if (['all', 'unwatched', 'saved'].includes(p.get('state') || '')) filters.state = p.get('state') as SearchFilters['state'];
-  return { query: p.get('q') || '', filters, selected: p.get('v') };
-}
+const readLocation = () => parseLocation(location.search);
 
 function loadWatched(): string[] {
   try { const value: unknown = JSON.parse(localStorage.getItem('offbranch-watched') || '[]'); return Array.isArray(value) ? value.filter((v): v is string => typeof v === 'string' && /^[\w-]{11}$/.test(v)) : []; } catch { return []; }
@@ -62,7 +57,11 @@ export default function App() {
   const [pending, setPending] = useState(false);
   const [showBusy, setShowBusy] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
-  const [showRoadmaps, setShowRoadmaps] = useState(false);
+  const [page, setPage] = useState<AppPage>(initial.current.page);
+  const [navigationVersion, setNavigationVersion] = useState(0);
+  const exploreScroll = useRef(0);
+  const nextScroll = useRef(0);
+  const pageFocusRef = useRef<HTMLElement>(null);
   const [showAbout, setShowAbout] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [visibleCount, setVisibleCount] = useState(9);
@@ -82,26 +81,75 @@ export default function App() {
   const allSavedIds = useMemo(() => [...new Set(roadmaps.flatMap(r => r.steps.map(s => s.videoId)))], [roadmaps]);
   const activeFilterCount = Object.keys(DEFAULT_FILTERS).filter(k => filters[k as keyof SearchFilters] !== DEFAULT_FILTERS[k as keyof SearchFilters]).length;
 
-  const navigate = useCallback((next: { query?: string; filters?: SearchFilters; selected?: string | null }, replace = false) => {
+  const navigate = useCallback((next: { query?: string; filters?: SearchFilters; selected?: string | null; page?: AppPage }, replace = false) => {
     const q = next.query ?? query;
     const f = next.filters ?? filters;
-    const s = next.selected !== undefined ? next.selected : selectedId;
-    const p = new URLSearchParams();
-    if (q) p.set('q', q);
-    Object.keys(DEFAULT_FILTERS).forEach(key => { const k = key as keyof SearchFilters; if (f[k] !== DEFAULT_FILTERS[k]) p.set(k, f[k]); });
-    if (s) p.set('v', s);
-    const url = `${location.pathname}${p.size ? `?${p}` : ''}${location.hash}`;
-    if (url !== `${location.pathname}${location.search}${location.hash}`) history[replace ? 'replaceState' : 'pushState']({}, '', url);
-    setQuery(q); setFilters(f); setSelectedId(s); setVisibleCount(9);
-  }, [query, filters, selectedId]);
+    const destination = next.page ?? (next.selected !== undefined ? next.selected ? 'video' : 'explore' : page);
+    const selected = destination === 'video' ? next.selected ?? selectedId : null;
+    const changedPage = destination !== page || selected !== selectedId;
+    const changedSearch = q !== query || Object.keys(DEFAULT_FILTERS).some(key => f[key as keyof SearchFilters] !== filters[key as keyof SearchFilters]);
+    if (page === 'explore') exploreScroll.current = window.scrollY;
+    nextScroll.current = changedPage ? destination === 'explore' ? exploreScroll.current : 0 : window.scrollY;
+    history.replaceState({ ...history.state, offbranchScroll: window.scrollY, offbranchVisibleCount: visibleCount }, '', locationUrl(location.pathname, { page, query, filters, selected: selectedId }, location.hash));
+    const url = locationUrl(location.pathname, { page: destination, query: q, filters: f, selected }, location.hash);
+    if (url !== location.pathname + location.search + location.hash) history[replace ? 'replaceState' : 'pushState']({ offbranchScroll: nextScroll.current, offbranchVisibleCount: changedSearch ? 9 : visibleCount }, '', url);
+    setQuery(q); setFilters(f); setSelectedId(selected); setPage(destination);
+    if (changedSearch) setVisibleCount(9);
+    setNavigationVersion(version => version + 1);
+  }, [query, filters, selectedId, page, visibleCount]);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: nextScroll.current, behavior: 'instant' });
+  }, [navigationVersion]);
 
   useEffect(() => {
-    const pop = () => { const state = readLocation(); setQuery(state.query); setFilters(state.filters); setSelectedId(state.selected); };
+    const previous = history.scrollRestoration;
+    history.scrollRestoration = 'manual';
+    let scrollTimer: ReturnType<typeof setTimeout> | undefined;
+    const pop = () => {
+      clearTimeout(scrollTimer); scrollTimer = undefined;
+      const state = readLocation();
+      nextScroll.current = history.state?.offbranchScroll ?? 0;
+      setVisibleCount(history.state?.offbranchVisibleCount ?? 9);
+      setQuery(state.query); setFilters(state.filters); setSelectedId(state.selected); setPage(state.page);
+      setNavigationVersion(version => version + 1);
+    };
+    // Keep History writes infrequent; WebKit rate-limits repeated replaceState calls.
+    const saveScroll = () => {
+      if (scrollTimer !== undefined) return;
+      scrollTimer = setTimeout(() => {
+        scrollTimer = undefined;
+        history.replaceState({ ...history.state, offbranchScroll: window.scrollY }, '', location.href);
+      }, 500);
+    };
     window.addEventListener('popstate', pop);
-    const keyboard = (e: KeyboardEvent) => { if (document.querySelector('[aria-modal="true"]')) return; if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName) && !showRoadmaps && !selectedId && !showAbout)) { e.preventDefault(); inputRef.current?.focus(); } };
+    window.addEventListener('scroll', saveScroll, { passive: true });
+    return () => { window.removeEventListener('popstate', pop); window.removeEventListener('scroll', saveScroll); clearTimeout(scrollTimer); history.scrollRestoration = previous; };
+  }, []);
+
+  useEffect(() => {
+    if (!document.querySelector('[aria-modal="true"]')) pageFocusRef.current?.focus({ preventScroll: true });
+  }, [page, selectedId]);
+
+  useEffect(() => {
+    history.replaceState({ ...history.state, offbranchVisibleCount: visibleCount }, '', location.href);
+  }, [visibleCount]);
+
+  useEffect(() => {
+    const title = page === 'video' ? catalogById.get(selectedId || '')?.title : page === 'roadmaps' ? 'My roadmaps' : '';
+    document.title = title ? title + ' · Offbranch' : 'Offbranch — Find a talk. Follow an idea.';
+  }, [page, selectedId, catalogById]);
+
+  useEffect(() => {
+    const keyboard = (e: KeyboardEvent) => {
+      if (page !== 'explore' || document.querySelector('[aria-modal="true"]')) return;
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName) && !showAbout)) {
+        e.preventDefault(); inputRef.current?.focus();
+      }
+    };
     window.addEventListener('keydown', keyboard);
-    return () => { window.removeEventListener('popstate', pop); window.removeEventListener('keydown', keyboard); };
-  }, [showRoadmaps, selectedId, showAbout]);
+    return () => window.removeEventListener('keydown', keyboard);
+  }, [page, showAbout]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -163,7 +211,7 @@ export default function App() {
       const url = new URL(location.href);
       if ((url.searchParams.get('q') || '') === query) return;
       if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
-      history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+      history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
     }, 200);
     return () => clearTimeout(timer);
   }, [query]);
@@ -179,14 +227,14 @@ export default function App() {
       try {
         const imported = decodeRoadmap(location.hash, new Set(catalogById.keys()));
         if (!imported) { setStatus('That roadmap link is incomplete or invalid. You can still explore the collection.'); return; }
-        setRoadmaps(existing => [...existing, imported]); setActiveRoadmapId(imported.id); setShowRoadmaps(true); setStatus('Your own copy is ready. Make it yours.');
-        history.replaceState({}, '', `${location.pathname}${location.search}`);
+        setRoadmaps(existing => [...existing, imported]); setActiveRoadmapId(imported.id); navigate({ page: 'roadmaps', selected: null }, true); setStatus('Your own copy is ready. Make it yours.');
+        history.replaceState(history.state, '', `${location.pathname}${location.search}`);
       } catch { setStatus('That roadmap link couldn’t be opened. Try importing its JSON backup.'); }
     };
     importSharedRoute();
     window.addEventListener('hashchange', importSharedRoute);
     return () => window.removeEventListener('hashchange', importSharedRoute);
-  }, [catalog, catalogById]);
+  }, [catalog, catalogById, navigate]);
 
   const hits = response?.hits || [];
   const directHits = hits.filter(h => h.kind === 'direct');
@@ -198,7 +246,8 @@ export default function App() {
   const currentArea = overview?.areas.find(a => a.id === filters.area);
 
   const changeFilter = (key: keyof SearchFilters, value: string) => navigate({ filters: { ...filters, [key]: value }, selected: null });
-  const selectVideo = (id: string) => { setShowRoadmaps(false); navigate({ selected: id }); };
+  const selectVideo = (id: string) => navigate({ selected: id, page: 'video' });
+  const backToExplore = () => navigate({ page: 'explore', selected: null });
   const toggleWatched = (id: string) => setWatchedIds(ids => ids.includes(id) ? ids.filter(i => i !== id) : [...ids, id]);
   const addVideo = (id: string) => {
     const video = catalogById.get(id); if (!video) return;
@@ -211,8 +260,7 @@ export default function App() {
   };
   const openRoadmaps = () => {
     if (!roadmaps.length) { const road = createRoadmap('My next good ideas'); setRoadmaps([road]); setActiveRoadmapId(road.id); }
-    if (selectedId) navigate({ selected: null });
-    setShowRoadmaps(true);
+    navigate({ selected: null, page: 'roadmaps' });
   };
   const suggest = (count: 3 | 5 | 8) => {
     if (!ready || pending || loadError || response?.requestId !== requestIdRef.current) {
@@ -222,25 +270,26 @@ export default function App() {
     const title = query ? `A way into ${response?.interpretation.correction || response?.interpretation.target || query}` : currentTopic ? `A way into ${currentTopic.name.toLowerCase()}` : 'A few good ideas';
     const road = suggestRoadmap(candidates, count, watchedIds, title);
     if (!road.steps.length) { setStatus('No unwatched videos match these filters. Broaden your search and try again.'); return; }
-    setRoadmaps(roads => [...roads, road]); setActiveRoadmapId(road.id); setShowRoadmaps(true);
+    setRoadmaps(roads => [...roads, road]); setActiveRoadmapId(road.id); navigate({ selected: null, page: 'roadmaps' });
     setStatus(`${road.steps.length} connected ideas, ready to make your own.`);
   };
   const openStarter = (starter: StarterRoadmap) => {
     let road = createRoadmap(starter.title);
     for (const id of starter.videoIds) { const video = catalogById.get(id); if (video) road = addVideoToRoadmap(road, video); }
-    setRoadmaps(roads => [...roads, road]); setActiveRoadmapId(road.id); setShowRoadmaps(true);
+    setRoadmaps(roads => [...roads, road]); setActiveRoadmapId(road.id); navigate({ selected: null, page: 'roadmaps' });
   };
   const toggleTheme = () => { const next = theme === 'dark' ? 'light' : 'dark'; setTheme(next); document.documentElement.dataset.theme = next; try { localStorage.setItem('offbranch-theme', next); } catch {} };
   const searchFor = (value: string) => { navigate({ query: value, filters: { ...DEFAULT_FILTERS }, selected: null }); setShowSuggestions(false); };
 
   return <>
-    <a className="skip-link" href="#results">Skip to videos</a>
-    <header className="site-header"><a className="brand-link" href={import.meta.env.BASE_URL} aria-label="Offbranch home" onClick={e => { e.preventDefault(); navigate({ query: '', filters: { ...DEFAULT_FILTERS }, selected: null }); }}><Brand/></a>
-      <nav aria-label="Main navigation"><a className="nav-explore" href="#explore">Explore</a><button className="nav-roadmaps" onClick={openRoadmaps}><GitBranch size={16}/><span>My roadmaps</span>{currentSavedIds.length > 0 && <span className="nav-count">{currentSavedIds.length}</span>}</button><span className="nav-separator"/><button className="icon-button" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>{theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}</button><a className="icon-button github-header" href="https://github.com/TheSyBuilder/offbranch" target="_blank" rel="noreferrer" aria-label="Offbranch on GitHub"><Github size={18}/></a></nav>
+    <a className="skip-link" href="#main-content">Skip to content</a>
+    <header className="site-header"><a className="brand-link" href={import.meta.env.BASE_URL} aria-label="Offbranch home" onClick={e => { e.preventDefault(); navigate({ query: '', filters: { ...DEFAULT_FILTERS }, selected: null, page: 'explore' }); nextScroll.current = 0; window.scrollTo({ top: 0, behavior: 'instant' }); }}><Brand/></a>
+      <nav aria-label="Main navigation"><a className="nav-explore" href={import.meta.env.BASE_URL} aria-current={page === 'explore' ? 'page' : undefined} onClick={e => { e.preventDefault(); backToExplore(); }}>Explore</a><button className="nav-roadmaps" aria-current={page === 'roadmaps' ? 'page' : undefined} onClick={openRoadmaps}><GitBranch size={16}/><span>My roadmaps</span>{currentSavedIds.length > 0 && <span className="nav-count">{currentSavedIds.length}</span>}</button><span className="nav-separator"/><button className="icon-button" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>{theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}</button><a className="icon-button github-header" href="https://github.com/TheSyBuilder/offbranch" target="_blank" rel="noreferrer" aria-label="Offbranch on GitHub"><Github size={18}/></a></nav>
     </header>
-    <main>
-      <section className="hero" aria-labelledby="hero-heading"><div className="collection-note"><span className="live-dot"/>A collection worth getting lost in</div><h1 id="hero-heading">Find a talk. Follow an idea.</h1><p className="hero-description">The videos Hacker News keeps coming back to. Connected, so you can go further.</p>
-        <form className={`search-form ${showBusy ? 'is-searching' : ''}`} role="search" onSubmit={e => { e.preventDefault(); navigate({ query }); setShowSuggestions(false); inputRef.current?.blur(); resultsRef.current?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' }); }}>
+    <main id="main-content" ref={pageFocusRef} tabIndex={-1}>
+      {page === 'explore' && <>
+      <section className="hero" aria-labelledby="hero-heading"><SearchAtmosphere/><div className="collection-note"><span className="live-dot"/>A collection worth getting lost in</div><h1 id="hero-heading">Find a talk. Follow an idea.</h1><p className="hero-description">The videos Hacker News keeps coming back to. Connected, so you can go further.</p>
+        <form className={`search-form ${showBusy ? 'is-searching' : ''}`} role="search" onSubmit={e => { e.preventDefault(); navigate({ query }); setShowSuggestions(false); inputRef.current?.blur(); requestAnimationFrame(() => resultsRef.current?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })); }}>
           <Search className="search-icon" size={23}/><input ref={inputRef} type="search" aria-label="Search videos, ideas, and creators" placeholder="What are you curious about?" value={query} maxLength={250} autoComplete="off" onChange={e => { setQuery(e.target.value); setVisibleCount(9); setShowSuggestions(true); }} onFocus={() => setShowSuggestions(true)} onBlur={() => window.setTimeout(() => setShowSuggestions(false), 150)}/>
           {query && <button type="button" className="search-clear" onClick={() => searchFor('')} aria-label="Clear search"><X size={16}/></button>}
           <button className="search-submit" type="submit" aria-label="Search">{showBusy ? <LoaderCircle size={20} className="spin"/> : <ArrowRight size={22}/>}</button>
@@ -273,14 +322,15 @@ export default function App() {
         {query && relatedHits.length > 0 && <div className="related-discoveries"><h3>A little further offbranch</h3><p>Related ideas beyond your direct matches.</p><div className="video-grid">{relatedHits.slice(0, 3).map((hit, i) => { const video = catalogById.get(hit.id); return video ? <VideoCard key={video.id} video={video} reason={hit.reason} saved={currentSavedIds.includes(video.id)} watched={watchedIds.includes(video.id)} index={i} onSelect={() => selectVideo(video.id)} onAdd={() => addVideo(video.id)}/> : null; })}</div></div>}
       </section>
 
-      <section className="starter-section" aria-labelledby="starter-heading"><div className="section-heading"><div><p className="section-kicker">Someone found a way in</p><h2 id="starter-heading">Take a path. Make it yours.</h2></div><p className="starter-intro">A few considered starting points.<br/>Keep what clicks. Change what doesn’t.</p></div><div className="starter-grid">{starters.map((s, i) => <button className={`starter-card starter-${i}`} key={s.id} onClick={() => openStarter(s)} disabled={!catalog}><div className="starter-drawing" aria-hidden="true"><svg viewBox="0 0 240 92"><path d={['M16 73C50 73 41 22 86 22S137 70 175 40 201 17 226 17','M15 49C44 49 36 14 76 14S100 72 141 72 167 30 221 30','M16 69C49 69 54 31 91 31S118 50 154 50 186 12 225 12','M16 57C56 57 31 19 77 19S105 78 150 78 177 24 225 24'][i % 4]}/>{[24, 75, 128, 180, 219].map((x, j) => <circle key={x} cx={x} cy={[58, 30, 53, 35, 23][(j + i) % 5]} r={j === 0 || j === 4 ? 5 : 3}/>)}</svg><span>{s.videoIds.length} stops</span></div><h3>{s.title}</h3><p>{s.description}</p><span className="starter-cta">Explore this roadmap<ArrowUpRight size={16}/></span></button>)}</div></section>
-      <section className="closing-note"><GitBranch size={28}/><p>The best recommendation<br/>is the one that leads somewhere.</p><span>Follow an idea. Leave a trail for someone else.</span></section>
+      <section className="starter-section" aria-labelledby="starter-heading"><div className="section-heading"><div><p className="section-kicker">Curated collections</p><h2 id="starter-heading">A few good places to begin.</h2></div><p className="starter-intro">A short sequence of videos.<br/>Start here, then make it your own.</p></div><div className="starter-grid">{starters.map((starter, index) => <StarterCard key={starter.id} starter={starter} index={index} videosById={catalogById} onOpen={() => openStarter(starter)} disabled={!catalog}/>)}</div></section>
+      </>}
+      {page === 'video' && (selectedVideo ? <VideoPage video={selectedVideo} related={related} videosById={catalogById} saved={currentSavedIds.includes(selectedVideo.id)} watched={watchedIds.includes(selectedVideo.id)} activeRoadmap={activeRoadmap} onBack={backToExplore} onOpenRoadmap={openRoadmaps} onAdd={() => addVideo(selectedVideo.id)} onWatch={() => toggleWatched(selectedVideo.id)} onSelect={selectVideo}/> : <section className="page-state"><h1>{catalog ? 'Video not found' : 'Opening video…'}</h1><p>{loadError || (catalog ? 'This video is not in the current collection.' : 'Loading the collection.')}</p><button className="quiet-button" onClick={backToExplore}>Back to explore</button></section>)}
+      {page === 'roadmaps' && <RoadmapsPage loading={!catalog && !loadError} roadmaps={roadmaps} activeId={activeRoadmap?.id || ''} videosById={catalogById} watchedIds={watchedIds} onChange={(roads, id) => { setRoadmaps(roads); setActiveRoadmapId(id); }} onToggleWatched={toggleWatched} onSelectVideo={selectVideo} onBack={backToExplore} onSuggest={suggest} onStatus={setStatus}/>}
+
     </main>
-    <footer className="site-footer"><div className="footer-top"><Brand small/><div className="creator-links"><span>Built by <strong>TheSyBuilder</strong></span><a href="https://x.com/TheSyBuilder" target="_blank" rel="noreferrer" aria-label="TheSyBuilder on X"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.4L5.5 22H2.3l7.9-9L2.1 2h6.5l4.5 6.7L18.9 2Zm-1.1 18h1.7L7.6 3.9H5.8L17.8 20Z"/></svg></a><a href="https://github.com/TheSyBuilder" target="_blank" rel="noreferrer" aria-label="TheSyBuilder on GitHub"><Github size={18}/></a></div></div><div className="footer-bottom"><p>Made possible by <a href="https://hackertube.org" target="_blank" rel="noreferrer">HackerTube</a> and <a href="https://huggingface.co/datasets/open-index/hacker-news" target="_blank" rel="noreferrer">open-index / Hacker News</a>.</p><button onClick={() => setShowAbout(true)}><Info size={14}/>About the collection</button></div></footer>
+    <footer className="site-footer"><div className="footer-top"><Brand small/><div className="creator-links"><a href="https://x.com/TheSyBuilder" target="_blank" rel="noreferrer" aria-label="TheSyBuilder on X"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.4L5.5 22H2.3l7.9-9L2.1 2h6.5l4.5 6.7L18.9 2Zm-1.1 18h1.7L7.6 3.9H5.8L17.8 20Z"/></svg></a><a href="https://github.com/TheSyBuilder" target="_blank" rel="noreferrer" aria-label="TheSyBuilder on GitHub"><Github size={18}/></a></div></div><div className="footer-bottom"><p>Made possible by <a href="https://hackertube.org" target="_blank" rel="noreferrer">HackerTube</a> and <a href="https://huggingface.co/datasets/open-index/hacker-news" target="_blank" rel="noreferrer">open-index / Hacker News</a>.</p><button onClick={() => setShowAbout(true)}><Info size={14}/>About the collection</button></div></footer>
     {storageWarning && <div className="storage-warning">Your browser isn’t saving changes. Export your roadmaps before closing this page.<button onClick={openRoadmaps}>Open roadmaps</button><button aria-label="Dismiss storage notice" onClick={() => setStorageWarning(false)}><X size={15}/></button></div>}
     {status && <div className="toast" role="status"><Check size={17}/><span>{status}</span><button aria-label="Dismiss notification" onClick={() => setStatus('')}><X size={14}/></button></div>}
-    {showRoadmaps && <Overlay onClose={() => setShowRoadmaps(false)} label="My roadmaps" className="roadmap-overlay"><RoadmapPanel roadmaps={roadmaps} activeId={activeRoadmap?.id || ''} videosById={catalogById} watchedIds={watchedIds} onChange={(roads, id) => { setRoadmaps(roads); setActiveRoadmapId(id); }} onToggleWatched={toggleWatched} onSelectVideo={selectVideo} onClose={() => setShowRoadmaps(false)} onSuggest={suggest} onStatus={setStatus}/></Overlay>}
-    {selectedVideo && !showRoadmaps && <Overlay onClose={() => navigate({ selected: null })} label={selectedVideo.title} className="detail-overlay"><VideoDetail video={selectedVideo} related={related} videosById={catalogById} saved={currentSavedIds.includes(selectedVideo.id)} watched={watchedIds.includes(selectedVideo.id)} onClose={() => navigate({ selected: null })} onAdd={() => addVideo(selectedVideo.id)} onWatch={() => toggleWatched(selectedVideo.id)} onSelect={selectVideo}/></Overlay>}
-    {showAbout && <Overlay onClose={() => setShowAbout(false)} label="About Offbranch" className="about-overlay"><div className="about-content"><div className="detail-toolbar"><Brand small/><button className="icon-button" aria-label="Close about" onClick={() => setShowAbout(false)}><X size={20}/></button></div><h2>Good ideas have a history.</h2><p>Offbranch connects videos that people have shared on Hacker News over twenty years. Search the collection, see what connects, and build a roadmap of your own.</p><h3>Where the collection comes from</h3><p>The {overview?.version || '2026-10-31'} HackerTube export contains 6,454 videos and 39,834 labeled HN comments. Some videos were mentioned without a recommendation; the default view shows recommended material and excludes news.</p><p>Summaries, topics, difficulty, and recommendation labels were generated upstream using language models and can be imperfect. Map connections describe related content or shared recommenders, not verified prerequisites. Offbranch makes no live AI calls.</p><h3>Yours, on your device</h3><p>Roadmaps and watched state stay in this browser. There are no accounts or analytics. Shared links contain the roadmap’s title and selected videos, not your watched history. Export a backup to keep your work across devices.</p><h3>Credits and licenses</h3><p>Data: <a href="https://hackertube.org/download/DATA.md" target="_blank" rel="noreferrer">HackerTube</a> and <a href="https://huggingface.co/datasets/open-index/hacker-news" target="_blank" rel="noreferrer">open-index/hacker-news</a>, under <a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noreferrer">ODC-By 1.0</a>. Comments belong to their authors. Videos belong to their creators and play on YouTube. Not affiliated with YouTube, Google, Hacker News, or Y Combinator.</p><p>Built by <a href="https://github.com/TheSyBuilder" target="_blank" rel="noreferrer">TheSyBuilder</a>. Application code is open source under MIT.</p></div></Overlay>}
+    {showAbout && <Overlay onClose={() => setShowAbout(false)} label="About Offbranch" className="about-overlay"><div className="about-content"><div className="detail-toolbar"><Brand small/><button className="icon-button" aria-label="Close about" onClick={() => setShowAbout(false)}><X size={20}/></button></div><h2>Good ideas have a history.</h2><p>Offbranch connects videos that people have shared on Hacker News over twenty years. Search the collection, see what connects, and build a roadmap of your own.</p><h3>Where the collection comes from</h3><p>The {overview?.version || '2026-10-31'} HackerTube export contains 6,454 videos and 39,834 labeled HN comments. Some videos were mentioned without a recommendation; the default view shows recommended material and excludes news.</p><p>Summaries, topics, difficulty, and recommendation labels were generated upstream using language models and can be imperfect. Map connections describe related content or shared recommenders, not verified prerequisites. Offbranch makes no live AI calls.</p><h3>Yours, on your device</h3><p>Roadmaps and watched state stay in this browser. There are no accounts or analytics. Shared links contain the roadmap’s title and selected videos, not your watched history. Export a backup to keep your work across devices.</p><h3>Credits and licenses</h3><p>Data: <a href="https://hackertube.org/download/DATA.md" target="_blank" rel="noreferrer">HackerTube</a> and <a href="https://huggingface.co/datasets/open-index/hacker-news" target="_blank" rel="noreferrer">open-index/hacker-news</a>, under <a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noreferrer">ODC-By 1.0</a>. Comments belong to their authors. Videos belong to their creators and play on YouTube. Not affiliated with YouTube, Google, Hacker News, or Y Combinator.</p><p>Application code is open source under MIT.</p></div></Overlay>}
   </>;
 }
