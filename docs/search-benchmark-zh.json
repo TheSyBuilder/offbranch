@@ -1,0 +1,686 @@
+{
+  "measuredAt": "2026-11-02T09:51:52.582Z",
+  "provisional": false,
+  "catalogVersion": "2026-10-31",
+  "catalogSize": 6454,
+  "translationCount": 6454,
+  "translationSnapshotSha256": "310d3b36129551b95ba83d163c646c2b98ac2f93730155a8c7e7e6365a95fd30",
+  "indexMs": 1220,
+  "warmEngineP95Ms": 2.69,
+  "scoredQueries": 18,
+  "targetInTop5": 17,
+  "results": [
+    {
+      "query": "芯片是怎么制造出来的",
+      "targets": [
+        "NGFhc8R_uO4"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 2,
+      "targetInTop5": true,
+      "count": 73,
+      "top": [
+        {
+          "id": "dX9CGRZwD-w",
+          "title": "How are Microchips Made? 🖥️🛠️ CPU Manufacturing Process Steps",
+          "titleZh": "微芯片是如何制造的？🖥️🛠️ CPU 制造流程步骤",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "NGFhc8R_uO4",
+          "title": "Indistinguishable From Magic: Manufacturing Modern Computer Chips",
+          "titleZh": "与魔法无异：现代计算机芯片是如何制造的",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "IS5ycm7VfXg",
+          "title": "\"Z2\" - Upgraded Homemade Silicon Chips",
+          "titleZh": "\"Z2\" - 升级版自制硅芯片",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "iSVHp6CAyQ8",
+          "title": "Why The World Relies On ASML For Machines That Print Chips",
+          "titleZh": "为什么全球制造芯片都离不开 ASML 的光刻机",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "NdppYYfQJgg",
+          "title": "38C3 - From Silicon to Sovereignty: How Advanced Chips are Redefining Global Dominance",
+          "titleZh": "38C3 - 从硅到主权：先进芯片如何重新定义全球主导地位",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "芯片是怎么制造出来的",
+        "background": ""
+      },
+      "firstQueryMs": 5.17,
+      "medianWarmMs": 1.97
+    },
+    {
+      "query": "费曼为什么磁铁会相互排斥",
+      "targets": [
+        "Q1lL-hXO27Q",
+        "36GT2zI8lVA"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 2,
+      "targetInTop5": true,
+      "count": 6,
+      "top": [
+        {
+          "id": "MO0r930Sn_8",
+          "title": "Richard Feynman Magnets",
+          "titleZh": "理查德·费曼的磁铁",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "36GT2zI8lVA",
+          "title": "Richard Feynman. Why.",
+          "titleZh": "理查德·费曼。为什么。",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "Q1lL-hXO27Q",
+          "title": "Feynman: Magnets (and Why?)  FUN TO IMAGINE  4/ higher quality version!",
+          "titleZh": "费曼：磁铁（以及原因？） 有趣地想象  4/ 更高质量版本！",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "wMFPe-DwULM",
+          "title": "Feynman: Magnets  FUN TO IMAGINE  4  But see NEW UPDATED file at https://tinyurl.com/ycphc432",
+          "titleZh": "费曼：磁铁  FUN TO IMAGINE  4  但请查看 https://tinyurl.com/ycphc432 中的最新更新文件",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "P1ww1IXRfTA",
+          "title": "The complete FUN TO IMAGINE with Richard Feynman",
+          "titleZh": "完全的 FUN TO IMAGINE 与理查德·费曼",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "费曼为什么磁铁会相互排斥",
+        "background": ""
+      },
+      "firstQueryMs": 1.66,
+      "medianWarmMs": 1.34
+    },
+    {
+      "query": "量子纠缠和贝尔不等式",
+      "targets": [
+        "ZuvK-od647c",
+        "zcqZHYo7ONs"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 2,
+      "top": [
+        {
+          "id": "ZuvK-od647c",
+          "title": "Quantum Entanglement & Spooky Action at a Distance",
+          "titleZh": "量子纠缠与遥远距离上的诡异作用",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "zcqZHYo7ONs",
+          "title": "Bell's Theorem: The Quantum Venn Diagram Paradox",
+          "titleZh": "贝尔定理：量子维恩图悖论",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "量子纠缠和贝尔不等式",
+        "background": ""
+      },
+      "firstQueryMs": 1.23,
+      "medianWarmMs": 0.97
+    },
+    {
+      "query": "光在玻璃里面为什么会变慢",
+      "targets": [
+        "KTzGBJPuJwM"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 3,
+      "targetInTop5": true,
+      "count": 3,
+      "top": [
+        {
+          "id": "CUjt36SD3h8",
+          "title": "Why does light slow down in water?",
+          "titleZh": "为什么光在水中会变慢？",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "CiHN0ZWE5bk",
+          "title": "Why is light slower in glass? - Sixty Symbols",
+          "titleZh": "为什么光在玻璃中传播更慢？- Sixty Symbols",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "KTzGBJPuJwM",
+          "title": "But why would light \"slow down\"? | Visualizing Feynman's lecture on the refractive index",
+          "titleZh": "但光为什么会‘变慢’？| 可视化费曼关于折射率的讲座",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "光在玻璃里面为什么会变慢",
+        "background": ""
+      },
+      "firstQueryMs": 1.16,
+      "medianWarmMs": 1.04
+    },
+    {
+      "query": "树木怎么把水送到树冠",
+      "targets": [
+        "BickMFHAZR0"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": null,
+      "targetInTop5": false,
+      "count": 0,
+      "top": [],
+      "interpretation": {
+        "target": "树木怎么把水送到树冠",
+        "background": ""
+      },
+      "firstQueryMs": 1.02,
+      "medianWarmMs": 0.99
+    },
+    {
+      "query": "硅谷的崛起与冷战有什么关系",
+      "targets": [
+        "ZTC_RxWN_xo",
+        "hFSPHfZQpIQ"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 2,
+      "top": [
+        {
+          "id": "hFSPHfZQpIQ",
+          "title": "The Secret History of Silicon Valley",
+          "titleZh": "硅谷的隐秘历史",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "ZTC_RxWN_xo",
+          "title": "Secret History of Silicon Valley",
+          "titleZh": "硅谷的秘密历史",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "硅谷的崛起与冷战有什么关系",
+        "background": ""
+      },
+      "firstQueryMs": 1.58,
+      "medianWarmMs": 1.3
+    },
+    {
+      "query": "阿波罗计算机登月时的1202警报",
+      "targets": [
+        "B1J2RMorJXM"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 1,
+      "top": [
+        {
+          "id": "B1J2RMorJXM",
+          "title": "Light Years Ahead | The 1969 Apollo Guidance Computer",
+          "titleZh": "遥不可及的领先 | 1969年阿波罗制导计算机",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "阿波罗计算机登月时的1202警报",
+        "background": ""
+      },
+      "firstQueryMs": 2.76,
+      "medianWarmMs": 2.1
+    },
+    {
+      "query": "为什么医学检测阳性也可能没有生病",
+      "targets": [
+        "lG4VkPoG3ko"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 1,
+      "top": [
+        {
+          "id": "lG4VkPoG3ko",
+          "title": "The medical test paradox, and redesigning Bayes' rule",
+          "titleZh": "医学检测悖论，以及重新理解贝叶斯公式",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "为什么医学检测阳性也可能没有生病",
+        "background": ""
+      },
+      "firstQueryMs": 1.56,
+      "medianWarmMs": 1.34
+    },
+    {
+      "query": "我会Python，想学习Transformer的注意力机制",
+      "targets": [
+        "wjZofJX0v4M",
+        "eMlx5fFNoYc"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 8,
+      "top": [
+        {
+          "id": "eMlx5fFNoYc",
+          "title": "Attention in transformers, step-by-step | Deep Learning Chapter 6",
+          "titleZh": "一步步理解 Transformer 中的注意力｜深度学习，第 6 章",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "OyFJWRnt_AY",
+          "title": "CS480/680 Lecture 19: Attention and Transformer Networks",
+          "titleZh": "CS480/680 第 19 讲：注意力与 Transformer 网络",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "iDulhoQ2pro",
+          "title": "Attention Is All You Need",
+          "titleZh": "《Attention Is All You Need》论文讲解",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "wjZofJX0v4M",
+          "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5",
+          "titleZh": "Transformer：大语言模型背后的技术｜深度学习，第 5 章",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "S27pHKBEp30",
+          "title": "LSTM is dead. Long Live Transformers!",
+          "titleZh": "LSTM 已死，Transformer 万岁！",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "Transformer的 attention",
+        "background": "Python"
+      },
+      "firstQueryMs": 1.38,
+      "medianWarmMs": 0.85
+    },
+    {
+      "query": "神经网络反向传播从零实现",
+      "targets": [
+        "VMj-3S1tku0"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 8,
+      "top": [
+        {
+          "id": "VMj-3S1tku0",
+          "title": "The spelled-out intro to neural networks and backpropagation: building micrograd",
+          "titleZh": "神经网络与反向传播入门：从零构建 micrograd",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "bxe2T-V8XRs",
+          "title": "Neural Networks Demystified [Part 1: Data and Architecture]",
+          "titleZh": "揭开神经网络的面纱，第 1 部分：数据与架构",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "tIeHLnjs5U8",
+          "title": "Backpropagation calculus | Deep Learning Chapter 4",
+          "titleZh": "反向传播的微积分｜深度学习，第 4 章",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "Ilg3gGewQ5U",
+          "title": "Backpropagation, intuitively | Deep Learning Chapter 3",
+          "titleZh": "直观理解反向传播｜深度学习，第 3 章",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "IkdziSLYzHw",
+          "title": "Will AI outsmart human intelligence? - with 'Godfather of AI' Geoffrey Hinton",
+          "titleZh": "人工智能会超越人类智能吗？——与“人工智能之父”杰弗里·欣顿对谈",
+          "reason": "Connected by its topics"
+        }
+      ],
+      "interpretation": {
+        "target": "neural networks backpropagation 从零实现",
+        "background": ""
+      },
+      "firstQueryMs": 2.72,
+      "medianWarmMs": 2.45
+    },
+    {
+      "query": "李世石和AlphaGo的围棋比赛",
+      "targets": [
+        "WXuK6gekU1Y"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 1,
+      "top": [
+        {
+          "id": "WXuK6gekU1Y",
+          "title": "AlphaGo - The Movie | Full award-winning documentary",
+          "titleZh": "《AlphaGo》：获奖纪录片完整版",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "李世石和AlphaGo的围棋比赛",
+        "background": ""
+      },
+      "firstQueryMs": 1.42,
+      "medianWarmMs": 1.34
+    },
+    {
+      "query": "怎么利用日志来构建数据库",
+      "targets": [
+        "fU9hR3kiOK0"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 3,
+      "targetInTop5": true,
+      "count": 27,
+      "top": [
+        {
+          "id": "s19G6n0UjsM",
+          "title": "Rust at speed — building a fast concurrent database",
+          "titleZh": "Rust 高速运行 — 构建一个快速的并发数据库",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "yvBR71D0nAQ",
+          "title": "AWS re:Invent 2018: Amazon DynamoDB Under the Hood: How We Built a Hyper-Scale Database (DAT321)",
+          "titleZh": "AWS re:Invent 2018：Amazon DynamoDB 内部原理：我们如何构建了一个超大规模数据库（DAT321）",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "fU9hR3kiOK0",
+          "title": "\"Turning the database inside out with Apache Samza\" by Martin Kleppmann",
+          "titleZh": "Martin Kleppmann：用 Apache Samza 把数据库“翻过来”",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "pdmODVYPDLA",
+          "title": "I Built a COMPUTER in Magic: The Gathering",
+          "titleZh": "我在《魔法：集卡》中构建了一台计算机",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "7q9vIMXSTzc",
+          "title": "Servo: Building a Parallel Browser",
+          "titleZh": "Servo：构建一个并行浏览器",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "利用日志来构建 databases",
+        "background": ""
+      },
+      "firstQueryMs": 3.01,
+      "medianWarmMs": 2.76
+    },
+    {
+      "query": "经济里的债务和信贷周期",
+      "targets": [
+        "PHe0bXAIuk0"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 2,
+      "top": [
+        {
+          "id": "PHe0bXAIuk0",
+          "title": "How The Economic Machine Works by Ray Dalio",
+          "titleZh": "Ray Dalio：经济机器是怎样运转的",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "cbeJIwF1pVY",
+          "title": "Economics of Nuclear Reactor",
+          "titleZh": "核反应堆的经济学",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "经济里的债务和信贷周期",
+        "background": ""
+      },
+      "firstQueryMs": 1.37,
+      "medianWarmMs": 1.14
+    },
+    {
+      "query": "如何让公开演讲更有说服力",
+      "targets": [
+        "Unzc731iCUY"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 7,
+      "top": [
+        {
+          "id": "Unzc731iCUY",
+          "title": "How to Speak",
+          "titleZh": "如何做好一场演讲",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "KAWA1DuvCnQ",
+          "title": "Dconf 2014 Day 2 Keynote: The Last Thing D Needs -- Scott Meyers",
+          "titleZh": "DConf 2014 第 2 天主题演讲：D 最不需要的东西——Scott Meyers",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "6AeWu1fZ7bY",
+          "title": "Benno Rice: The Tragedy of systemd -- BSDCan 2018",
+          "titleZh": "Benno Rice: systemd 的悲剧 -- BSDCan 2018",
+          "reason": "Mentioned in the summary or HN context"
+        },
+        {
+          "id": "MYucYon2-lk",
+          "title": "Hillel Wayne - Beyond Unit Tests: Taking Your Testing to the Next Level - PyCon 2018",
+          "titleZh": "Hillel Wayne - 超越单元测试：将你的测试提升到下一个层次 - PyCon 2018",
+          "reason": "Mentioned in the summary or HN context"
+        },
+        {
+          "id": "lpu-3UF_b48",
+          "title": "Perl 6 for Mere Mortals",
+          "titleZh": "Perl 6 为普通人而作",
+          "reason": "Mentioned in the summary or HN context"
+        }
+      ],
+      "interpretation": {
+        "target": "让公开演讲更有说服力",
+        "background": ""
+      },
+      "firstQueryMs": 2.54,
+      "medianWarmMs": 2.38
+    },
+    {
+      "query": "计算机语言FORTRAN是怎么发明的",
+      "targets": [
+        "dDsWTyLEgbk"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 2,
+      "targetInTop5": true,
+      "count": 2,
+      "top": [
+        {
+          "id": "uFQ3sajIdaM",
+          "title": "The IBM 1401 compiles and runs FORTRAN II",
+          "titleZh": "IBM 1401 编译并运行 FORTRAN II",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "dDsWTyLEgbk",
+          "title": "Oral History of John Backus",
+          "titleZh": "John Backus 口述历史",
+          "reason": "Connected by its topics"
+        }
+      ],
+      "interpretation": {
+        "target": "计算机语言FORTRAN是怎么发明的",
+        "background": ""
+      },
+      "firstQueryMs": 2.35,
+      "medianWarmMs": 2.21
+    },
+    {
+      "query": "火柴盒也能学会井字棋吗",
+      "targets": [
+        "R9c-_neaxeU"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 1,
+      "top": [
+        {
+          "id": "R9c-_neaxeU",
+          "title": "MENACE: the pile of matchboxes which can learn",
+          "titleZh": "MENACE：一堆会学习的火柴盒",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "火柴盒也能学会井字棋",
+        "background": ""
+      },
+      "firstQueryMs": 1.21,
+      "medianWarmMs": 1.14
+    },
+    {
+      "query": "为什么高维空间里球和立方体的直觉会失效",
+      "targets": [
+        "uU_Q2a0S0zI"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 1,
+      "top": [
+        {
+          "id": "uU_Q2a0S0zI",
+          "title": "Hamming, \"n-Dimensional Space\" (April 14, 1995)",
+          "titleZh": "Hamming：n 维空间｜1995 年 4 月 14 日",
+          "reason": "Relevant words in the title"
+        }
+      ],
+      "interpretation": {
+        "target": "为什么高维空间里球和立方体的直觉会失效",
+        "background": ""
+      },
+      "firstQueryMs": 2.4,
+      "medianWarmMs": 1.9
+    },
+    {
+      "query": "3Blue1Brown如何用几何理解行列式",
+      "targets": [
+        "Ip3X9LOh2dk"
+      ],
+      "targetTranslationsAvailable": true,
+      "targetRank": 1,
+      "targetInTop5": true,
+      "count": 3,
+      "top": [
+        {
+          "id": "Ip3X9LOh2dk",
+          "title": "The determinant | Chapter 6, Essence of linear algebra",
+          "titleZh": "行列式｜线性代数的本质，第 6 章",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "HZGCoVF3YvM",
+          "title": "Bayes theorem, the geometry of changing beliefs",
+          "titleZh": "贝叶斯定理：用几何理解信念如何改变",
+          "reason": "Relevant words in the title"
+        },
+        {
+          "id": "zwAD6dRSVyI",
+          "title": "Thinking outside the 10-dimensional box",
+          "titleZh": "突破十维盒子的思维局限",
+          "reason": "Connected by its topics"
+        }
+      ],
+      "interpretation": {
+        "target": "3Blue1Brown如何用几何理解行列式",
+        "background": ""
+      },
+      "firstQueryMs": 1.54,
+      "medianWarmMs": 1.18
+    },
+    {
+      "query": "量子糾纏和貝爾不等式",
+      "targets": [
+        "ZuvK-od647c",
+        "zcqZHYo7ONs"
+      ],
+      "note": "Traditional Chinese exploratory coverage",
+      "targetTranslationsAvailable": true,
+      "targetRank": null,
+      "targetInTop5": false,
+      "count": 0,
+      "top": [],
+      "interpretation": {
+        "target": "量子糾纏和貝爾不等式",
+        "background": ""
+      },
+      "firstQueryMs": 1.09,
+      "medianWarmMs": 0.94
+    },
+    {
+      "query": "我會Python，想學習Transformer的注意力機制",
+      "targets": [
+        "wjZofJX0v4M",
+        "eMlx5fFNoYc"
+      ],
+      "note": "Traditional Chinese exploratory coverage",
+      "targetTranslationsAvailable": true,
+      "targetRank": null,
+      "targetInTop5": false,
+      "count": 0,
+      "top": [],
+      "interpretation": {
+        "target": "我會Python 想學習Transformer的 attention 機制",
+        "background": ""
+      },
+      "firstQueryMs": 1.79,
+      "medianWarmMs": 1.67
+    },
+    {
+      "query": "我的未知琥珀齿轮主题",
+      "note": "Expected empty state",
+      "targetRank": null,
+      "count": 0,
+      "top": [],
+      "interpretation": {
+        "target": "我的未知琥珀齿轮主题",
+        "background": ""
+      },
+      "firstQueryMs": 1.4,
+      "medianWarmMs": 1.37
+    }
+  ]
+}

@@ -8,7 +8,7 @@ self.onmessage = (event: MessageEvent<SearchWorkerInput>) => {
   const message = event.data;
   try {
     if (message.type === 'init') {
-      engine = createSearchEngine(message.catalog, message.related);
+      engine = createSearchEngine(message.catalog, message.related, message.translations);
       send({ type: 'ready' });
     } else {
       if (!engine) throw new Error('The search index is not ready yet.');

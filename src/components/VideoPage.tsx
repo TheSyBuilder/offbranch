@@ -7,6 +7,7 @@ import './VideoPage.css';
 
 export interface VideoPageProps {
   video: Video;
+  originalVideo?: Video;
   related: RelatedIndex;
   videosById: Map<string, Video>;
   watched: boolean;
@@ -26,7 +27,7 @@ function VideoFrame({ video, eager = false }: { video: Video; eager?: boolean })
   </span>;
 }
 
-function VideoPageContent({ video, related, videosById, watched, playlist, onBack, onExplore, onWatch, onSelect, onOpenPlaylist }: VideoPageProps) {
+function VideoPageContent({ video, originalVideo, related, videosById, watched, playlist, onBack, onExplore, onWatch, onSelect, onOpenPlaylist }: VideoPageProps) {
   const { locale, t } = useLocale();
   const levels: Record<Video['level'], string> = {
     general: t('Level unspecified', '难度未注明'), intro: t('Introductory', '入门'), intermediate: t('Intermediate', '进阶'), advanced: t('Advanced', '深入'),
@@ -115,6 +116,14 @@ function VideoPageContent({ video, related, videosById, watched, playlist, onBac
       <div className="watch-description">
         <p className={expandedSummary ? 'is-expanded' : ''}>{video.summary}</p>
         {video.summary.length > 180 && <button aria-expanded={expandedSummary} onClick={() => setExpandedSummaryId(expandedSummary ? null : video.id)}>{expandedSummary ? t('Less', '收起') : t('More about this video', '展开视频简介')}<ChevronDown size={12}/></button>}
+        {locale === 'zh-CN' && originalVideo && <details className="watch-original">
+          <summary>查看原文</summary>
+          <div>
+            {originalVideo.title !== video.title && <p className="watch-original-title"><strong>原标题：</strong>{originalVideo.title}</p>}
+            {originalVideo.summary && <p lang="en">{originalVideo.summary}</p>}
+            {originalVideo.whyHn && <><p className="watch-original-label">推荐摘要原文</p><p lang="en">{originalVideo.whyHn}</p></>}
+          </div>
+        </details>}
       </div>
       <div className="watch-facts" aria-label={t('Video details', '视频详情')}>
         <span><MessageSquare size={13}/>{video.recommenders ? t(`${video.recommenders} HN recommender${video.recommenders === 1 ? '' : 's'}`, `${video.recommenders} 位 HN 用户推荐`) : t('Mentioned on HN', 'HN 用户提及')}</span>
@@ -145,7 +154,7 @@ function VideoPageContent({ video, related, videosById, watched, playlist, onBac
     </section>
 
     <details className="watch-evidence" key={video.id}>
-      <summary><MessageSquare size={17}/><span>{t('Hacker News recommendations', 'Hacker News 推荐评论')}<small>{video.recMonths > 0 ? t(`Recommended across ${video.recMonths} distinct month${video.recMonths === 1 ? '' : 's'}`, `在 ${video.recMonths} 个不同月份获得推荐`) : t('Original comments and source context', '原始评论与来源背景')}</small></span><ChevronDown size={17}/></summary>
+      <summary><MessageSquare size={17}/><span>{t('Hacker News recommendations', 'Hacker News 推荐评论（原文）')}<small>{video.recMonths > 0 ? t(`Recommended across ${video.recMonths} distinct month${video.recMonths === 1 ? '' : 's'}`, `在 ${video.recMonths} 个不同月份获得推荐`) : t('Original comments and source context', '原始评论与来源背景')}</small></span><ChevronDown size={17}/></summary>
       <div className="watch-evidence-body">
         {excerpts.length > 0 && <div className="watch-quotes">{excerpts.map(excerpt => <blockquote key={excerpt.url}><p>“{excerpt.text}”</p><a href={excerpt.url} target="_blank" rel="noreferrer"><span>{excerpt.author ? `@${excerpt.author}` : 'Hacker News'} · {excerpt.year}</span><span>{t('Read comment', '阅读评论')}<ArrowUpRight size={12}/></span></a></blockquote>)}</div>}
         {evidenceState === 'loading' && <p className="watch-evidence-status" role="status">{t('Loading source comments…', '正在加载原始评论…')}</p>}

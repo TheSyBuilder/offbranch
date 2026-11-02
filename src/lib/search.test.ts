@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { createSearchEngine } from './search';
-import { DEFAULT_FILTERS, type Catalog, type RelatedIndex, type SearchFilters, type Video } from '../types';
+import { DEFAULT_FILTERS, type Catalog, type RelatedIndex, type SearchFilters, type SearchTranslations, type Video } from '../types';
 import { AREA_ZH, TOPIC_ZH, normalizeChineseQuery, localizeSearchReason } from './taxonomy-zh';
 
 const catalog: Catalog = JSON.parse(readFileSync(new URL('../../public/data/catalog.json', import.meta.url), 'utf8'));
@@ -99,6 +99,7 @@ describe('real catalog search', () => {
     expect(new Set(result.hits.map(hit => hit.id)).size).toBe(result.hits.length);
     for (const hit of relatedHits) {
       expect(directIds.has(hit.id)).toBe(false);
+      expect(directIds.has(hit.anchorId!)).toBe(true);
       expect([...directIds].some(id => related[id]?.some(edge => edge.id === hit.id))).toBe(true);
       expect(hit.reason).toContain('Similar to');
     }
@@ -161,4 +162,116 @@ it('supports the Chinese landing-page example queries', () => {
   for (const [chinese, english] of [['神经网络', 'Neural networks'], ['分布式系统', 'Distributed systems'], ['计算机发展史', 'The history of computing'], ['可视化数学', 'Visual mathematics']]) {
     expect(search(chinese).hits.map(hit => hit.id)).toEqual(search(english).hits.map(hit => hit.id));
   }
+});
+
+describe('bilingual metadata search', () => {
+  const make = (id: string, title: string, summary = ''): Video => ({ id, title, summary, channel: 'Example', whyHn: '', type: 'talk', level: 'general', shelfLife: 'evergreen', topic: '', tags: [], topics: [], score: 1, recommenders: 1, recMonths: 1, strongRecs: 0, firstYear: 2020, lastYear: 2020 });
+  const fixture: Catalog = { version: 'bilingual-test', areas: [], topics: [], videos: [
+    make('bees', 'The waggle dance', 'Honeybees communicate the direction and distance of food.'),
+    make('forest', 'The wood wide web', 'Mycelium exchanges nutrients between trees.'),
+    make('volcano', 'Ash above the clouds', 'Volcanic eruptions can alter the climate.'),
+    make('recovery', 'Write ahead of trouble', 'A practical guide to crash recovery.'),
+    make('cpp', 'C++ ownership', 'Object lifetime and ownership.'),
+    make('cs', 'C# ownership', 'Object lifetime and ownership.'),
+    make('python', 'Python for beginners', 'Learn Python.'),
+    make('title-match', 'Shared memory', 'A guide to coordination.'),
+    make('summary-match', 'Coordination', 'A guide to coordination.'),
+  ] };
+  const translations: SearchTranslations = {
+    bees: { title: '蜜蜂的摇摆舞', summary: '蜜蜂通过舞蹈传递信息，告诉同伴食物的方向和距离。', whyHn: '解释蜜蜂的舞蹈如何传递精确的信息。' },
+    forest: { title: '森林中的地下网络', summary: '森林中的菌丝连接树木，帮助树木交换养分。', whyHn: '从微观视角理解树木之间的联系。' },
+    volcano: { title: '云层上方的火山灰', summary: '火山喷发将颗粒送入高空，改变气候。', whyHn: '清楚展示火山喷发对气候的影响。' },
+    recovery: { title: '断电之后恢复数据库', summary: '数据库通过日志恢复数据，避免断电造成数据丢失。', whyHn: '解释日志如何帮助数据库从崩溃中恢复。' },
+    cpp: { title: 'C++ 所有权', summary: 'C++ 的对象生命周期和所有权如何协作。', whyHn: '解释对象的所有权。' },
+    cs: { title: 'C# 所有权', summary: 'C# 的对象生命周期和所有权如何协作。', whyHn: '解释对象的所有权。' },
+    python: { title: 'Python 入门', summary: '从零开始学习 Python。', whyHn: '适合首次学习编程的人。' },
+    'title-match': { title: '进程之间如何共享内存', summary: '协调多个程序的执行。', whyHn: '一堂清晰的讲座。' },
+    'summary-match': { title: '程序协调', summary: '进程之间如何共享内存', whyHn: '一堂清晰的讲座。' },
+  };
+  const bilingual = createSearchEngine(fixture, {}, translations);
+  const run = (query: string, selected = bilingual) => selected.search({ requestId: 21, query, filters: DEFAULT_FILTERS, watchedIds: [], savedIds: [] });
+
+  // Targets are declared independently of the alias dictionary. These questions
+  // need the translated metadata, including words without English aliases.
+  it.each([
+    ['蜜蜂是如何通过舞蹈传递信息的', 'bees'],
+    ['森林中的菌丝怎样帮助树木交换养分', 'forest'],
+    ['为什么火山喷发会改变气候', 'volcano'],
+    ['数据库断电之后如何通过日志恢复数据', 'recovery'],
+    ['我会 Python，想了解菌丝如何帮助树木交换养分', 'forest'],
+  ])('finds a relevant result for the natural question %s', (query, expected) => {
+    const result = run(query);
+    expect(result.hits[0]?.id).toBe(expected);
+    expect(result.hits[0]?.kind).toBe('direct');
+    expect(result.hits.some(hit => hit.id === 'python')).toBe(false);
+    expect(result.interpretation.correction).toBeUndefined();
+    expect(localizeSearchReason(result.hits[0].reason, 'zh-CN')).toMatch(/\p{Script=Han}/u);
+  });
+
+  it('weights a translated title above the same phrase found only in a summary', () => {
+    const result = run('进程之间如何共享内存');
+    expect(result.hits.slice(0, 2).map(hit => hit.id)).toEqual(['title-match', 'summary-match']);
+    expect(result.hits[0].reason).toBe('Title matches your search');
+    expect(result.hits[1].reason).toBe('Mentioned in the summary or HN context');
+  });
+
+  it('retains source text and English ranking while indexing both languages', () => {
+    const snapshot = JSON.stringify(fixture);
+    const original = createSearchEngine(fixture, {});
+    for (const query of ['waggle dance', 'ownership', 'Python', 'shared memory', 'C++', 'C#']) {
+      expect(run(query).hits).toEqual(run(query, original).hits);
+    }
+    expect(run('Honeybees communicate').hits[0]?.id).toBe('bees');
+    expect(JSON.stringify(fixture)).toBe(snapshot);
+    expect(fixture.videos[0].title).toBe('The waggle dance');
+  });
+
+  it('keeps programming language punctuation distinct in mixed Chinese queries', () => {
+    expect(run('我会 Python，想了解 C++ 的对象所有权').hits.map(hit => hit.id)).toEqual(['cpp']);
+    expect(run('我会 Python，想了解 C# 的对象所有权').hits.map(hit => hit.id)).toEqual(['cs']);
+    expect(run('完全未知的琥珀齿轮秘密').hits).toEqual([]);
+  });
+
+  it('supports Chinese phrase retrieval when Intl.Segmenter is unavailable', () => {
+    const descriptor = Object.getOwnPropertyDescriptor(Intl, 'Segmenter')!;
+    Object.defineProperty(Intl, 'Segmenter', { configurable: true, value: undefined });
+    try {
+      const fallback = createSearchEngine(fixture, {}, translations);
+      expect(run('蜜蜂通过舞蹈传递信息', fallback).hits[0]?.id).toBe('bees');
+      expect(run('菌丝帮助树木交换养分', fallback).hits[0]?.id).toBe('forest');
+      expect(run('C++', fallback).hits.map(hit => hit.id)).toEqual(['cpp']);
+    } finally { Object.defineProperty(Intl, 'Segmenter', descriptor); }
+  });
+});
+
+describe('real catalog with reviewed Chinese metadata', () => {
+  const translations: SearchTranslations = JSON.parse(readFileSync(new URL('../../scripts/catalog_zh_overrides.json', import.meta.url), 'utf8'));
+  const bilingual = createSearchEngine(catalog, related, translations);
+  const run = (query: string) => bilingual.search({ requestId: 22, query, filters: DEFAULT_FILTERS, watchedIds: [], savedIds: [] });
+
+  it.each([
+    ['芯片是怎么制造出来的', ['NGFhc8R_uO4']],
+    ['为什么医学检测阳性也可能没有生病', ['lG4VkPoG3ko']],
+    ['我会Python，想学习Transformer的注意力机制', ['wjZofJX0v4M', 'eMlx5fFNoYc']],
+    ['李世石和AlphaGo的围棋比赛', ['WXuK6gekU1Y']],
+    ['怎么利用日志来构建数据库', ['fU9hR3kiOK0']],
+    ['经济里的债务和信贷周期', ['PHe0bXAIuk0']],
+    ['如何让公开演讲更有说服力', ['Unzc731iCUY']],
+    ['火柴盒也能学会井字棋吗', ['R9c-_neaxeU']],
+    ['3Blue1Brown如何用几何理解行列式', ['Ip3X9LOh2dk']],
+  ])('puts a declared target in the first five direct results for %s', (query, targets) => {
+    const result = run(query);
+    const direct = result.hits.filter(hit => hit.kind === 'direct');
+    expect(direct.slice(0, 5).some(hit => targets.includes(hit.id))).toBe(true);
+    if (query.startsWith('我会Python')) {
+      expect(result.interpretation.background).toBe('Python');
+      expect(direct.slice(0, 5).some(hit => hit.id === 'Obt-vMVdM8s')).toBe(false);
+    }
+  });
+
+  it('does not change English ranking or scores when Chinese metadata is supplied', () => {
+    for (const query of ['distibuted sytems', 'I know Python and want to understand how a transformer works', 'LLM', 'simple made easy', '3blue1brown', 'C++', 'C#', '.NET', 'Rust', 'linear algebra']) {
+      expect(run(query).hits).toEqual(search(query).hits);
+    }
+  });
 });

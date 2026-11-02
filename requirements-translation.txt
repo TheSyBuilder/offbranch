@@ -1,0 +1,4 @@
+# Optional offline authoring tool; never installed by the application or CI.
+mlx-lm==0.32.2
+mlx==0.32.4
+transformers==5.22.1

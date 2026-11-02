@@ -1,0 +1,1212 @@
+{
+  "fNk_zzaMoSs": {
+    "title": "向量｜线性代数的本质，第 1 章",
+    "summary": "3Blue1Brown《线性代数的本质》系列的第 1 章，通过几何动画介绍向量。整个系列从基础出发，帮助观众建立对线性代数的直觉。",
+    "whyHn": "这是 HN 用户学习线性代数直觉时经常推荐的视频。许多人认为它能让抽象概念一下子变得清楚，也很适合配合教材学习。"
+  },
+  "FITJMJjASUs": {
+    "title": "RubyConf 2012：Y Not——Jim Weirich 的函数式编程之旅",
+    "summary": "Jim Weirich 在 RubyConf 2012 的演讲中，用 Ruby 的 lambda 表达式现场编程，一步步推导 Y 组合子。他从基本原理出发，带观众理解函数式编程与 lambda 演算。",
+    "whyHn": "HN 用户反复将它推荐为最精彩、最有趣的编程演讲之一。即使不使用 Ruby，也有人通过这场演讲终于理解了 Y 组合子。"
+  },
+  "NGFhc8R_uO4": {
+    "title": "与魔法无异：现代计算机芯片是如何制造的",
+    "summary": "这场 HOPE09 演讲介绍现代计算机芯片的制造过程，涵盖 22nm 晶体管、超洁净晶圆厂，以及利用光刻出微小结构的各种技巧。它把芯片制造呈现为对电子工程和物理规律的巧妙运用。",
+    "whyHn": "HN 用户多次称它为深入了解集成电路制造的最佳入门演讲：一位独立工程师讲出了这项技术令人惊叹之处。不少人也希望能看到更新版本。"
+  },
+  "Unzc731iCUY": {
+    "title": "如何做好一场演讲",
+    "summary": "Patrick Winston 在 MIT 多年讲授的公开演讲课，总结了做好演讲的实用原则。内容包括如何开场，如何利用时间、场地、黑板、道具与幻灯片，以及如何传达信息、说服听众和收尾。",
+    "whyHn": "HN 用户把它视为学习演讲与展示的经典课程，推荐范围非常广。"
+  },
+  "VMj-3S1tku0": {
+    "title": "神经网络与反向传播入门：从零构建 micrograd",
+    "summary": "这是 Andrej Karpathy《神经网络：从零到精通》系列的第 1 讲，用 Python 从零构建一个小型自动微分引擎 micrograd。他逐步讲解反向传播和神经网络训练，只要求基本的 Python 知识与一些高中微积分基础。",
+    "whyHn": "HN 用户认为它是深入理解反向传播和神经网络的极佳起点：Karpathy 既直观解释为什么这样做，也把整个过程落实到代码中。"
+  },
+  "aMcJ1Jvtef0": {
+    "title": "跳出框框：8 位与“类 8 位”图像创作",
+    "summary": "LucasArts 背景画师 Mark Ferrari 在 GDC 2016 的演讲中介绍自己的 8 位图像绘制方法。他展示了如何利用颜色循环和调色板变换，在不逐帧绘制动画的情况下创造复杂的动态场景。",
+    "whyHn": "HN 用户反复推荐这场有限色板像素艺术与调色板循环的大师课。讲者曾参与《Loom》和《Monkey Island》的美术创作。"
+  },
+  "qCGofLIzX6g": {
+    "title": "泄漏的内部实现如何塑造 Python——Flask 作者 Armin Ronacher",
+    "summary": "Flask 作者 Armin Ronacher 解释了 CPython 的内部实现与 C API 如何渗入 Python 的语言语义。他以加法操作背后的复杂性等例子，说明 Python 为什么难以优化或重新实现。",
+    "whyHn": "每当有人问 Python 为什么难以大幅提速，HN 用户经常推荐这场演讲；从事 JIT 和其他运行时开发的人也会推荐它。"
+  },
+  "PHe0bXAIuk0": {
+    "title": "Ray Dalio：经济机器是怎样运转的",
+    "summary": "Ray Dalio 用这段 30 分钟的动画，通过信贷、债务、利率以及长期和短期周期解释经济如何运转。内容基于他用于理解经济运行的分析框架。",
+    "whyHn": "HN 用户反复推荐它，认为这是面向普通观众介绍债务、信贷和经济周期的出色入门视频。"
+  },
+  "JTfhYyTuT44": {
+    "title": "寻找一个平坦的地球",
+    "summary": "Dan Olson 在这部 76 分钟的影像论述中探讨地平说，并以一次前往湖边检验地球曲率的徒步旅行为线索。他分析地平说群体、YouTube 如何推动这类内容，以及它与更广泛的阴谋论思维和 QAnon 的联系。",
+    "whyHn": "HN 用户认为，这是一部深入且有同理心的纪录片，解释了人们为什么会陷入阴谋论。"
+  },
+  "dDsWTyLEgbk": {
+    "title": "John Backus 口述历史",
+    "summary": "2006 年，Grady Booch 为计算机历史博物馆采访 John Backus。Backus 曾领导 IBM 团队于 1957 年创造 FORTRAN；在访谈中，他讲述了这门首个取得成功的高级编程语言及其编译器的开发过程。访谈时长为 88 分钟。",
+    "whyHn": "HN 用户推荐这段访谈，因为听计算机先驱亲口讲述早期经历，能更好地理解那个时代的背景与激动人心之处。"
+  },
+  "R9c-_neaxeU": {
+    "title": "MENACE：一堆会学习的火柴盒",
+    "summary": "Stand-up Maths 的 Matt Parker 演示了 MENACE：Donald Michie 于 1961 年设计的一台火柴盒机器，通过强化学习学会玩井字棋。他实际搭建并训练了一套这样的装置。",
+    "whyHn": "HN 用户认为，这是讲解机器学习的一种有趣而直观的方式，也适合教给孩子。"
+  },
+  "2pWv7GOvuf0": {
+    "title": "David Silver 强化学习课程，第 1 讲：强化学习导论",
+    "summary": "David Silver 强化学习课程的第 1 讲，介绍这一领域及其基本概念。课程内容沿用 Sutton 与 Barto 的教材体系。",
+    "whyHn": "HN 用户经常推荐这门由 AlphaGo 项目负责人讲授的强化学习入门课，认为讲解出色且清楚，很适合配合 Sutton 与 Barto 的教材学习。"
+  },
+  "WXuK6gekU1Y": {
+    "title": "《AlphaGo》：获奖纪录片完整版",
+    "summary": "这部纪录长片跟随 DeepMind 的 AlphaGo 项目，记录团队备战并参加 2016 年与围棋冠军李世石的对局。影片呈现了团队、比赛，以及顶尖棋手被 AI 击败时围棋界的情绪与反应。",
+    "whyHn": "HN 用户认为它制作精良、感人，是一部讲述 AI、围棋与人的故事的电影；非技术观众也能欣赏，而且内容经得起时间考验。"
+  },
+  "Dw3BZ6O_8LY": {
+    "title": "在 Trackmania 中训练一个无法战胜的 AI",
+    "summary": "Yosh 训练一个强化学习智能体来驾驶 Trackmania 赛车，直到自己也无法击败它。视频解释了训练过程以及其中的设计选择。",
+    "whyHn": "HN 用户推荐它作为强化学习实际运作方式的易懂案例，也会用它说明为什么需要设置约束，防止智能体钻规则的空子。"
+  },
+  "kopoLzvh5jY": {
+    "title": "多智能体捉迷藏",
+    "summary": "OpenAI 的短片演示了多个智能体在模拟环境中玩捉迷藏。通过自我对弈，它们逐步发展出 6 个阶段的策略与反制策略，复杂度不断提高，其中也包括使用工具。",
+    "whyHn": "HN 用户把它当作多智能体强化学习产生涌现行为的生动例子；它也让 AI 对齐方面的担忧变得更具体。"
+  },
+  "PYylPRX6z4Q": {
+    "title": "不手写奖励函数，如何用奖励建模训练 AI",
+    "summary": "Robert Miles 解释了奖励建模：让 AI 通过人类对不同结果的偏好比较，学习人们想要什么，而不是依赖手写的奖励函数。他逐步讲解了 2017 年关于从人类偏好中进行深度强化学习的论文。",
+    "whyHn": "HN 用户认为，这是介绍 RLHF 背后思想的清晰入门视频；也有评论者借它来类比人类的动机。"
+  },
+  "hhiLw5Q_UFg": {
+    "title": "John Schulman：人类反馈强化学习的进展与挑战",
+    "summary": "OpenAI 的 John Schulman 在加州大学伯克利分校 EECS 学术报告中介绍 RLHF。他解释了强化学习为什么有助于提高真实性、减少幻觉，以及行为克隆的局限。",
+    "whyHn": "HN 用户在大语言模型讨论中推荐这场报告，认为这位 ChatGPT 架构师对模型为什么会产生幻觉、为什么仅靠模仿还不够，给出了权威的解释。"
+  },
+  "tx082gDwGcM": {
+    "title": "人类计算",
+    "summary": "Luis von Ahn 在这场 2006 年的 Google TechTalk 中介绍人类计算：利用人的参与，解决当时计算机还难以处理的图像识别等问题。内容包括“有目的的游戏”、CAPTCHA 等相关思路。",
+    "whyHn": "HN 用户推荐这场由人类计算先驱主讲的精彩技术演讲。"
+  },
+  "-Ht4qiDRZE8": {
+    "title": "Luis von Ahn：大规模在线协作",
+    "summary": "CAPTCHA 与 reCAPTCHA 的创造者 Luis von Ahn 解释了如何汇集大量网民的小贡献来将书籍数字化。随后他介绍 Duolingo：让人们在学习语言的同时，帮助翻译网络内容。",
+    "whyHn": "HN 用户认为，直接听发明者讲解人类计算和“有目的的游戏”，是理解这些思想最清晰的方式之一。"
+  },
+  "yvDCzhbjYWs": {
+    "title": "Peter Norvig：数据不可思议的有效性",
+    "summary": "Peter Norvig 在英属哥伦比亚大学的杰出讲座中说明，海量的简单数据如何在语言建模等任务中，产生手工构建模型难以实现的理解能力。",
+    "whyHn": "HN 用户将它推荐为自己喜爱的技术演讲之一，因为它展示了海量数据的可用性如何改变人们解决问题的方式。"
+  },
+  "y57wwucbXR8": {
+    "title": "Andrej Karpathy：构建 Software 2.0 技术栈",
+    "summary": "Andrej Karpathy 在 Databricks 的演讲中介绍 Software 2.0，即从人工编写代码转向通过神经网络训练产生代码。他讨论开发者的工作如何转向数据集整理，以及这种转变的优势、挑战与新工具机会。",
+    "whyHn": "HN 用户把这场演讲视为“Software 2.0”思想的一手来源，也推荐它作为快速了解下一代软件技术栈的入口。"
+  },
+  "hx7BXih7zx8": {
+    "title": "Andrej Karpathy：特斯拉完全自动驾驶中的 AI",
+    "summary": "时任特斯拉 AI 负责人的 Andrej Karpathy 在 ScaledML 2020 上，介绍特斯拉如何利用视觉神经网络和车队数据采集来构建完全自动驾驶系统。内容包括训练专用检测器，以及神经网络如何逐步取代传统代码。",
+    "whyHn": "HN 用户反复将它推荐为了解特斯拉 FSD 技术路线的出色公开概览。支持和批评特斯拉进展的人都会引用这场演讲。"
+  },
+  "ODSJsviD_SU": {
+    "title": "特斯拉 AI 日 2022",
+    "summary": "特斯拉 AI 日 2022 的完整演示，涵盖 Tesla Bot 的硬件与软件、FSD 的规划和感知、占用网络、数据标注、仿真，以及 Dojo 训练基础设施。",
+    "whyHn": "HN 用户把它作为一手材料，用来了解特斯拉基于视觉的自动驾驶技术栈及其训练流程。"
+  },
+  "mbyG85GZ0PI": {
+    "title": "第 1 讲：学习问题",
+    "summary": "Yaser Abu-Mostafa 讲授的加州理工学院 CS 156 机器学习课程第 1 讲，介绍学习问题，以及监督学习、无监督学习和强化学习。这是《Learning from Data》共 18 讲中的一讲。",
+    "whyHn": "HN 用户在“该从哪里开始学机器学习”的讨论中反复推荐它，认为这是清晰且重视数学基础的入门课程。"
+  },
+  "aircAruvnKk": {
+    "title": "神经网络究竟是什么？｜深度学习，第 1 章",
+    "summary": "3Blue1Brown 深度学习系列的第 1 章，以手写数字识别和可视化动画为例，解释神经元、网络层，以及基本神经网络背后的数学。",
+    "whyHn": "HN 用户经常把它作为学习神经网络的第一站，尤其赞赏它能把数学讲得直观易懂。"
+  },
+  "bxe2T-V8XRs": {
+    "title": "揭开神经网络的面纱，第 1 部分：数据与架构",
+    "summary": "Welch Labs 用 Python 构建完整神经网络的短系列第 1 集。本集先介绍数据和一个简单网络的架构，后续部分再讲前向传播、梯度下降和反向传播。",
+    "whyHn": "HN 用户经常向初学者推荐这个系列，认为它用简短而清晰的讲解说明了神经网络与反向传播如何工作。"
+  },
+  "IHZwWFHWa-w": {
+    "title": "梯度下降：神经网络如何学习｜深度学习，第 2 章",
+    "summary": "3Blue1Brown 神经网络系列的第 2 章介绍代价函数和梯度下降，展示网络如何在训练中通过最小化误差来学习。",
+    "whyHn": "HN 用户推荐这个系列，认为它让机器学习与大语言模型背后的数学变得非常容易理解。"
+  },
+  "Ilg3gGewQ5U": {
+    "title": "直观理解反向传播｜深度学习，第 3 章",
+    "summary": "3Blue1Brown 深度学习系列的第 3 章，用直观的可视化方式解释反向传播，以及神经网络学习时内部发生的变化。下一集会讲解背后的微积分。",
+    "whyHn": "HN 用户认为，对难以直接理解纯数学推导的人来说，这是非常容易入门的反向传播讲解。"
+  },
+  "tIeHLnjs5U8": {
+    "title": "反向传播的微积分｜深度学习，第 4 章",
+    "summary": "3Blue1Brown 深度学习系列的第 4 章，用更正式的数学符号讲解反向传播中的微积分，将上一章的直觉与教材、代码中的数学表达联系起来。",
+    "whyHn": "HN 用户推荐它，认为这是以直观、易懂的方式理解反向传播和神经网络的好视频。"
+  },
+  "8SF_h3xF3cE": {
+    "title": "面向程序员的实用深度学习：第 1 课",
+    "summary": "Jeremy Howard 主讲的 fast.ai《面向程序员的实用深度学习》第 1 课。课程带程序员从在 Jupyter notebook 中运行代码开始，直接动手训练一个真正的图像模型。",
+    "whyHn": "HN 用户认为它是动手学习深度学习的最佳课程之一，尤其喜欢这种从代码出发的教学方式。"
+  },
+  "vq2nnJ4g6N0": {
+    "title": "Martin Görner：无需博士学位，也能理解 TensorFlow 与深度学习",
+    "summary": "Martin Gorner 在 Devoxx 的演讲中用 TensorFlow 介绍深度学习，带观众了解用于 MNIST 的神经网络、如何选择架构，以及如何诊断无法正常训练的网络。",
+    "whyHn": "HN 用户反复称它为出色、实用的入门演讲：两小时涵盖大量内容，也解释了学术教材往往略过的问题。"
+  },
+  "ne99laPUxN4": {
+    "title": "Conal Elliott：自动微分的简洁本质",
+    "summary": "Conal Elliott 介绍自己的自动微分论文，从一种自然的规范推导出简洁而通用的自动微分算法。通过改变导数的表示方式，可以得到前向模式与反向模式算法，避免反向传播中的复杂性和状态管理。",
+    "whyHn": "HN 用户认为，这场演讲比论文更易理解，也特别欣赏它借助范畴化编译来处理自动微分的思路。"
+  },
+  "OQQ-W_63UgQ": {
+    "title": "深度学习与自然语言处理，第 1 讲",
+    "summary": "Chris Manning 与 Richard Socher 讲授的斯坦福《深度学习与自然语言处理》课程第 1 讲。内容介绍 NLP 与词向量，包括 SVD、skip-gram、CBOW、负采样和 word2vec。",
+    "whyHn": "HN 用户将其推荐为学习现代自然语言处理深度学习方法的最佳免费课程之一。"
+  },
+  "wjZofJX0v4M": {
+    "title": "Transformer：大语言模型背后的技术｜深度学习，第 5 章",
+    "summary": "3Blue1Brown 用可视化方式解释 Transformer 与 GPT 类语言模型如何工作，跟随数据依次经过词元、嵌入和注意力机制。",
+    "whyHn": "HN 用户把它视为 Transformer 的经典可视化入门视频。许多人表示，正是它让自己终于理解了注意力机制和嵌入。"
+  },
+  "zduSFxRajkE": {
+    "title": "一起构建 GPT 分词器",
+    "summary": "Andrej Karpathy 从零构建 GPT 分词器，实现字节对编码及编码、解码过程。他展示了大语言模型的许多奇怪行为如何追溯到分词环节，同时讲解 Unicode 字节编码。",
+    "whyHn": "HN 用户将它推荐为深入理解分词器的极佳视频，认为任何使用大语言模型的人都值得花这两小时观看。"
+  },
+  "eMlx5fFNoYc": {
+    "title": "一步步理解 Transformer 中的注意力｜深度学习，第 6 章",
+    "summary": "3Blue1Brown 用可视化方式逐步讲解 Transformer 内部的注意力机制，涵盖自注意力、多头注意力和交叉注意力。这是深度学习系列的第 6 章。",
+    "whyHn": "HN 用户把它视为注意力机制的经典可视化讲解，尤其推荐给觉得文字版 Transformer 教程难以理解的人。"
+  },
+  "iDulhoQ2pro": {
+    "title": "《Attention Is All You Need》论文讲解",
+    "summary": "Yannic Kilcher 逐步讲解《Attention Is All You Need》。这篇论文提出了 Transformer，一种不使用循环或卷积、完全基于注意力的序列模型。他介绍了模型架构及论文中的机器翻译实验结果。",
+    "whyHn": "HN 用户向具备一些 AI 背景的人推荐这段视频，认为它清楚且易懂地讲解了 Transformer 论文。"
+  },
+  "OyFJWRnt_AY": {
+    "title": "CS480/680 第 19 讲：注意力与 Transformer 网络",
+    "summary": "Pascal Poupart 在大学课程 CS480/680 中，借助黑板逐步讲解注意力机制与 Transformer 网络。",
+    "whyHn": "HN 用户向初学者推荐这堂清晰的注意力机制讲解，其中也帮助观众建立了对 query、key、value 的直觉。"
+  },
+  "S27pHKBEp30": {
+    "title": "LSTM 已死，Transformer 万岁！",
+    "summary": "Leo Dirac 解释 Transformer 如何在 NLP 中取代 LSTM。他从词袋模型讲到 RNN 和 LSTM，再深入讲解多头自注意力与位置编码，并提供示例代码。",
+    "whyHn": "HN 用户认为，它清楚解释了 RNN 的不足，以及 Transformer 如何解决这些问题。"
+  },
+  "dKJEpOtVgXc": {
+    "title": "我们还需要注意力吗？用于 NLP 的线性 RNN 与状态空间模型（SSM）",
+    "summary": "Sasha Rush 在 MLSys 的演讲中，介绍如何用线性 RNN 和状态空间模型替代 Transformer 类模型中的注意力机制。演讲涵盖必要的基础知识，时间早于 Mamba 的出现。",
+    "whyHn": "HN 用户推荐它来建立对状态空间模型的直觉，并理解 Transformer 层与 SSM 层之间的取舍。"
+  },
+  "7xTGNNLPyMI": {
+    "title": "深入理解 ChatGPT 这类大语言模型",
+    "summary": "Andrej Karpathy 面向普通观众，用三个多小时深入讲解 ChatGPT 类大语言模型的构建方式，覆盖从预训练到后训练的完整训练流程。他也给出理解模型幻觉等特性的思维框架，并说明如何更好地使用它们。",
+    "whyHn": "HN 用户经常推荐它，认为它不依赖繁重的数学，也能为理解大语言模型如何工作打下清晰、易懂的基础。"
+  },
+  "PaCmpygFfXo": {
+    "title": "语言建模详解：从零构建 makemore",
+    "summary": "Andrej Karpathy 从零构建一个字符级二元语言模型，介绍 torch.Tensor，以及训练、采样和损失评估的基本流程。这是 makemore 系列通向 GPT 类 Transformer 的第一步。",
+    "whyHn": "HN 用户认为，虽然视频较长，但非常值得看，能从技术层面揭开语言模型的神秘面纱。"
+  },
+  "kCc8FmEb1nY": {
+    "title": "一起构建 GPT：从零开始，逐行写出代码",
+    "summary": "Andrej Karpathy 参考《Attention Is All You Need》和 GPT-2/3，用约两小时以 PyTorch 从零编写一个 GPT。他将实现与 ChatGPT 联系起来，并假定观众熟悉前面的 makemore 视频。",
+    "whyHn": "HN 用户经常推荐它来学习 Transformer 和大语言模型究竟如何工作，尤其赞赏讲解的清晰程度和 Karpathy 的教学方式。"
+  },
+  "bZQun8Y4L2A": {
+    "title": "GPT 的现状｜BRK216HFS",
+    "summary": "Andrej Karpathy 讲解 GPT 助手的训练过程，从分词、预训练到监督微调和 RLHF，并介绍实用的提示策略及相关工具生态。",
+    "whyHn": "HN 用户认为，这是了解大语言模型助手如何构建、如何更好使用它们的清晰概览。"
+  },
+  "jkrNMKz9pWU": {
+    "title": "黑客的语言模型指南",
+    "summary": "Jeremy Howard 用 90 分钟实用地介绍语言模型，涵盖其工作原理、GPT-4 的能力与局限、OpenAI API 的使用，以及编写代码、数据分析和微调。",
+    "whyHn": "HN 用户反复将它称为使用大语言模型的最佳实用教程之一，尤其喜欢其中的微调部分。"
+  },
+  "LCEmiRjPEtQ": {
+    "title": "Andrej Karpathy：软件又一次发生变化",
+    "summary": "Andrej Karpathy 在 AI Startup School 的主题演讲中，梳理 Software 1.0、2.0 和 3.0，并将大语言模型类比为公共基础服务、晶圆厂和操作系统。他讨论模型特性、部分自主的应用，以及让人始终参与“生成—验证”的循环。",
+    "whyHn": "HN 用户主要引用其中“用英语编程”和“先生成、再验证”的工作方式；也有少数批评者认为演讲带有炒作成分。"
+  },
+  "oFfVt3S51T4": {
+    "title": "Cursor 团队：AI 编程的未来｜Lex Fridman 播客第 447 期",
+    "summary": "Lex Fridman 与 AI 辅助代码编辑器 Cursor 的四位创造者对谈。他们介绍编辑器如何将模型融入编程流程，包括专用补全模型，以及通过推测解码等技术加快代码修改的应用速度。",
+    "whyHn": "HN 用户认为，直接听创始人介绍，是了解 Cursor 内部技术实现的极佳一手材料。"
+  },
+  "ZJUyVVFOXOc": {
+    "title": "第 1 季第 8 集：Efrit 演示——让 Claude 使用 Emacs 积累 50 年的能力",
+    "summary": "Steve Yegge 在《Vibe Coding with Steve and Gene》节目中展示 Efrit，这个工具让 Claude 能全面控制 Emacs。Claude 打开 Info 帮助页面、运行 shell，甚至在缓冲区里绘制曼德勃罗分形。",
+    "whyHn": "HN 用户分享这段有趣的演示，展示大语言模型如何操控运行中的 Emacs，并调动其长期积累的工具生态。"
+  },
+  "EL7Au1tzNxE": {
+    "title": "用 AI 智能体完成 Rust 中的复杂代码修改",
+    "summary": "Jon Gjengset 用约三个小时，在 Rust 代码库中借助 AI 智能体工具现场完成复杂修改，以检验自己关于 AI 不擅长非模式化工作的判断。他记录了 Claude Code 能帮上忙的地方，以及遇到困难的地方。",
+    "whyHn": "HN 用户推荐这段不带推销性质的真实长演示：一位有经验的工程师，与 AI 一起处理并不简单的代码。"
+  },
+  "T5RmMNDR5XI": {
+    "title": "Lucene 索引里有什么？Elasticsearch 工程师 Adrien Grand 讲解",
+    "summary": "Elasticsearch 工程师、Lucene 提交者 Adrien Grand 解释了 Lucene 索引内部的设计选择，以及它能和不能解决的问题。演讲深入介绍 Lucene 如何存储数据，以支持快速搜索和分析。",
+    "whyHn": "HN 用户认为，由核心提交者讲解 Lucene 内部机制，既有启发性，也很容易跟上。"
+  },
+  "KRcecxdGxvQ": {
+    "title": "Michael Stonebraker：大数据至少是四种不同的问题",
+    "summary": "数据库先驱 Michael Stonebraker 认为，“大数据”实际上至少包含四类问题：数据量大而分析简单、复杂分析、数据速度，以及数据多样性。他也讨论了各个市场的发展方向。",
+    "whyHn": "HN 用户认为，这位图灵奖得主从基本原理出发的分析很有深度，能帮助人们看清 NoSQL 与大数据热潮中的夸大宣传。"
+  },
+  "S0mviKhVmBI": {
+    "title": "Bryan Cantrill：把 Unix 哲学带入大数据｜FutureStack13",
+    "summary": "Bryan Cantrill 介绍 Manta：一个支持就地计算的对象存储系统，可让 grep、awk、sed 等工具以 MapReduce 式的方法处理海量数据。他将其描述为把 Unix 哲学带入大数据。",
+    "whyHn": "HN 用户推荐它，认为它优雅地说明了简单的 Unix 工具如何替代笨重的 Hadoop 式处理流程。"
+  },
+  "fU9hR3kiOK0": {
+    "title": "Martin Kleppmann：用 Apache Samza 把数据库“翻过来”",
+    "summary": "Martin Kleppmann 认为，数据库本质上是全局共享的可变状态，并提出将数据视为不断增长的不可变事实日志。缓存、索引和视图等派生数据，则由 Apache Samza 这类流处理器构建。演讲借鉴了 Kafka 和 LinkedIn 使用提交日志的经验。",
+    "whyHn": "HN 用户反复提到，这场演讲改变了他们理解缓存、派生数据和事件溯源的方式。"
+  },
+  "Iq9DzN6mvYA": {
+    "title": "Jake Vanderplas：给黑客的统计学｜PyCon 2016",
+    "summary": "Jake Vanderplas 在 PyCon 2016 展示了模拟、随机打乱和自助法等基于采样的方法，如何让统计学变得直观。他的观点是：只要会写 for 循环，就能做统计分析。",
+    "whyHn": "HN 用户向希望通过模拟而不是死记公式来学习统计学的程序员推荐这场演讲。"
+  },
+  "1tSqSMOyNFE": {
+    "title": "我们如何被统计结果误导",
+    "summary": "Veritasium 的这段短片解释均值回归，以及忽略它如何导致人们误判惩罚与奖励、医疗效果和体育连胜。视频举了飞行教官的例子：他们曾认为批评比表扬更有效。",
+    "whyHn": "HN 用户认为，这是对均值回归非常清晰的简短解释，尤其说明了它如何让人误解反馈与统计结果。"
+  },
+  "lG4VkPoG3ko": {
+    "title": "医学检测悖论，以及重新理解贝叶斯公式",
+    "summary": "3Blue1Brown 解释了为什么即使医学检测很准确，阳性结果也常常可能是假阳性，并通过似然比（贝叶斯因子）更新赔率的方式重新表述贝叶斯公式。可视化例子让这一推理过程更加直观。",
+    "whyHn": "每当讨论涉及贝叶斯推理、基础发生率或不完美的检测，HN 用户经常会推荐这个视频。"
+  },
+  "42QuXLucH3Q": {
+    "title": "大多数已发表的研究都是错的吗？",
+    "summary": "Veritasium 解释了为什么大量已发表研究的结论可能有误，涵盖 p 值、p-hacking、发表偏差和较低的复现率。视频参考 John Ioannidis 的知名论文，也介绍了预注册等改革做法。",
+    "whyHn": "每当讨论涉及不可靠的研究或 p<0.05 阈值，HN 用户会把它作为理解科学研究中假阳性问题的简短入门视频。"
+  },
+  "Qi1Yry33TQE": {
+    "title": "Ali Rahimi：NIPS 2017 时间检验奖获奖演讲",
+    "summary": "Ali Rahimi 在 NIPS 2017 时间检验奖演讲中指出，现代机器学习有时像炼金术：方法能奏效，人们却没有严谨地理解其原因。他呼吁这个领域提高严谨性，并加深对方法的理解。",
+    "whyHn": "HN 用户把它视为对深度学习实践最尖锐、最常被引用的批评之一，并在讨论机器学习可靠性或理解程度时引用它。"
+  },
+  "r-TLSBdHe1A": {
+    "title": "Emery Berger：性能很重要",
+    "summary": "Emery Berger 解释了为什么在现代硬件上测量和提升性能都很困难，并展示代码布局与对齐如何掩盖优化带来的效果。他介绍了用于严谨统计评估的 Stabilizer，以及因果性能分析器 Coz。",
+    "whyHn": "如果微小代码改动引发难以解释的基准测试变化，HN 用户通常会推荐这场演讲；它也是学习因果性能分析的好入口。"
+  },
+  "pYXy-A4siMw": {
+    "title": "AI 安全入门：重制版",
+    "summary": "Robert Miles 根据自己在伦敦的一场演讲，制作了这段重制版 AI 安全入门视频。他说明先进 AI 为什么可能出问题，并回应常见的反对意见。",
+    "whyHn": "HN 用户常向初学者推荐它，认为这是了解 AI 风险和对齐问题的轻松、易懂入口。"
+  },
+  "hEUO6pjwFOo": {
+    "title": "智能与愚蠢：正交性论题",
+    "summary": "Robert Miles 解释正交性论题：一个智能体可以非常聪明，却追求人类看来愚蠢或陌生的目标。他将智能水平与目标区分开来，并谈到集邮者的例子。",
+    "whyHn": "HN 用户经常用这段简短视频解释，为什么 AI 能理解人类伦理，却不一定认同它；也常推荐整个频道。"
+  },
+  "ZeecOKBus3Q": {
+    "title": "AI 为什么会想做坏事？工具性趋同",
+    "summary": "Robert Miles 解释工具性趋同：无论通用人工智能追求什么目标，都可能倾向于自我保护、获取资源等子目标。内容基于 Omohundro 关于 AI 基本驱动力的论述，也承接他此前介绍正交性论题的视频。",
+    "whyHn": "HN 用户反复推荐它，认为它清楚解释了为什么聪明的 AI 在缺乏约束时也可能表现出有害行为。"
+  },
+  "lqJUIqZNzP8": {
+    "title": "避免负面副作用：《AI 安全中的具体问题》第 1 部分",
+    "summary": "Robert Miles 开始介绍论文《Concrete Problems in AI Safety》的系列视频。本集聚焦 AI 系统如何意外造成负面副作用，并用易懂的语言解释这一问题。",
+    "whyHn": "HN 用户向对 AI 安全感兴趣的人推荐 Robert Miles 的频道，认为这里是清晰易懂的起点。"
+  },
+  "zkbPdEHEyEI": {
+    "title": "真实出现的内部失配：我们的判断得到了验证",
+    "summary": "Robert Miles 介绍一篇论文：研究者将他此前关于 mesa 优化器的思想实验付诸实际实验。结果展示了内部失配，即 AI 在训练中学到错误的目标，并在部署后表现出不符合预期的行为。",
+    "whyHn": "HN 用户用它回应对 AI 失配问题不以为然的人，说明这已经是得到实证展示的问题。"
+  },
+  "vT1JzLTH4G4": {
+    "title": "第 1 讲：用于视觉识别的卷积神经网络导论",
+    "summary": "斯坦福 CS231n《用于视觉识别的卷积神经网络》课程第 1 讲。从寒武纪生命大爆发、Hubel 与 Wiesel 的研究，到 ImageNet，课程回顾计算机视觉的历史与主要挑战。",
+    "whyHn": "HN 用户推荐 CS231n 系列讲座，认为这是适合自学、扎实且注重应用的深度学习课程。"
+  },
+  "ZmNOAtZIgIk": {
+    "title": "湾区视觉会议：无监督特征学习与深度学习",
+    "summary": "Andrew Ng 介绍无监督特征学习与深度学习，展示算法如何从未标注的数据中学到表示，而不再依靠人工设计特征。他给出视觉与音频方面的例子，包括逐层学习到的特征的可视化。",
+    "whyHn": "多年来，HN 用户一直推荐它，认为它用简单而令人振奋的方式概览了深度学习浪潮。"
+  },
+  "AgkfIQ4IGaM": {
+    "title": "深度可视化工具箱演示",
+    "summary": "这段 Deep Visualization Toolbox 的简短演示，展示卷积神经网络处理实时摄像头输入时的内部激活。观众能看到不同单元对边缘、人脸和文字作出响应。",
+    "whyHn": "HN 用户认为，它能直观展示卷积网络隐藏层学到了什么，也适合用来理解分层特征学习。"
+  },
+  "rTawFwUvnLE": {
+    "title": "Geoffrey Hinton：卷积神经网络有什么问题？",
+    "summary": "Geoffrey Hinton 在 MIT 的演讲中讨论卷积神经网络的问题，并介绍自己的胶囊网络项目。视频说明中附有胶囊网络论文的链接。",
+    "whyHn": "HN 用户推荐它，既能听到 Hinton 亲自解释胶囊网络，也能了解他对 CNN 中池化操作的批评。"
+  },
+  "iv-5mZ_9CPY": {
+    "title": "AI 图像和视频究竟如何生成？｜Welch Labs 客座讲解",
+    "summary": "Welch Labs 在 3Blue1Brown 频道的客座视频中解释文生图和视频模型如何工作，涵盖 CLIP、共享嵌入空间、扩散模型（DDPM、DDIM）、条件控制、引导和负面提示词。",
+    "whyHn": "HN 用户用它来理解扩散模型中的负面提示词、加速采样等机制，以及联合文本与图像的编码器，认为讲解十分清楚。"
+  },
+  "udPY5rQVoW0": {
+    "title": "玩神经网络生成的 GTA V：GAN Theft Auto",
+    "summary": "Sentdex 演示 GAN Theft Auto：一个基于 GameGAN、重现 GTA V 的神经网络，网络本身就是可以游玩的环境。他展示了运行效果，并公开代码。",
+    "whyHn": "HN 用户把它视为一个早期且令人印象深刻的演示：神经网络可以充当游戏引擎和世界模型。"
+  },
+  "kLiwvnr4L80": {
+    "title": "NVIDIA 的 Bill Dally：深度学习硬件的发展趋势",
+    "summary": "NVIDIA 的 Bill Dally 在华盛顿大学讲授深度学习硬件的发展趋势，涵盖数值格式、专用指令、每次运算的能耗，以及软硬件协同设计。",
+    "whyHn": "HN 用户引用它来了解 NVIDIA 对 AI 硬件效率的看法，包括对数数值格式和能源使用。"
+  },
+  "aP0Y1uAA-2Y": {
+    "title": "斯坦福研讨会：超越浮点数——下一代计算机算术",
+    "summary": "John Gustafson 介绍 posit 数制，提出将其作为 IEEE 754 浮点数的直接替代方案：硬件实现更简单，精度也更灵活。报告包括现场演示与机器学习实验结果。",
+    "whyHn": "HN 用户在浮点数讨论中引用它，将其作为了解 posit 和 unum 如何替代 IEEE 浮点数的主要入门材料。"
+  },
+  "Gh-Tff7DdzU": {
+    "title": "RAAIS 2017：Graphcore 联合创始人兼 CTO Simon Knowles",
+    "summary": "Graphcore 联合创始人兼 CTO Simon Knowles 介绍“智能处理器”，即专门为机器学习设计的芯片。这场 RAAIS 2017 峰会演讲涵盖 Graphcore 的架构。",
+    "whyHn": "HN 用户推荐这场芯片设计师的技术演讲，用来理解为什么 AI 硬件应让存储靠近计算，并采用异步数据传输。"
+  },
+  "yCd3CzGSte8": {
+    "title": "Chris Lattner：编译器、LLVM、Swift、TPU 与机器学习加速器｜Lex Fridman 播客第 21 期",
+    "summary": "Lex Fridman 采访 LLVM、Clang 与 Swift 的创造者 Chris Lattner，讨论编译器、Swift for TensorFlow、TPU 和机器学习加速器，以及软硬件如何配合产生高效代码。",
+    "whyHn": "HN 用户认为，与 Swift 和 LLVM 创造者的这场对谈很有意思，尤其适合了解编译器与机器学习编译。"
+  },
+  "rsxCZAE8QNA": {
+    "title": "HC2023-K2：深度学习硬件",
+    "summary": "NVIDIA 的 Bill Dally 在 Hot Chips 2023 主题演讲中，讨论为深度学习构建硬件的挑战。他回顾 GPU 如何逐步适应机器学习，尤其是模型训练。",
+    "whyHn": "HN 用户推荐它来了解业内视角：NVIDIA 的 AI 性能进步为什么更多来自设计而非制造工艺，以及数据搬运带来的功耗成本。"
+  },
+  "ZK3O402wf1c": {
+    "title": "MIT 18.06 线性代数，第 1 讲｜2005 年春季",
+    "summary": "Gilbert Strang 讲授的 MIT 18.06 线性代数课程第 1 讲，介绍线性方程的几何意义。这是完整 35 讲大学课程的开篇。",
+    "whyHn": "HN 用户学习线性代数时经常首先推荐这门课，赞赏 Strang 的教学方式，以及课程对机器学习所需理解力的帮助。"
+  },
+  "Ip3X9LOh2dk": {
+    "title": "行列式｜线性代数的本质，第 6 章",
+    "summary": "3Blue1Brown 用这段 10 分钟的视频，将行列式解释为线性变换缩放面积或体积的倍数。视频先通过几何动画建立直觉，再进入公式。",
+    "whyHn": "HN 用户反复推荐它，认为它提供了理解行列式最清晰的视觉直觉；很多人说自己通过它终于弄懂了这个概念。"
+  },
+  "PFDu9oVAE-g": {
+    "title": "特征向量与特征值｜线性代数的本质，第 14 章",
+    "summary": "3Blue1Brown《线性代数的本质》系列中介绍特征向量和特征值的一章。视频直观解释它们的含义，以及特征向量构成的基为什么有用，并以一道谜题结尾。",
+    "whyHn": "HN 用户多次称它为理解特征值最出色、最直观的讲解，也把它作为进入整个线性代数系列的入口。"
+  },
+  "WUvTyaaNkzM": {
+    "title": "微积分的本质",
+    "summary": "3Blue1Brown《微积分的本质》系列的第 1 集，从一个简单的几何问题出发，逐步引出积分、导数和微积分基本定理。它希望让观众感觉，自己也能一步步发现微积分。",
+    "whyHn": "HN 用户经常向学习数学的人推荐它，认为它建立的视觉直觉能让原本死记硬背的公式变得有意义。"
+  },
+  "McLq1hEq3UY": {
+    "title": "斯坦福《凸优化 I》，第 1 讲",
+    "summary": "Stephen Boyd 讲授的斯坦福《凸优化 I》（EE 364A）课程导论。内容概览凸集、凸函数和凸优化问题，以及课程将讨论的最小二乘、线性规划、半正定规划、对偶和内点法。",
+    "whyHn": "HN 用户推荐在线性代数之后学习 Boyd 的讲座，认为课程精彩而且常常很有趣，也是机器学习学习路径中的重要一步。"
+  },
+  "KbB0FjPg0mw": {
+    "title": "概率与计数，第 1 讲｜Statistics 110",
+    "summary": "Joe Blitzstein 讲授的哈佛 Statistics 110 第 1 讲，介绍样本空间、概率的朴素定义、计数、二项式系数，以及抽样方式表。",
+    "whyHn": "Ask HN 讨论中常推荐这门高质量的免费概率课程，适合重新学习数学或为机器学习打基础。"
+  },
+  "HZGCoVF3YvM": {
+    "title": "贝叶斯定理：用几何理解信念如何改变",
+    "summary": "3Blue1Brown 通过几何图示讲解贝叶斯定理，说明证据应如何更新我们的判断。视频分析了 Kahneman 与 Tversky 风格的问题，以及基础发生率的作用。",
+    "whyHn": "HN 用户认为，这是贝叶斯定理最直观的入门讲解之一，也会在讨论基础发生率时引用它。"
+  },
+  "BCiZc0n6COY": {
+    "title": "第 1 讲：信息论导论",
+    "summary": "David MacKay 在剑桥大学讲授的信息论、模式识别与神经网络课程第 1 讲，介绍其著作《Information Theory, Inference, and Learning Algorithms》的核心思想。",
+    "whyHn": "HN 用户认为这是有趣而清晰的信息论入门课程，很适合配合 MacKay 免费公开的教材学习。"
+  },
+  "uU_Q2a0S0zI": {
+    "title": "Hamming：n 维空间｜1995 年 4 月 14 日",
+    "summary": "Richard Hamming 在 1995 年关于 n 维空间的讲座中，展示了人们对球体和立方体的几何直觉如何在高维空间中失效。这是他“学习如何学习”课程的一部分。",
+    "whyHn": "HN 用户推荐它来理解高维几何中违反直觉的现象，认为这场讲座很开眼界。"
+  },
+  "pHsuIaPbNbY": {
+    "title": "Michael Betancourt：用哈密顿蒙特卡洛进行高效贝叶斯推断，第 1 部分",
+    "summary": "Michael Betancourt 在 MLSS Iceland 2014 的讲座中，介绍如何通过哈密顿蒙特卡洛进行高效的贝叶斯推断。内容涵盖 MCMC 的概念与动机，以及从高维分布中采样的难题。",
+    "whyHn": "HN 用户常回看这段视频，认为它清楚介绍了 MCMC、HMC，以及高维空间为什么会出现违反直觉的行为。"
+  },
+  "WpkDN78P884": {
+    "title": "Ruby Midwest 2011 主题演讲：架构失落的岁月｜Robert Martin",
+    "summary": "Robert C. Martin 在 Ruby Midwest 2011 的主题演讲中提出，软件架构应表达应用的意图，而不是所用框架。他讨论如何分离实体、交互器与边界，让 Web、数据库和框架成为实现细节。",
+    "whyHn": "HN 用户经常推荐这场有影响力的演讲，学习解耦、可测试的架构；也有评论者不认同 Martin 对 TDD 的推崇。"
+  },
+  "AnrlSqtpOkw": {
+    "title": "Alan Kay 在 Intertwingled 艺术节上向 Ted Nelson 致敬",
+    "summary": "Alan Kay 在 Intertwingled 艺术节上向 Ted Nelson 致敬，演示时使用了一个恢复运行的 Smalltalk-78 系统，它运行在模拟的 1970 年代 Xerox PARC 硬件上。视频展现了那个时代可以实时操作、由用户编程的软件。",
+    "whyHn": "HN 用户反复回看这段视频，用它对比 1970 年代与今天的系统，感受当时系统的可编程性与可组合性。"
+  },
+  "r-A78RgMhZU": {
+    "title": "关于 Python 近期未来的一场演讲：Dave 现场编写 WebAssembly 解释器",
+    "summary": "David Beazley 在 PyCon India 的闭幕主题演讲中，现场编写一个栈机，逐步将其扩展为能运行 WebAssembly 的解释器，最后用它玩一个以 Rust 编写的游戏。观看不需要预先了解 WebAssembly。",
+    "whyHn": "HN 用户认为，这是一场出色的现场编程演讲，能学到 WASM 与解释器编写；多人将它列为自己看过的最佳技术会议演讲之一。"
+  },
+  "YX3iRjKj7C0": {
+    "title": "RailsConf 09：Robert Martin 谈 Smalltalk 衰落的教训",
+    "summary": "Robert Martin 在 RailsConf 2009 的演讲中，探讨 Smalltalk 为什么在技术上有优势却仍然落败。他从语言社区及其傲慢中总结教训，认为同样的问题也可能伤害 Ruby。",
+    "whyHn": "HN 用户在讨论编程语言推广、社区关系和狂热倾向时引用它。演讲易于理解，说明了一门好语言也可能因非技术原因走向衰落。"
+  },
+  "7jb0FOcImdg": {
+    "title": "16 毫秒内处理 8 帧：Mortal Kombat 与 Injustice 2 的回滚网络技术",
+    "summary": "NetherRealm 的 Michael Stallone 在 GDC 2018 介绍，为了在 Mortal Kombat 和 Injustice 2 中于 16 毫秒内回滚并重新模拟最多 8 帧，需要怎样的引擎改动、优化和工具。这场演讲深入讨论确定性回滚网络代码。",
+    "whyHn": "HN 用户认为，这是介绍已上市 AAA 格斗游戏中回滚网络技术的权威实战演讲。"
+  },
+  "-4EDhdAHrOg": {
+    "title": "问题不在那颗钉子",
+    "summary": "这段两分钟的喜剧短片中，一位女性诉说自己的困扰，头上却明显插着一颗钉子。伴侣不断试图解决钉子的问题，而不是倾听。短片把“希望获得共情”和“别人急着提供解决方案”之间的落差演了出来。",
+    "whyHn": "HN 用户认为，这是区分倾听与解决问题的简短、难忘的例子，也常在讨论共情和支持时引用它。"
+  },
+  "826HMLoiE_o": {
+    "title": "艰苦的 8 小时追猎｜Attenborough《哺乳动物的生命》｜BBC Earth",
+    "summary": "这段来自 Attenborough《哺乳动物的生命》的片段，跟随一位卡拉哈里地区的桑人猎手，记录长达 8 小时的持续追猎。他在酷热中奔跑，将一只捻角羚追至力竭。视频展示追踪、耐力奔跑，以及猎杀结束后猎手的反应。",
+    "whyHn": "HN 用户在讨论人类耐力奔跑和进化时，经常把它作为持续追猎的经典影像资料。"
+  },
+  "6orsmFndx_o": {
+    "title": "Ivan Sutherland 的 Sketchpad 演示，1963 年",
+    "summary": "这档电视节目介绍 Ivan Sutherland 在 MIT 于 1963 年完成的论文软件 Sketchpad，它运行在 TX-2 计算机上。节目展示光笔绘图、约束、吸附、缩放和面向对象式图形，这些都是图形用户界面与 CAD 的基础。",
+    "whyHn": "HN 用户反复回看这段令人印象深刻的演示：GUI、CAD 和约束编程的核心思想，早在 1960 年代就已经存在。"
+  },
+  "0SARbwvhupQ": {
+    "title": "Google I/O 2009：“天才程序员”的神话",
+    "summary": "Brian Fitzpatrick 和 Ben Collins-Sussman 认为，对“天才程序员”的理想化会损害协作。他们主张放下自负、重视成长，尽早分享工作，并理解工具如何影响人与人之间的行为。",
+    "whyHn": "HN 的常客推荐这场关于代码审查、谦逊与协作开发的演讲，认为它能影响一个人的职业发展。"
+  },
+  "5eo8nz_niiM": {
+    "title": "一个地点容纳超过 200,000 台服务器！探访德国 Falkenstein 的 Hetzner",
+    "summary": "超频玩家 der8auer 参观 Hetzner 位于德国 Falkenstein 的数据中心，展示定制机架、自有主板、被动散热服务器，以及摆放在架子上的 ATX 式机箱。",
+    "whyHn": "每当讨论 Hetzner 时，HN 用户经常推荐它，认为这是了解其独特、半定制、低成本数据中心配置的绝佳内部视角。"
+  },
+  "2tdiKTSdE9Y": {
+    "title": "我保证，这个关于微波炉的故事很有趣",
+    "summary": "Tom Scott 调查“微波炉是为了给仓鼠加热而发明的”这一说法，并采访 James Lovelock，了解他在 1950 年代冷冻仓鼠、再用微波解冻的实验。视频也追溯了磁控管早期在雷达之外的用途。",
+    "whyHn": "HN 用户认为，这是一段讲得很精彩的奇闻追查，还难得采访到了当时已 101 岁的 Lovelock。"
+  },
+  "HJ-719EGIts": {
+    "title": "编程语言高级专题：无锁哈希表",
+    "summary": "Azul Systems 的 Cliff Click 在 2007 年的 Google Tech Talk 中，介绍一个可扩展到 768 个 CPU 的无锁并发哈希表。他使用不同于通常 happens-before 和内存顺序论证的推理方式，解释这个设计为什么正确。",
+    "whyHn": "HN 用户将它视为最出色的技术演讲之一：深入而清晰地讲解了如何基于比较并交换操作，构建可扩展的无锁哈希表。"
+  },
+  "5YV_iKnzDRg": {
+    "title": "阳光与健康、免疫：光疗及褪黑素",
+    "summary": "MedCram 的 Roger Seheult 医生介绍阳光在维生素 D 之外的益处，涵盖太阳光谱、昼夜节律、褪黑素和红外光。讲座接近两小时，并提供分段时间标记。",
+    "whyHn": "HN 用户引用这场由医生主讲、易于理解的综述，来支持有关红外光、线粒体和晨间阳光的说法。"
+  },
+  "52Mx0_8YEtg": {
+    "title": "《全球变暖大骗局》完整版",
+    "summary": "Martin Durkin 为 Channel 4 制作的 2007 年纪录片，主张人类活动造成的全球变暖被夸大，或是一场骗局。片中包括 Richard Lindzen 等持反对意见的科学家，并宣传以太阳黑子和宇宙射线解释温度变化的观点。这些主张遭到主流气候科学的否定。",
+    "whyHn": "气候怀疑论者在 HN 引用它来反驳关于 CO2 的共识；其他人则把它当作否认气候变化的例子。"
+  },
+  "Bd8_vO5zrjo": {
+    "title": "1942 年中途岛战役：从日方视角讲述（1/3）",
+    "summary": "Montemayor 关于中途岛战役的动画地图纪录片第 1 部分，仅根据日本方面当时掌握的信息来讲述，重点呈现 Nagumo 面临的两难处境。",
+    "whyHn": "HN 用户喜欢其中信息丰富的地图与旁白，也推荐它来理解指挥官如何在信息有限的情况下作出决定。"
+  },
+  "wJWksPWDKOc": {
+    "title": "The Caretaker：《Everywhere at the End of Time》第 1—6 阶段完整版",
+    "summary": "The Caretaker 的《Everywhere at the End of Time》专辑系列共 6 个阶段，完整收录约 6.5 小时音乐。作品利用逐渐失真、衰败的旧舞厅录音，描绘失智症的发展过程。",
+    "whyHn": "HN 用户在讨论失智症与衰老时，经常带着很深的感触推荐它，认为它用声音描绘了记忆的流失。"
+  },
+  "ZXJWO2FQ16c": {
+    "title": "Steve Reich《为 18 位音乐家而作的音乐》完整版演出｜eighth blackbird",
+    "summary": "eighth blackbird 与 Third Coast Percussion 等音乐家完整演奏 Steve Reich 的《为 18 位音乐家而作的音乐》，于 2011 年在芝加哥录制。这首约一小时的极简主义作品建立在相位变化与重复模式之上。",
+    "whyHn": "HN 用户在讨论编程时听的音乐时推荐它，认为这种没有歌词、反复展开的音乐有助于专注。"
+  },
+  "JLb5hZLw44s": {
+    "title": "Bret Weinstein 做客 Eric Weinstein 的《The Portal》第 019 集：预测与 DISC",
+    "summary": "在这期较长的《The Portal》播客中，Bret Weinstein 向 Eric Weinstein 讲述自己关于实验室小鼠端粒的研究、背后的预测，以及这项工作对科学和衰老研究的意义。",
+    "whyHn": "HN 用户认为，尽管节目较长，但它完整讲述了实验室小鼠的问题，以及癌症与长寿之间的进化权衡，因此值得观看。"
+  },
+  "1wAaI_6b9JE": {
+    "title": "四维数学：在第四维中看见和听见什么——Matt Parker",
+    "summary": "Matt Parker 在英国皇家研究院（Royal Institution）用动手演示介绍四维形状如何呈现在三维世界中，道具包括吸管框架、莫比乌斯带和一顶针织帽。这是一场面向大众、充满趣味的第四维探索。",
+    "whyHn": "HN 用户推荐这场轻松易懂的演讲，认为它有助于建立对高维空间的直觉。"
+  },
+  "ExgxwKnH8y4": {
+    "title": "阻挠一栋新公寓的荒唐拉锯，揭示旧金山住房危机的成因",
+    "summary": "ReasonTV 讲述 Bob Tillman 的经历：他花了近五年和 140 万美元，试图把自己在旧金山的自助洗衣店改建成公寓。视频梳理了他面对的审批程序、申诉和邻里反对。",
+    "whyHn": "HN 用户经常以此为例，具体说明地方监管和邻避主义如何阻碍旧金山及加州的新住房建设。"
+  },
+  "EBCYvoC4muc": {
+    "title": "Commodordion：用 Commodore 64 制作的手风琴",
+    "summary": "Linus Akesson 演示 Commodordion：一架以 Commodore 64 硬件为核心、用软盘制作风箱、功能完整的 8 位手风琴。他演奏了 Scott Joplin 的《Maple Leaf Rag》，并讲述制作过程。",
+    "whyHn": "HN 用户推荐这件作品，因为它出自一位极富创意的艺术家兼工程师；他们认为他的整个频道都值得探索。"
+  },
+  "GJCF-Ufapu8": {
+    "title": "《秘密战争》",
+    "summary": "这部合集收录了 BBC 于 1977 年播出的纪录片《秘密战争》（The Secret War），讲述英国在二战期间的科学与技术工作，涉及雷达、德国导航波束和 V 型武器。片中采访了亲历者，包括 Albert Speer。",
+    "whyHn": "HN 读者推荐这部细致而有深度的战时技术纪录片，认为它尊重观众的理解能力。"
+  },
+  "PnbOWi6f_IM": {
+    "title": "《音乐如何运作》1：旋律（第 1 部分）",
+    "summary": "这是英国 Channel 4 播出的四部分纪录片系列的第一部分，由 Howard Goodall 主持。本集讲述旋律以及曲调为何能深深打动我们，并结合历史背景和乐理解释西方音乐中的旋律如何运作。",
+    "whyHn": "HN 用户推荐这个系列，认为它结合历史背景，适合作为通俗易懂的乐理入门。"
+  },
+  "17jymDn0W6U": {
+    "title": "美国自然历史博物馆：《已知宇宙》数据可视化",
+    "summary": "美国自然历史博物馆的这部影片借助其 Digital Universe Atlas 四维地图，带领观众从喜马拉雅山出发，穿过大气层和太阳系，一路飞向宇宙大爆炸的余辉。",
+    "whyHn": "HN 用户分享这部作品，认为它对宇宙尺度的可视化令人眼界大开，也令人感动。"
+  },
+  "8JOD1AQGqEg": {
+    "title": "未曾出现的万维网——Dylan Beattie",
+    "summary": "Dylan Beattie 在这场妙趣横生的 NDC 演讲中设想了万维网的另一段历史：如果操作系统、浏览器和标准的选择有所不同，网络会变成什么样？演讲将真实历史与幽默融为一体。",
+    "whyHn": "HN 评论者强烈推荐这场有趣的万维网架空历史演讲；每当讨论网络本可以怎样发展时，大家就会提起它。"
+  },
+  "EWX5B6cD4_4": {
+    "title": "《Myst》为何差点无法在 CD-ROM 上运行｜War Stories｜Ars Technica",
+    "summary": "《Myst》的共同创作者 Rand Miller 回忆，这款用 HyperCard 制作的游戏曾难以在 1 倍速 CD-ROM 光驱上运行。他和兄弟 Robyn 大幅压缩图像及音频数据，才让性能达到可接受的水平。本片属于 Ars Technica 的 War Stories 系列。",
+    "whyHn": "HN 评论者常在讨论 HyperCard 和早期游戏的限制时引用这段亲历者讲述，了解《Myst》如何由 HyperCard 项目发展而来，以及如何装入 CD-ROM。"
+  },
+  "rvskMHn0sqQ": {
+    "title": "让世界变得更美好的自利理由——利己的利他主义",
+    "summary": "Kurzgesagt 从自私的角度论证如何改善世界，认为帮助远方的人会提升每个人的繁荣与创新，包括你自己。该动画视频将这一观点称为‘自私的利他主义’，并强调正和合作。",
+    "whyHn": "HN社区成员将其关联到倡导合作与参与，而非孤立，以及作为正和思维的通俗表达。"
+  },
+  "0lvUByM-fZk": {
+    "title": "Cities: Skylines | 权力、政治与规划：第 1 集：停车",
+    "summary": "这是借助游戏 Cities: Skylines 讨论城市政治与规划的系列首集，聚焦停车问题。视频参考 Donald Shoup 的著作《免费停车的高昂代价》，用游戏展示最低停车位要求如何影响城市形态。",
+    "whyHn": "HN 推荐它作为停车要求导致以车为中心、难以步行的美国城市设计的清晰例证。"
+  },
+  "7NfX0vlCa4k": {
+    "title": "用 E-Ink 提升生产力：入门介绍",
+    "summary": "Technology Connections 给出了使用 Onyx Boox Max2 e-ink 平板电脑进行生产力工作的第一印象，包括将其用作外部显示器。他展示了该设备能做什么以及不能做什么。",
+    "whyHn": "HN 推荐了该内容及其配套视频，作为对 e-ink 设备用作显示器的真实一手体验，包括其缓慢的软件和局限性。"
+  },
+  "FtieBc3KptU": {
+    "title": "面向写作者的 Emacs",
+    "summary": "科学作家Jay Dixit（贾伊·迪希特）解释了他作为一名非程序员如何使用 Emacs 来更高效地写作、编辑和研究。他展示了其纯文本写作工作流，以及从像 Scrivener 这样的工具转向 Emacs 的过程。",
+    "whyHn": "被推荐为喜爱的演讲之一，展示了 Emacs 作为写作环境，而不仅仅是程序员的编辑器。"
+  },
+  "Pp9MwZkHiMQ": {
+    "title": "破解警察摄像头中的诡异AI",
+    "summary": "Benn Jordan 解释了 Flock Safety 的车牌摄像头如何记录和共享车辆位置，以及探讨了对抗性AI如何攻破这些系统。视频涉及安全防护薄弱以及私人警察摄像头网络的监控风险。",
+    "whyHn": "HN 将其视为 Flock 问题的常用概述，并在几乎每一条 Flock 相关讨论中引用它。"
+  },
+  "oCZMoY3q2uM": {
+    "title": "一种看待网络的新方式",
+    "summary": "Van Jacobson 于2006年发表的 Google Tech Talk 演讲，重新思考以命名内容而非主机间对话为核心的网络设计。他回顾了分组网络的历史，并提出了以内容为中心的网络理念，这一理念后来发展为NDN。",
+    "whyHn": "Hacker News评论者将其视为启发IPFS、Urbit和不可变URL等内容寻址设计的鼓舞人心的演讲。"
+  },
+  "v3pYRn5j7oI": {
+    "title": "Feynman：事物的真实模样 | Fun to Imagine 1",
+    "summary": "1983年BBC系列节目《Fun to Imagine》中的一段视频，Richard Feynman（理查德·费曼）解释了热量是原子振动的表现，以及我们如何感知为热和冷。",
+    "whyHn": "被推荐为费曼用通俗方式讲解物理的简短而愉快的范例，而文字转录无法传达其精髓。"
+  },
+  "2S0k12uZR14": {
+    "title": "Velocity 2012：Richard Cook《复杂系统如何失效》",
+    "summary": "医师兼患者安全研究员理查德·库克（Dr. Richard Cook）在Velocity 2012上提出了复杂系统失效的见解。他主张应设计具备韧性，而非试图穷尽处理每一种故障模式。",
+    "whyHn": "HN用户推荐其为运行复杂系统人员必看内容，部分人会定期重看以铭记其核心原则。"
+  },
+  "JfmTagWcqoE": {
+    "title": "CppCon 2016：Herb Sutter《让 C++ 默认无泄漏》",
+    "summary": "Herb Sutter 的 CppCon 2016 演讲关于 C++ 中的生命周期安全，旨在使代码默认无泄漏和悬空指针。内容涵盖智能指针、所有权、引用计数陷阱以及类似于垃圾回收的延迟回收机制。",
+    "whyHn": "HN 在内存管理争论中引用该演讲，以说明其对引用计数问题、析构函数栈溢出和延迟指针的处理。"
+  },
+  "TlLIOgWYVpI": {
+    "title": "Herbert Wolverson - 程序化地图生成技术",
+    "summary": "Herbert Wolverson 在 Roguelike Celebration 2020 的演讲概述了程序化地图生成技术，包括整合手工设计的预制模块（prefabs）与地图模板（vaults）。",
+    "whyHn": "HN 推荐这场由 Rust roguelike 教程作者带来的演讲，认为它有趣、信息丰富，并概述了易于实现的地牢生成方法。"
+  },
+  "aHun58mz3vI": {
+    "title": "Charlie Brooker：如何报道新闻 - Newswipe - BBC",
+    "summary": "一段来自Charlie Brooker的Newswipe的讽刺性短片，讽刺了电视新闻报道中的公式化惯例，从素材镜头到填充性的街头采访以及新闻用语。",
+    "whyHn": "HN将其视为对新闻如何公式化生产的最佳讽刺，常在讨论媒体质量或自动化新闻时提及"
+  },
+  "lkgszkPnV8g": {
+    "title": "CppCon 2017：Louis Brandy《Facebook 中那些奇怪地反复出现的 C++ 错误》",
+    "summary": "Louis Brandy 展示了在 Facebook 巨大代码库中常见的、臭名昭著的反复出现的 C++ 问题，包括 shared_ptr 数据竞争和 operator[] 的陷阱。他解释了看似简单代码背后令人惊讶的复杂性。",
+    "whyHn": "HN 推荐它作为必看的 C++ 陷阱大全，常被引用于关于 Rust 和 C++ 安全性的讨论中。"
+  },
+  "xe-f4gokRBs": {
+    "title": "130,000 fps 下的 Prince Rupert's Drop（鲁珀特之泪）之谜 - Smarter Every Day 86",
+    "summary": "Smarter Every Day 以 130,000 fps 的高速慢动作拍摄了 Prince Rupert's drops（鲁珀特之泪），即经过钢化的玻璃滴。视频展示了玻璃滴巨大的内部应力如何让头部承受撞击，而尾部受损时会导致整体碎裂。",
+    "whyHn": "因其震撼的高速画面，被推荐于有关 Prince Rupert's drop 和玻璃的讨论中。"
+  },
+  "3BR8tK-LuB0": {
+    "title": "奇妙的四元数 - Numberphile",
+    "summary": "Numberphile的James Grime介绍了四元数，一种超越复数的数字类型，从实数和复数出发，逐步构建并解释了它们的实用性。",
+    "whyHn": "HN推荐它作为了解四元数最简单、最容易入门的介绍，对从事游戏和机器人领域工作的人士有帮助。"
+  },
+  "FBaVwwuErmU": {
+    "title": "Look Around You：第 1 季试播集——钙",
+    "summary": "这是英国喜剧系列《Look Around You》的试播集，以一本正经的方式模仿和讽刺 1970 年代与 80 年代的学校科学节目，其中的科学家研究钙。",
+    "whyHn": "HN评论者推荐它为一种超现实且精准捕捉了旧式教育影片的讽刺作品，并在玩笑中引用它。"
+  },
+  "M4AhABManTw": {
+    "title": "鼠药与白兰地：1904 年圣路易斯奥运会马拉松",
+    "summary": "Jon Bois 讲述了1904年圣路易斯奥运会马拉松的故事，一场混乱的比赛涉及欺诈、灭鼠毒药、白兰地、野狗以及濒死事件。这是他节目 Pretty Good 的一集。",
+    "whyHn": "HN 评论者推荐这段对史上最奇怪的体育赛事之一的讲述，认为它有趣且讲得精彩。"
+  },
+  "RxD6H3ri8RI": {
+    "title": "Blender 中的绿幕技巧",
+    "summary": "Ian Hubert 展示了 Blender 中绿幕合成的快速且非传统技巧，作为他之前运动追踪视频的补充。",
+    "whyHn": "这段视频被推荐为一位高产的独立艺术家制作的 Blender 实用指南中最受喜爱的作品之一。"
+  },
+  "cIcbAMO6sxo": {
+    "title": "DEF CON 29 - Richard Henderson - Old MacDonald 有了条形码，E I E I CAR",
+    "summary": "DEF CON 29 一场由 Richard Henderson 主讲的演讲，介绍了如何将 EICAR 反病毒测试字符串编码到二维码和条形码中，并在真实系统上进行扫描。许多未预期此类输入的系统会出现异常行为或崩溃，包括一个停车场管理系统。",
+    "whyHn": "HN 观众推荐该演示作为一项有趣且生动的例证，说明扫描仪和反病毒软件在遇到意外输入时的失效情况。"
+  },
+  "k6U-i4gXkLM": {
+    "title": "第 1 讲 | MIT 6.00 计算机科学与编程导论，2008 年秋季",
+    "summary": "MIT 6.00 课程的第一讲，由 Eric Grimson 和 John Guttag 使用 Python 教授的入门计算机科学课程。内容涵盖课程目标、什么是计算、数据类型、运算符和变量。",
+    "whyHn": "HN 的评论者推荐它作为初学者学习计算机科学（而不仅仅是编程）的简单直接的入门点。"
+  },
+  "BwGsr3SzCZc": {
+    "title": "Black Hat USA 2013：间谍的行动安全（OPSEC）失误",
+    "summary": "记者 Matthew Cole 在 Black Hat 2013 演讲中，讲述 CIA 在 2003 年米兰绑架事件中的行动安全失误。电话与位置元数据暴露了行动团队，最终导致逮捕令的签发。",
+    "whyHn": "HN 用户推荐这个不涉及技术细节的具体案例，了解元数据和通话记录如何暴露秘密行动。"
+  },
+  "cQq2pKNDgIs": {
+    "title": "揭开 UAP 之谜：经济学、外星人与大过滤器｜Merged 第 0109 集",
+    "summary": "这期 Merged Podcast 长 146 分钟，由 UAP 研究者 Ryan Graves 与经济学家 Robin Hanson 对谈 UFO。话题包括大过滤器、Hanson 的扩张型外星文明模型（grabby aliens），以及推动进一步研究 UAP 的呼声。",
+    "whyHn": "HN 评论者推荐 Hanson 关于扩张型外星文明的推理，将其视为思考 UFO 行为和宇宙智慧生命的一种不同寻常的框架。"
+  },
+  "dCSIXLIzhzk": {
+    "title": "最近的恒星离我们有多远？",
+    "summary": "Cody’s Lab 制作了比例为两千亿分之一的模型，并借助视差和光速来展示最近恒星有多远。这是一段解释星际距离的简短天文学视频。",
+    "whyHn": "每当讨论需要建立对恒星间巨大距离的直觉时，HN 用户就会推荐这段视频。"
+  },
+  "d6iQrh2TK98": {
+    "title": "为什么到处都是这个数字？",
+    "summary": "Veritasium 探索数字 37 为何如此常见，参考了 Tom Magliery 收集的数字 37 出现记录，以及一项邀请约 20 万人随机选数的调查。视频讨论人们如何选择数字，以及 37 为何格外突出。",
+    "whyHn": "HN 在讨论大语言模型（LLM）的随机性和选数行为时引用它，说明人类被要求给出随机数时，同样存在偏好，而且行为可以预测。"
+  },
+  "gAk7aX5hksU": {
+    "title": "听听这位韩国 COVID-19 专家的看法｜STAY CURIOUS 第 15 期",
+    "summary": "Asian Boss 在 2020 年初就 COVID-19 采访韩国高丽大学九老医院（Korea University Guro Hospital）的 Kim Woo-joo 教授。访谈涉及口罩、检测、气溶胶传播以及韩国的应对措施。",
+    "whyHn": "在疫情初期的讨论中，HN 评论者推荐这段不受打断的韩国专家访谈，了解关于口罩、检测和空气传播的实用观点。"
+  },
+  "faHQA_0d9Mo": {
+    "title": "《沙丘》1984 替代剪辑重制版｜Spicediver 剪辑、多语言字幕、GW 4K 画质提升",
+    "summary": "Spicediver 为 David Lynch 的 1984 年电影《沙丘》制作了带字幕的影迷剪辑版，恢复了被删去和遗失的片段，形成另一种剪辑版本，并以 AI 将画质提升到 4K。",
+    "whyHn": "HN 用户推荐它为观看 Lynch 版《沙丘》的最佳方式，认为它更接近导演的原始构想；有些人甚至认为这是原著最好的改编。"
+  },
+  "krfcq5pF8u8": {
+    "title": "《第十三修正案》｜完整纪录片｜Netflix",
+    "summary": "Ava DuVernay 执导的这部奥斯卡提名纪录片，探讨美国从奴隶制到第 13 修正案例外条款的种族不平等历史，如何推动大规模监禁。影片结合档案影像以及活动家和学者的证词。",
+    "whyHn": "HN 评论者强烈推荐这部纪录片，认为它清楚分析了刑事司法体系和禁毒战争中的结构性种族主义，并指出影片可以免费观看。"
+  },
+  "Z0oFJ2jbkDI": {
+    "title": "3 万美元的加州地下集装箱住宅：利用土壤降温",
+    "summary": "Kirsten Dirksen 介绍 Steve Rees 的住宅：他把两个运输集装箱埋入地下，在加州北部建成一座利用土壤降温、不依赖公共电网的 640 平方英尺住宅。包括太阳能系统在内，总造价约 3 万美元。",
+    "whyHn": "HN 用户推荐它作为覆土住宅的实例，也喜爱这个频道对建筑和效率的关注。"
+  },
+  "iSVHp6CAyQ8": {
+    "title": "为什么全球制造芯片都离不开 ASML 的光刻机",
+    "summary": "CNBC 参观 ASML 在荷兰的洁净室，了解其造价约 2 亿美元的 EUV 极紫外光刻机如何制造。视频介绍熔融锡爆裂、超平整光学元件，以及为何只有一家公司能够制造这类系统。",
+    "whyHn": "HN 用户经常推荐这段视频，认为它是介绍 ASML 和半导体设备的优秀入门内容，易于理解。"
+  },
+  "skos4B5x7qE": {
+    "title": "RustLatam 2019：Without Boats 谈零成本异步 IO",
+    "summary": "Rust 语言团队成员 Without Boats 在 RustLatam 2019 讲解 Rust 的 async/await 设计，介绍零成本、无需内存分配的异步状态机背后的历史与约束。",
+    "whyHn": "HN 用户在讨论 await 语法时推荐这场演讲，用它解释塑造 Rust 异步设计的各项约束。"
+  },
+  "YXylqtEQ0tk": {
+    "title": "Google 的自动驾驶汽车如何工作",
+    "summary": "这是 Sebastian Thrun 和 Chris Urmson 在 IROS 2011 介绍 Google 自动驾驶汽车的主题演讲第 2 部分。视频展示汽车如何用激光雷达点云感知周围环境，以及识别交通灯和行人。由于使用便携摄像机录制，音质较差。",
+    "whyHn": "HN 用户推荐这场面向工程技术受众的演讲，其中有感知系统和预先建图道路的现场演示。"
+  },
+  "aMcjxSThD54": {
+    "title": "Jordan Peterson 谈性别薪酬差距、校园抗议和后现代主义",
+    "summary": "Channel 4 News 对 Jordan Peterson 的完整访谈。Cathy Newman 就性别薪酬差距、父权制、校园抗议和后现代主义向他追问；访谈因充满交锋的风格而受到广泛讨论。",
+    "whyHn": "HN 用户把它作为采访者曲解嘉宾观点的经典例子，但对谁在访谈中表现更好，各方看法不一。"
+  },
+  "y71lli8MS8s": {
+    "title": "15 分钟制作一个 NES 模拟器",
+    "summary": "Bisqwit 在约 15 分钟的加速编程视频中，借助工具用 C++ 编写 NES 模拟器，并配以字幕解说。视频展示的模拟器使用编译时生成的 6502 指令表，实现准确模拟。第 2 部分介绍编译和运行。",
+    "whyHn": "HN 程序员赞赏这段清晰巧妙的模拟器设计演示，也将其视为一位深受喜爱的编程视频作者的代表作。"
+  },
+  "f5SE47Xjx2Q": {
+    "title": "为什么中国有 5000 万套空置住房",
+    "summary": "PolyMatter 解释中国的房地产泡沫，以及约 5000 万套住房空置的原因。视频介绍过度建设背后的文化与经济因素，以及政府面临的困境。",
+    "whyHn": "HN 用户推荐这段清楚简练的视频，了解中国的空置住房、鬼城和房地产问题。"
+  },
+  "t7tA3NNKF0Q": {
+    "title": "Facebook 如何窃取数十亿次播放量",
+    "summary": "Kurzgesagt 认为，Facebook 声称的每日 80 亿次视频播放量被未经授权的搬运（freebooting）所夸大，也就是重新上传创作者的视频。视频解释这种做法如何损害独立创作者。",
+    "whyHn": "HN 用户引用它来解释视频搬运、Facebook 被夸大的播放量指标，以及 Content ID 为何对小型创作者很重要。"
+  },
+  "Uj-rK8V-rik": {
+    "title": "Google 自动驾驶汽车项目｜SXSW Interactive 2016",
+    "summary": "Chris Urmson 在 SXSW 2016 介绍 Google 自动驾驶汽车项目，回顾 130 万英里的自动驾驶里程，并讨论宣传热度与现实之间的差距。演讲展示了传感器可视化和车辆遇到的棘手场景回放，也讨论了低速碰撞公交车等失败案例。",
+    "whyHn": "HN 用户反复推荐这场坦诚的演讲，认为它是理解真实自动驾驶系统如何感知道路、又在哪些方面仍有困难的最佳演讲之一。"
+  },
+  "O61WihMRdjM": {
+    "title": "了解丰田 RAV4 混合动力系统",
+    "summary": "韦伯州立大学的 Kelly 教授讲解丰田 RAV4 混合动力车型的变速驱动桥，包括采用行星齿轮组的 eCVT 和全部九种工作模式。视频还解释发动机如何达到接近 40% 的热效率。",
+    "whyHn": "HN 用户认为，这是通过实物演示讲清丰田混合动力系统工作原理的最佳视频。"
+  },
+  "0fKYVl12VTA": {
+    "title": "企业销售｜Startup School",
+    "summary": "Y Combinator 合伙人 Pete Koomen 曾带领 Optimizely 实现 1 亿美元的年度经常性收入（ARR）。他梳理企业销售漏斗，内容包括寻找潜在客户、主动联系、筛选合格商机、定价、成交、采购和实施。",
+    "whyHn": "HN 用户推荐这段内容，认为它简明实用，适合有技术背景的创始人了解企业 SaaS 销售。"
+  },
+  "EQs5VxNPhzk": {
+    "title": "[60 fps] 1902 年德国的空中列车",
+    "summary": "这段 1902 年拍摄的德国伍珀塔尔悬挂式铁路影像，经过神经网络画质提升、稳定处理和上色，以 60 fps 呈现。原始胶片来自 MoMA。它生动展示了 1900 年代初的城市风貌，以及一套至今仍在运行的铁路系统。",
+    "whyHn": "HN 评论者喜爱并分享这段提升画质后的老影像，认为它让 1900 年代初仿佛近在眼前，但也有人觉得上色效果不太自然。"
+  },
+  "0jI-AlWEwYI": {
+    "title": "Alexis King：以更低成本实现效应系统｜ZuriHac 2020",
+    "summary": "Alexis King 在 ZuriHac 2020 讲解如何高效实现 Haskell 的效应系统，分析效应库的性能开销以及降低开销的方法。",
+    "whyHn": "HN 评论者将其列为 2020 年理解 Haskell 效应系统的最佳演讲之一。"
+  },
+  "PorfLSr3DDI": {
+    "title": "CppCon 2015：Greg Law——给我 15 分钟，改变你对 GDB 的看法",
+    "summary": "Greg Law 在 CppCon 2015 的这场 15 分钟闪电演讲中，展示 GDB 在基本用法之外的能力，包括文本用户界面和反向调试。",
+    "whyHn": "HN 用户推荐这场简短精彩的演讲，快速了解 GDB 的 TUI 模式和不为人熟知的功能，尤其适合只用过 IDE 调试器的人。"
+  },
+  "YCjNT9qGjh4": {
+    "title": "《半条命 2》20 周年纪录片",
+    "summary": "Valve 为《半条命 2》20 周年制作的两小时纪录片。团队成员回顾开发过程、资金险些耗尽、遭遇黑客攻击、与发行商的诉讼，以及 Steam 的诞生。",
+    "whyHn": "HN 用户推荐这部出色的纪录片，从内部视角了解 Valve 的历史、技术以及当时的游戏行业。"
+  },
+  "WVTWCPoUt8w": {
+    "title": "Linux 的起源——Linus Torvalds",
+    "summary": "Linus Torvalds 在 2001 年计算机历史博物馆的演讲中讲述 Linux 的故事：从 1990 年代初在赫尔辛基读研究生时编写代码，到成为开源领域的代表人物。他介绍项目的起源与发展，以及自己对许可证和内核设计的看法。",
+    "whyHn": "HN 用户推荐这段较长的亲历者叙述，了解 Linux 的历史，其中包括 Linus 对 GPL 作用和微内核的看法。"
+  },
+  "_Cm6EFYktRQ": {
+    "title": "《BBS 纪录片》第 4 部分：FidoNet",
+    "summary": "《BBS: The Documentary》系列的第 4 部分，介绍 FidoNet 业余网络。这个网络连接各个拨号电子公告板系统，在全球范围内中继消息和文件。",
+    "whyHn": "HN 用户推荐这部出色的纪录片，了解 FidoNet 的兴起，其中采访了 Tom Jennings 等人物。"
+  },
+  "1k4x9FrD5k4": {
+    "title": "三文鱼寿司的起源故事并不真实",
+    "summary": "Andong 考察一种流传甚广的说法：挪威在 1990 年代为日本发明了三文鱼寿司。他认为这个故事大体上是个传说，并指出日本及其他地区更早已有生食三文鱼的证据。",
+    "whyHn": "HN 用户引用它，反驳三文鱼寿司由挪威发明的故事。"
+  },
+  "9ZX_XCYokQo": {
+    "title": "Glenn Gould 与 Leonard Bernstein：巴赫 D 小调第 1 号键盘协奏曲，第 I 乐章（BWV 1052）",
+    "summary": "这段 1960 年 CBS 影像中，Leonard Bernstein 介绍并指挥巴赫 D 小调第 1 号键盘协奏曲，由当时 28 岁的 Glenn Gould 演奏钢琴。Gould 的演奏大约从 5:08 开始。",
+    "whyHn": "HN 用户推荐这段 Gould 的代表性诠释，认为他的演奏让巴赫的对位结构清晰可辨。"
+  },
+  "9u0qlIoSSkQ": {
+    "title": "Armadillo Aerospace：Mod 飞行器自由飞行、发动机重启，四个视角",
+    "summary": "四分屏画面展示了 Armadillo Aerospace 的 Mod 飞行器在 2010 年 6 月进行的一次动力跳跃飞行。过程包括关闭发动机、展开减速伞、重启发动机和安全着陆。",
+    "whyHn": "HN 用户引用它展示业余规模火箭项目的出色成果，也将其视为早于 SpaceX Grasshopper、可与之媲美的垂直着陆测试。"
+  },
+  "CuD7SCqHB7k": {
+    "title": "RustConf 2017 闭幕主题演讲：Joe Duffy 谈安全系统软件与计算的未来",
+    "summary": "Joe Duffy 在 RustConf 2017 闭幕演讲中，分享他在微软开发 Midori 的经历。这是一个用类似 Rust 的安全系统语言编写的操作系统；他还讨论将这些经验应用到 Windows 时所遇到的技术和文化挑战。",
+    "whyHn": "HN 反复引用其中关于 Midori 的教训：兼容性对采用新系统至关重要；即使 Midori 已经运行实际工作负载，Windows 团队仍持怀疑态度。"
+  },
+  "FhL5VO2NStU": {
+    "title": "Google 应该采用核能吗？清洁、廉价的核能……",
+    "summary": "Robert Bussard 在 2006 年的 Google Tech Talk 中，介绍惯性静电约束聚变（Polywell），主张它可成为传统热核反应堆的廉价、清洁替代方案。他认为，只需适度资金就能让它具备可行性。",
+    "whyHn": "HN 用户引用它，作为 Bussard 关于 Polywell 聚变最后一次内容充实的公开演讲，以及他声称约 2 亿美元就已足够的说法来源。"
+  },
+  "FzRP1qdwPKw": {
+    "title": "如何联系旅行者 2 号探测器（第 1 部分）",
+    "summary": "EEVblog 的 Dave Jones 与 Richard Stephenson 参观堪培拉深空通信中心的 70 米 DSS43 碟形天线，解释 NASA 如何与旅行者 2 号通信。视频涵盖相关的发射机、接收机和跟踪工作。",
+    "whyHn": "HN 用户在旅行者探测器的讨论中推荐它，认为它最能让人了解操作人员实际上如何与探测器联络。"
+  },
+  "k_P7Y0-wgos": {
+    "title": "只有七秒记忆的人",
+    "summary": "这部纪录片讲述著名音乐家 Clive Wearing 的故事。1985 年，一次病毒感染损伤了他的大脑，使他的记忆只能维持约七秒。影片记录他的生活和病况。",
+    "whyHn": "每当讨论失忆或意识时，HN 用户就会推荐这部较长的纪录片，了解这个极端失忆案例。"
+  },
+  "GCSXNGc7pfs": {
+    "title": "维生素 D 与免疫：大量证据",
+    "summary": "John Campbell 博士回顾维生素 D 缺乏与免疫的研究，包括与流感及 COVID-19 的关联，并引用英格兰公共卫生署的建议。他逐一介绍所引用的资料。",
+    "whyHn": "在疫情期间的讨论中，HN 用户引用它，将其视为医生关于维生素 D 便宜、风险低、值得考虑的循证论述。"
+  },
+  "aoy_WJ3mE50": {
+    "title": "这些隧道要使用 10 万年",
+    "summary": "Tom Scott 参观芬兰的 Onkalo 深层地质处置库。它计划用于存放高放射性核废料，封存时间长达 10 万年。",
+    "whyHn": "HN 用户在核废料讨论中推荐它，借这段简短清楚的视频了解一个实际的长期储存方案。"
+  },
+  "GZadCj8O1-0": {
+    "title": "价值 80 亿美元的 iPod｜Rob Reid",
+    "summary": "Rob Reid 在这场五分钟 TED 演讲中介绍“版权数学”：套用娱乐行业关于盗版损失的说法，得出荒谬的总额，例如一台价值 80 亿美元的 iPod。",
+    "whyHn": "HN 用户在讨论盗版和版权诉讼时分享它，认为这段简短幽默的演示揭示了行业损失估算有多夸张。"
+  },
+  "Kas0tIxDvrg": {
+    "title": "指数增长与流行病",
+    "summary": "3Blue1Brown 用简短视频介绍指数增长和逻辑斯蒂增长，借助 COVID-19 初期的病例数据，展示疫情如何增长并最终趋于平稳。视频解释增长率的微小变化为何会让结果产生巨大差异。",
+    "whyHn": "在 COVID-19 初期，HN 评论者推荐它，认为这是快速理解指数增长对流行病意味着什么的最清楚解释。"
+  },
+  "qpoRO378qRY": {
+    "title": "完整访谈：“人工智能教父”谈 AI 的影响与潜力",
+    "summary": "CBS 于 2023 年在 Vector Institute 对 Geoffrey Hinton 进行的 42 分钟访谈，涵盖神经网络的历史以及 AI 的现状与未来。他讨论了通用人工智能（AGI）的时间表，以及语言模型是否真正理解内容。",
+    "whyHn": "HN 用户推荐这段访谈，认为它比新闻标题更细致地呈现 Hinton 的观点，尤其是他关于大语言模型（LLMs）不只是自动补全的论述。"
+  },
+  "xFKFoGiGlXQ": {
+    "title": "寻找 Nintendo 64 的最佳正弦函数",
+    "summary": "Kaze Emanuar 为 Nintendo 64 寻找最佳正弦近似方法，将《Mario 64》和《Ocarina of Time》中的查表方案与多项式近似进行比较。视频逐步介绍数值计算以及 3 阶、4 阶和 5 阶近似。",
+    "whyHn": "HN 用户在讨论正弦函数的实现，以及在受内存性能限制的硬件上查表是否优于计算时引用它。"
+  },
+  "MdmQUlD7P40": {
+    "title": "Matt Might：赢得对抗错误的战争——解决停机问题与治愈癌症",
+    "summary": "Matt Might 在 Curry On 的演讲探讨如何消除代码中的错误，既包括软件，也包括人类基因组。他介绍借助静态分析对停机问题进行保守近似处理，以及运用计算方法开展精准医疗。",
+    "whyHn": "HN 用户称这是一场令人震撼、不可错过的演讲，既精彩地介绍静态分析，也讲述 Might 的个人经历。"
+  },
+  "43CMV8KIs3E": {
+    "title": "Epic 诉 Apple：判决日——谁赢了，谁输了，为什么？（VL538）",
+    "summary": "Hoeg Law 的 Virtual Legality 节目逐步解读 Epic 诉 Apple 案的 185 页判决，涵盖反垄断法、相关市场、反引导条款以及究竟谁获胜。节目远超两小时，并纠正媒体的常见误读。",
+    "whyHn": "HN 用户强烈推荐这段内容，认为它是对判决的最佳解读，比新闻报道更深入、更准确。"
+  },
+  "jzERXJgi5vQ": {
+    "title": "创业访谈：37signals 合伙人 David H. Hansson｜TWiST 第 E337 期",
+    "summary": "在这期 This Week in Startups 中，Jason Calacanis 采访 37signals 的 David Heinemeier Hansson，讨论自筹资金创业、公司理念以及对科技行业的看法。",
+    "whyHn": "HN 用户推荐它，借此了解 37signals 创始人坚持的理念，以及 DHH 对科技商业的非主流观点。"
+  },
+  "pO4_Wlq8JeI": {
+    "title": "坚实的基础｜Saša Jurić",
+    "summary": "Sasa Juric 在 EMPEX 的演讲中演示 Elixir 和 Erlang 的进程模型，介绍 BEAM 运行时的独特之处，例如从设计上支持容错并行。",
+    "whyHn": "HN 用户推荐这段简短演讲，认为它最能概括 BEAM 和 Elixir 为何有别于其他运行时。"
+  },
+  "2A2NY29iQdI": {
+    "title": "给 Lock Picking Lawyer 的两把无法撬开（？）的锁",
+    "summary": "工程师 Stuff Made Here 制作了两把采用不同设计、号称无法撬开的新锁，并寄给 Lock Picking Lawyer，看看能否被破解。视频介绍这些新颖的防撬机制。",
+    "whyHn": "HN 用户推荐本片和 Lock Picking Lawyer 的回应视频，认为它们引人入胜地展示了锁具设计，以及巧妙机制如何被绕过。"
+  },
+  "AyORieDhpkg": {
+    "title": "The Kilimanjaro Darkjazz Ensemble：《Here Be Dragons》完整专辑",
+    "summary": "这是 The Kilimanjaro Darkjazz Ensemble 的完整专辑。这支电子爵士乐队的音乐阴暗而富有电影感，专辑共九首曲目，时长约 55 分钟。",
+    "whyHn": "HN 评论者推荐它作为编程和专注时聆听的音乐，氛围浓厚，接近环境音乐。"
+  },
+  "F8sZRBdmqc0": {
+    "title": "Bryan Cantrill 谈 ARC：自适应、低开销的缓存替换算法｜PWL SF，10/2017",
+    "summary": "Bryan Cantrill 在 Papers We Love 介绍 Megiddo 和 Modha 关于 ARC（自适应替换缓存）的论文。他先综述缓存策略，再深入讲解可自行调节的 LRU/MFU 设计。",
+    "whyHn": "HN 用户在讨论缓存算法时推荐这场演讲，认为它生动且内容充实，清楚梳理了缓存策略和 ARC。"
+  },
+  "N9RUqGYuGfw": {
+    "title": "用 Haskell 100% 从零编写 JSON 解析器，只需 111 行",
+    "summary": "Tsoding 仅使用 Haskell 标准库，用约 111 行代码现场从零编写 JSON 解析器。这是经过剪辑的 Twitch 直播，讲解解析器组合子、函子、应用函子和单子的直觉。",
+    "whyHn": "HN 用户推荐这种动手实践的学习方式，通过观看解析器的现场构建来理解 Haskell 和解析器组合子。"
+  },
+  "yvFKh_3evC8": {
+    "title": "《Modern Times：Streetwise》第 1/4 部分｜1996 年 BBC 纪录片：如何成为伦敦出租车司机",
+    "summary": "这是 BBC 于 1996 年制作的《Modern Times》纪录片第一部分，介绍成为伦敦黑色出租车司机所需的训练。影片跟随考生学习被称为 The Knowledge 的街道知识，并接受 Public Carriage Office 考官反复且压力很大的考试。",
+    "whyHn": "每当讨论伦敦出租车司机和 The Knowledge 考试时，HN 评论者就会推荐它，认为这是了解训练过程的有趣记录，尽管年代稍久。"
+  },
+  "KTjnt_WSJu8": {
+    "title": "Future Crew 的《Second Reality》PC 演示作品",
+    "summary": "这是 Future Crew 的实时视听演示作品《Second Reality》的录制画面。作品首次在 Assembly 1993 展出，本视频使用配备 Gravis Ultrasound 声卡的 486DX2-66 录制，展示了 1990 年代初 PC 演示创作技术的高峰。",
+    "whyHn": "HN 用户将它视为最优秀、最具奠基意义的早期 PC 演示作品之一，也是演示创作文化历史上的重要参照。"
+  },
+  "MzzD2F73iGU": {
+    "title": "迄今最恐怖的一集｜Still Untitled: The Adam Savage Project｜10/30/18",
+    "summary": "Adam Savage 的 Still Untitled 播客邀请分子生物学家 Joe DeRisi 对谈。他们讨论 DeRisi 的工作，包括利用测序检测罕见感染；Savage 称这可能是节目至今最恐怖的一次谈话。",
+    "whyHn": "HN 用户推荐它，聆听 DeRisi 关于食脑阿米巴等罕见病原体的精彩故事。"
+  },
+  "RNsEsZbXE-4": {
+    "title": "RustConf 2020：Siân Griffin 的闭幕主题演讲",
+    "summary": "Siân Griffin 在 RustConf 2020 闭幕演讲中深入分析《宝可梦 蓝》的漏洞，尤其是 Missingno 和任意代码执行技巧。演讲借此解释内存不安全问题如何产生，以及 Rust 等内存安全语言如何防止此类错误。",
+    "whyHn": "HN 用户推荐这场有趣而技术深入的演讲，认为它借助一款深受喜爱的游戏，把内存安全漏洞讲得生动具体。"
+  },
+  "jhicDUgXyNg": {
+    "title": "Delvon Lamarr Organ Trio：暖场演出｜KEXP 现场",
+    "summary": "Delvon Lamarr Organ Trio 在 2017 年 Upstream Music Fest 的 KEXP 暖场演出实录，曲目包括《Move On Up》和《Memphis》。",
+    "whyHn": "HN 用户推荐这场精彩的 KEXP 现场演出，称赞其中出色的吉他演奏和良好的音质。"
+  },
+  "37NaHRE0Sqw": {
+    "title": "Kilim：Java 中快速、轻量、低成本的消息传递",
+    "summary": "Kilim 的作者在 Google Tech Talk 中介绍这个用于轻量 Actor 式消息传递的 Java 库。他主张以消息传递替代共享内存并发，并称在大量 Actor 的场景下，其性能可与 Erlang 竞争，甚至更好。",
+    "whyHn": "HN 用户引用它，说明 Java 也能实现快速、低成本的消息传递并发，作为 Erlang 或 Scala Actor 的替代方案。"
+  },
+  "DUGGJpn2_zY": {
+    "title": "27C3：2010 游戏主机破解（英语）",
+    "summary": "fail0verflow 团队的 bushing、marcan 和 sven 在 27C3 介绍游戏主机破解，涉及 Wii、Xbox 360 和 PS3 的漏洞利用。他们解释了 Sony 移除 Other OS 后，PS3 如何被破解。",
+    "whyHn": "HN 用户推荐这段第一手资料，了解 Sony 在 ECDSA 中重复使用 nonce 的失误，以及游戏主机破解的历史。"
+  },
+  "yvhv7bgmz64": {
+    "title": "Dunkey 的流媒体服务指南",
+    "summary": "Videogamedunkey 以讽刺方式介绍支离破碎的流媒体服务市场，最后用一个关于如何观看《金刚》的笑话收尾。",
+    "whyHn": "HN 用户推荐这段幽默但出人意料地准确的视频，说明流媒体服务碎片化如何把用户推向盗版。"
+  },
+  "kd0xTfdt6qw": {
+    "title": "Richard Feynman：《物理定律的特性》第 2 部分（完整版）",
+    "summary": "Richard Feynman 在康奈尔大学的 Messenger 讲座《物理定律的特性》第 2 部分，讨论数学与物理的关系。他解释为何理解自然需要数学。",
+    "whyHn": "HN 用户称赞讲解非常清楚，即使没有接受过正式训练也能听懂；在讨论物理为何需要数学时，也会引用这场讲座。"
+  },
+  "-kFOXP026eE": {
+    "title": "Richard Feynman 康奈尔 Messenger 讲座：《物理定律的特性》第 1 部分——万有引力定律",
+    "summary": "这是 Richard Feynman 于 1964 年在康奈尔大学开设的 Messenger 讲座《物理定律的特性》第一讲，主题是万有引力定律。Feynman 从开普勒和牛顿讲起，追溯到平方反比定律的普遍性。这份录制较早，音质较差。",
+    "whyHn": "评论者把它视为面向大众的物理讲座经典，值得反复观看，同时也指出录音质量不佳。"
+  },
+  "F3FkAUbetWU": {
+    "title": ".38 Special 子弹对鲁珀特之泪，170,000 FPS｜Smarter Every Day 169",
+    "summary": "Smarter Every Day 的 Destin Sandlin 用 .22 Magnum 和 .38 Special 子弹射击鲁珀特之泪，并以每秒 170,000 帧拍摄。慢动作画面显示，子弹撞上蝌蚪形玻璃后碎裂，而玻璃滴最初仍完好。",
+    "whyHn": "HN 用户在鲁珀特之泪的讨论中引用它，认为这是子弹击中玻璃滴的最佳高速摄影画面。"
+  },
+  "3t6L-FlfeaI": {
+    "title": "我只想提供 5 TB 数据。",
+    "summary": "这段原名《Broccoli Man》的讽刺短片，讲述一位只想提供 5 TB 数据的工程师，却被 Google 内部的资源分配和生产流程缠住。那句“都忘了怎么数这么小的数了”的笑话就出自这里。",
+    "whyHn": "HN 用户用它来调侃 Google 规模的官僚流程，以及在大公司做简单事情的困难。"
+  },
+  "Q2CCs-x9q9U": {
+    "title": "帝国的衰落：衰败的迹象",
+    "summary": "《Blowback》和《Sorrows of Empire》的作者 Chalmers Johnson 在演讲中比较罗马帝国、苏联的衰落与美国的相似之处。他认为，美国表现出同样的症状：过度扩张、腐败和无力改革。",
+    "whyHn": "HN 用户在讨论美国衰退、社会动荡和经济危机时引用它，视其为帝国衰败论的经典阐述。"
+  },
+  "XGbPHp6QfkQ": {
+    "title": "第 8 代大众 GTI 不如上一代｜Jason Cammisa 的 Revelations，第 11 集",
+    "summary": "Jason Cammisa 评测 2022 年款大众 Mk8 GTI，解释为何认为它不如 Mk7。他批评了电容触控操作和交互界面等方面。",
+    "whyHn": "HN 用户在讨论汽车触摸屏与实体按钮时引用它，作为汽车爱好者批评大众用户体验的例子。"
+  },
+  "dnHdqPBrtH8": {
+    "title": "苏联计算机为何失败",
+    "summary": "Asianometry 解释为何苏联这个曾经领先的计算机强国，到 1980 年代在计算机领域远远落后于美国。尽管国家大力支持科学，差距仍从 1960 年代起逐渐扩大。",
+    "whyHn": "HN 评论者引用这段简明视频，了解苏联计算机发展失败的原因，包括对逆向工程的依赖和官僚体制。"
+  },
+  "Olj8arvfYj4": {
+    "title": "为什么美国每周向巴拿马投放 1470 万只螺旋蝇",
+    "summary": "Half as Interesting 介绍美国每周在巴拿马上空投放数百万只不育螺旋蝇的项目，目的是阻止这种寄生虫进入北美。",
+    "whyHn": "HN 用户在螺旋蝇相关讨论中引用它，简要了解已经运行数十年的不育昆虫屏障系统。"
+  },
+  "HkZDSqyE1do": {
+    "title": "种森林的人",
+    "summary": "这部短纪录片讲述 Jadav Payeng 的故事。从 1970 年代起，他在印度 Majuli 岛种出了一片比中央公园还大的森林，将荒地变成郁郁葱葱的绿洲。",
+    "whyHn": "HN 评论者分享这个鼓舞人心的例子，展示一个人如何通过种树修复生态系统。"
+  },
+  "Ds-v2-qyCc8": {
+    "title": "继续为糟糕的汽车基础设施烧钱——Wonderland Road",
+    "summary": "Not Just Bikes 讨论了一项已经取消的计划：花费超过 $200,000,000，拓宽他家乡加拿大安大略省伦敦市的 Wonderland Road——一条混合街道与公路功能的道路（stroad）。他追问，取消计划是否意味着城市开始摆脱依赖汽车的发展模式。",
+    "whyHn": "HN 用户在讨论 stroad 和道路安全时引用它，展示这个频道对浪费资源的汽车基础设施的批评。"
+  },
+  "Ug8NH67_EfE": {
+    "title": "Rick 再谈闪电网络，并提出一个此前未被讨论的缺陷",
+    "summary": "Rick Falkvinge 回应观众对他此前 Lightning Network 视频的反馈，并提出一个他认为之前没有讨论过的缺陷。核心话题是该网络尚未解决的路由问题。",
+    "whyHn": "HN 评论者在主张闪电网络尚无已解决的路由算法时引用它，并特别指向约 10:00 开始的片段；多数引用对闪电网络持批评态度。"
+  },
+  "X0VH78ye4yY": {
+    "title": "F8 2015：大规模代码——Facebook 规模的开发者基础设施",
+    "summary": "这场 F8 2015 演讲介绍 Facebook 用来支持数千名工程师开发移动应用的工具链，包括迁移到 Mercurial、基于 Atom 的 IDE，以及持续集成。",
+    "whyHn": "HN 用户推荐它来了解大规模开发者基础设施，讲者还介绍版本控制和 CI 测试选择。"
+  },
+  "vw9zyxm860Q": {
+    "title": "夺旗行动｜He Will Not Divide Us",
+    "summary": "Internet Historian 以喜剧方式重述网民如何找到并夺走 Shia LaBeouf 的《He Will Not Divide Us》装置中的旗帜，并穿插对《Metal Gear Solid》的戏仿。视频涵盖这场网络恶搞行动及旗帜的地理定位过程。",
+    "whyHn": "HN 用户把它视为对网络社群如何确定旗帜位置的幽默讲述，并将其作为众包地理定位的例子。"
+  },
+  "yts2F44RqFw": {
+    "title": "《另类右翼行动手册》：我讨厌星期一",
+    "summary": "Innuendo Studios 的《Alt-Right Playbook》这一集讨论一种话术：否定那些只能部分解决问题的办法。视频将其描述为把缺陷视为生活中无法改变的事实的一种论证方式。",
+    "whyHn": "HN 用户用它描述一种拒绝渐进改进的论证方式，也在讨论自由派与保守派对社会的不同看法时引用它。"
+  },
+  "AnQdP03iYIo": {
+    "title": "《Piano Phase》独奏——首次由一人演奏双声部",
+    "summary": "一位钢琴家独自演奏 Steve Reich 的《Piano Phase》两个声部，录制于 2004 年，Reich 当时也在现场。这是一首长 15 分钟、运用相位变化的极简主义作品。",
+    "whyHn": "HN 用户在讨论 Reich 的相位作品及其代码重现时，将这段演奏作为参考。"
+  },
+  "S7TUe5w6RHo": {
+    "title": "把 45 亿年浓缩进 1 小时",
+    "summary": "Kurzgesagt 制作的一小时动画影片，把地球 45 亿年的历史浓缩进一小时，每秒大约代表一百万年。影片追溯生命演化，一直讲到最后那段极其短暂的人类历史。",
+    "whyHn": "HN 评论者推荐它，认为它帮助人们感受漫长的地质时间，以及人类历史有多短暂。"
+  },
+  "Mr0rWJhv9jU": {
+    "title": "George Hotz 编程直播：tinygrad 能运行 whisper 吗？｜吐槽并放弃 AMD｜语音转文字",
+    "summary": "George Hotz 于 2023 年 6 月进行的一场长时间直播。他在开发 tinygrad 的过程中吐槽 AMD 的驱动程序，最终宣布放弃 AMD。直播也涉及硬件和编译器话题。",
+    "whyHn": "HN 用户主要引用 Hotz 对 AMD 驱动程序的这番吐槽。有些评论者觉得说出了自己的心声，也有人觉得这种表现不太好。"
+  },
+  "ROlDmux7Tk4": {
+    "title": "当银行家的感觉真好——一部华尔街音乐剧",
+    "summary": "Leveraged Sell-Out 于 2008 年制作的喜剧说唱音乐剧，让华尔街银行家与咨询顾问展开对决。",
+    "whyHn": "HN 用户主要把它作为有关银行家刻板印象的笑话，或特定时代的文化参照。"
+  },
+  "4TxkE_oYrjU": {
+    "title": "揭穿 SpaceX 的说法！（第 1 部分）",
+    "summary": "Thunderf00t 批评 SpaceX 的宣传，主张其发射成本实际上并不低于竞争对手或航天飞机，并质疑重复使用技术的经济性。",
+    "whyHn": "HN 评论者引用它来表达对 SpaceX 成本说法的怀疑，多用于批评性争论，而不是真正推荐观看。"
+  },
+  "74Ig_QKndvE": {
+    "title": "Alain Colmerauer 的 Prolog 之旅",
+    "summary": "这部法语纪录片介绍 Prolog 的历史。该语言由 Alain Colmerauer 于 1970 年代初在马赛创建。片中采访了许多参与者，追溯逻辑编程的起源及这门语言后来的发展。",
+    "whyHn": "HN 用户在 Prolog 讨论中引用它，认为这是难得的语言起源纪录片；虽然是法语，但有完整字幕。"
+  },
+  "AaA7kPfC5Hk": {
+    "title": "波音 707 桶滚：飞行员 Tex Johnston 于 1955 年驾驶 Dash-80 原型机完成翻滚",
+    "summary": "这段档案影像记录了波音试飞员 Tex Johnston 在 1955 年演示飞行中，驾驶 707 的 Dash-80 原型机在华盛顿湖上空完成桶滚动作。",
+    "whyHn": "HN 用户引用它，展示大型喷气客机可以安全完成桶滚，并回顾这次著名的试飞员特技。"
+  },
+  "BhMSzC1crr0": {
+    "title": "CRS-6 第一级着陆",
+    "summary": "SpaceX 发布的 CRS-6 任务 Falcon 9 第一级着陆尝试官方影像，以高清慢动作展示下降及接触无人回收船甲板的过程。",
+    "whyHn": "HN 用户把它作为参考片段，观察发动机摆动等着陆行为，并与早期失败的着陆进行比较。"
+  },
+  "EGUZJVY-sHo": {
+    "title": "Richard 驾驶 F1 赛车跑银石赛道｜Top Gear",
+    "summary": "在这段 Top Gear 节目中，Richard Hammond 驾驶 Renault R25 一级方程式赛车绕银石赛道跑了两圈，却难以适应赛车对驾驶者的要求。",
+    "whyHn": "HN 用户用它说明 F1 赛车有多难开，例如车速过低时，下压力和轮胎温度都不足。"
+  },
+  "ExWfh6sGyso": {
+    "title": "罗马人究竟为我们做过什么？",
+    "summary": "Monty Python 电影《Life of Brian》中的经典场景：革命者们一边抱怨，一边不情愿地列出罗马统治带来的种种好处。这是一段简短的喜剧片段。",
+    "whyHn": "当有人淡化平台、公司或工业化等事物的好处时，HN 评论者常用这个片段开玩笑。"
+  },
+  "FcW9kUUTfxY": {
+    "title": "NASA Stennis 航天中心：XRS-2200 线性气塞式发动机试车",
+    "summary": "XRS-2200 线性气塞式发动机在 NASA Stennis 航天中心进行的短暂点火测试。该发动机原为后来取消的 X-33 VentureStar 项目设计，画面中约以最大推力的 80% 运行。",
+    "whyHn": "每当讨论气塞式喷管时，HN 用户就会引用这段线性气塞式发动机实际运行的代表性影像。"
+  },
+  "FtutLA63Cp8": {
+    "title": "【东方】Bad Apple!! PV【剪影】",
+    "summary": "这是 2009 年东方系列《Bad Apple!!》原版 PV，以单色剪影动画搭配东方系列音乐。后来无数在其他硬件上运行的 Bad Apple 演示，都以它为源头。",
+    "whyHn": "每当有人在特殊硬件或显示器上渲染 Bad Apple 时，HN 用户都会链接这个原版视频。"
+  },
+  "G6D1YI-41ao": {
+    "title": "Monty Python：下流的匈牙利语会话手册",
+    "summary": "这段 Monty Python 喜剧小品讲述一名男子使用误译的匈牙利语会话手册，引发荒唐的结果，随后是法庭上的场景。",
+    "whyHn": "HN 用户纯粹把它当作有关糟糕翻译和会话手册的笑话引用。"
+  },
+  "L3LbxDZRgA4": {
+    "title": "我的敌人叫作太阳｜《辛普森一家》",
+    "summary": "《辛普森一家》“谁枪击了 Burns 先生”第 1 部分中的简短片段：Burns 先生宣布太阳是他的敌人，并计划把它挡住。",
+    "whyHn": "每当讨论遮阳装置、地球工程或反对太阳能的政策时，HN 用户就会引用它开玩笑。"
+  },
+  "LSHZ_b05W7o": {
+    "title": "《Daddy’s Car》：AI 创作的披头士风格歌曲",
+    "summary": "Sony CSL 的《Daddy’s Car》是一首用 AI 创作、模仿披头士风格的流行歌曲。软件根据披头士风格的训练素材生成旋律与和弦谱，再由人类完成制作、编曲和表演。",
+    "whyHn": "HN 用户把它作为 AI 作曲的早期例子，通常也会说明，大部分制作工作仍由人类完成。"
+  },
+  "mPnx3zO3SDc": {
+    "title": "《太空堡垒卡拉狄加》：“我是一台机器”",
+    "summary": "《Battlestar Galactica》第 4 季的一段片段，其中一名角色宣称“我是一台机器”，并感叹人类感官的局限。",
+    "whyHn": "HN 用户在讨论人类局限与机器感知时，引用这段台词作为笑话。"
+  },
+  "nBaIRm4610o": {
+    "title": "意外的静脉注射",
+    "summary": "John Campbell 博士回顾一项小鼠研究，探讨 mRNA COVID-19 疫苗意外进入静脉及其可能引起心肌心包炎的问题。他逐步介绍研究方法和结果，并讨论注射时的回抽操作。",
+    "whyHn": "HN 用户在疫苗安全讨论中，将其作为了解回抽以及意外静脉注射后果的资料，但对视频的评价不一。"
+  },
+  "ptjedOZEXPM": {
+    "title": "Google I/O 2008：Dalvik 虚拟机内部原理",
+    "summary": "Dan Bornstein 在 Google I/O 2008 讲解用于运行 Android 代码的 Dalvik 虚拟机内部原理。内容包括设计动机、dex 格式、基于寄存器的解释器，以及如何编写适合该平台的代码。",
+    "whyHn": "HN 用户把它视为了解 Dalvik 的 dex 字节码、基于寄存器的设计和节省内存方案的第一手资料。"
+  },
+  "sXwDrcd1t-E": {
+    "title": "这个 ESP32 天线阵列可以看见 WiFi",
+    "summary": "ESPARGOS 的创建者介绍这个来自斯图加特大学、基于 ESP32 的天线阵列：它通过感知 WiFi 信号的相位和幅度来定位设备，并构建 WiFi 相机。视频还演示了 Python 库和项目。",
+    "whyHn": "HN 用户推荐它作为 Espargos 项目的配套讲解，了解如何利用相位差和时间差来定位设备。"
+  },
+  "uFvokQUHh08": {
+    "title": "Matematikrevyen 2011：巴拿赫－塔尔斯基",
+    "summary": "一所丹麦大学制作的数学讽刺歌舞视频，通过戏仿《Barbra Streisand》解释巴拿赫－塔尔斯基悖论，舞台上的橙子不断变多。",
+    "whyHn": "HN 用户在讨论巴拿赫－塔尔斯基定理时，分享它作为有趣的音乐补充。"
+  },
+  "g0amdIcZt5I": {
+    "title": "世界上最强的磁体！",
+    "summary": "Veritasium 参观国家强磁场实验室，观看世界上最强的磁体，并演示涡流等现象。视频介绍强磁场会怎样影响材料和物体。",
+    "whyHn": "HN 用户在物理讨论中引用它，作为了解磁体安全、涡流和超导悬浮的参考。"
+  },
+  "kIc8Rr-cKd8": {
+    "title": "【真实空管录音】阿斯塔纳航空遭遇严重飞行控制问题",
+    "summary": "一架阿斯塔纳航空（Air Astana）飞机因维修失误，飞行操纵线路被反接。这段真实的空管录音记录了飞行员努力控制飞机、空管人员尝试提供帮助的过程。",
+    "whyHn": "HN 用户在航空安全讨论中，引用它作为操纵反向事件的第一手录音资料。"
+  },
+  "iJunxkln578": {
+    "title": "电网：一处沙漠提供可再生基荷电力，足够 700 万户家庭使用！",
+    "summary": "Just Have a Think 介绍拟议投资 160 亿英镑的 Xlinks 项目：在摩洛哥南部建设太阳能、风能和电池储能设施，通过海底 HVDC 高压直流电缆，向英国输送约 3.6 GW 的近似基荷电力。",
+    "whyHn": "HN 用户在讨论核电成本、电网互联和海底电缆时，将其作为大型可再生能源与跨区输电结合项目的具体例子。"
+  },
+  "rE_M1n-ClOA": {
+    "title": "100% 电动渡轮横渡海峡｜Fully Charged 4k",
+    "summary": "Fully Charged 乘坐一艘 100% 由电池供电的渡轮，横跨瑞典 Helsingborg 与丹麦 Helsingør 之间 4 公里的海峡。渡轮每天最多航行 46 次，在两端各充电几分钟。视频展示充电装置，包括连接充电器的机械臂。",
+    "whyHn": "HN 评论者引用它，展示一个实际运行的大容量电池船舶案例，并了解快速自动充电的应用。"
+  },
+  "hou0lU8WMgo": {
+    "title": "技术上正确｜《Futurama》",
+    "summary": "《Futurama》第 2 季第 14 集中的片段：Hermes 被告知自己“技术上正确”，而这正是最好的正确。",
+    "whyHn": "当有人提出迂腐但技术上准确的观点时，HN 用户会用它开玩笑回应。"
+  },
+  "jKS3MGriZcs": {
+    "title": "《生活大爆炸》去掉笑声音轨 1：Avoiding the Shamy",
+    "summary": "这段简短的戏仿视频移除了《生活大爆炸》的笑声音轨，展示没有配笑声时，这些场景有多不好笑。",
+    "whyHn": "HN 用户带着批评态度引用它，认为这说明剧中的笑话较弱，依赖预录笑声。"
+  },
+  "0oV4IVy8tvE": {
+    "title": "Russ Hanneman：“我的车门是这样开的，不是那样！”｜《硅谷》第 2 季",
+    "summary": "HBO《硅谷》第 2 季的一段两分钟片段，Russ Hanneman 炫耀自己的鸥翼式车门。这是一个讽刺创业圈奢靡风气的喜剧场景。",
+    "whyHn": "HN 用户纯粹把它用作鸥翼门或科技圈有钱人挥霍的话题中的笑话。"
+  },
+  "ZZDwB4-DPXE": {
+    "title": "Intentional Programming 演示（第 2 部分）：编译器",
+    "summary": "这段微软研究院早期 Intentional Programming 演示的第 2 部分，展示编译器一侧的工作。这套系统以抽象结构而非文本存储程序。上传者表示，配套的编辑器演示片段更加清晰。",
+    "whyHn": "每当讨论编辑器、代码视图或非文本编程时，HN 用户就会引用它，作为基于抽象语法树（AST）的投影式编程早期演示。"
+  },
+  "bV9ppvY8Nx4": {
+    "title": "霰弹枪陷阱案｜The Case Of",
+    "summary": "LegalEagle 分析爱荷华州的 Katko v. Briney 案：屋主设置的霰弹枪陷阱伤害了一名窃贼。视频讨论保护财产时使用致命武力的法律限制。",
+    "whyHn": "HN 用户引用它来讨论致命陷阱的违法性，也会在讨论针对黑客设置陷阱时提及。"
+  },
+  "yjfrJzdx7DA": {
+    "title": "为即将发生的水坝灾难遇难者设立纪念碑",
+    "summary": "Onion News Network 的讽刺短片：官员明知一座水坝将会倒塌，却先为未来的遇难者建起纪念碑。这是一个关于已知基础设施风险和不作为的黑色笑话。",
+    "whyHn": "每当讨论被忽视的基础设施、濒临失效的水坝或堤防，以及可以预见的灾难时，HN 用户就会引用它开玩笑。"
+  },
+  "KAWA1DuvCnQ": {
+    "title": "DConf 2014 第 2 天主题演讲：D 最不需要的东西——Scott Meyers",
+    "summary": "Scott Meyers 在 DConf 2014 主题演讲中，借助 25 年的 C++ 经验，呼吁 D 语言社区避免某些问题。他把 C++ 日积月累的复杂性和陷阱作为警示。",
+    "whyHn": "HN 评论者每当讨论 C++ 的复杂性或语言设计陷阱，就会提起这场机智且有说服力的警示演讲。"
+  },
+  "W_tqQYmgMQg": {
+    "title": "1960 年代合法的酒驾者",
+    "summary": "这段 1967 年的时事节目，在英国引入呼气酒精检测仪之前，采访了一些惯常酒后驾驶的人。他们坚称，喝酒后自己也能正常开车。",
+    "whyHn": "HN 用户把它用作公众抵触新安全规定的历史类比，也把它当作一段有趣的街头采访。"
+  },
+  "o4TdHrMi6do": {
+    "title": "以每秒 20 亿帧拍摄激光笔，光速看起来有点奇怪",
+    "summary": "AlphaPhoenix 展示一台每秒能拍摄二十亿帧的新相机，并用它拍摄激光笔的光脉冲。他研究光速在相机画面中呈现的一种奇怪现象。",
+    "whyHn": "HN 用户在讨论每秒二十亿帧的相机和等效时间采样时引用它，作为拍摄光传播过程的例子。"
+  },
+  "sOpMrVnjYeY": {
+    "title": "Starship 项目进展",
+    "summary": "SpaceX 于 2019 年 9 月举行的 Starship 项目进展发布会。Elon Musk 介绍 Starship 和 Super Heavy 的设计与研发，内容涵盖建造工作及可重复使用轨道火箭的计划。",
+    "whyHn": "HN 用户用它查证 Musk 的原话，例如以大气中的二氧化碳（CO2）制造燃料的说法。"
+  },
+  "t4A-Ml8YHyM": {
+    "title": "《星际迷航：下一代》“Peak Performance”：不犯错也可能失败｜完整场景",
+    "summary": "《Star Trek TNG》第 2 季“Peak Performance”一集中的片段。Picard 告诉 Data：即使不犯任何错误，也可能失败；这不是软弱，而是生活。",
+    "whyHn": "HN 用户主要引用这句台词，说明好决策也可能带来坏结果，而不是在推荐观看这段视频。"
+  },
+  "uc6QxD2_yQw": {
+    "title": "把男性遭受性侵当作笑料：第 1 部分，男性施害者",
+    "summary": "Pop Culture Detective 的这段视频评论，讨论娱乐媒体如何普遍把男性性侵其他男性的行为当成笑话。第 1 部分聚焦男性施害者。",
+    "whyHn": "HN 用户将其作为了解男性性侵受害者，以及媒体中监狱强奸笑话的资料。"
+  },
+  "y0vlD7r-kTc": {
+    "title": "35C3：Facebook 如何在 Android 上追踪你",
+    "summary": "Privacy International 的研究人员在 35C3 演讲中，展示他们捕获并解密的 Android 应用与 Facebook 服务器之间的流量。他们发现，即使用户没有 Facebook 账号，许多应用也会在启动后立即向 Facebook 发送设备与使用数据。",
+    "whyHn": "HN 用户引用这场演讲，了解 Facebook SDK 如何默认追踪 Android 用户。"
+  },
+  "zqEvQKO5_gM": {
+    "title": "Psaki：“我们正向 Facebook 标记那些传播虚假信息的问题帖子”",
+    "summary": "Newsweek 的这段短视频中，白宫新闻秘书 Jen Psaki 表示，政府正在向 Facebook 标记传播 COVID-19 和疫苗虚假信息的问题帖子。",
+    "whyHn": "HN 用户在争论政府参与内容审核的问题时引用它，作为政府承认曾向平台标记帖子的记录。"
+  },
+  "n0CT8zrw6lw": {
+    "title": "1986 年克利夫兰气球节的灾难",
+    "summary": "The Atlantic 制作的短纪录片，介绍克利夫兰 1986 年的 Balloonfest。当时一次性释放了 150 万个气球，结果却严重失控。",
+    "whyHn": "HN 用户用它指代极其失策的宣传噱头，或作为克利夫兰历史上一次经典的尴尬事件。"
+  },
+  "pjvQFtlNQ-M": {
+    "title": "60% 的时候，它每次都有效……",
+    "summary": "电影《Anchorman》中的极短片段，Ron Burgundy 宣称 Sex Panther 在 60% 的时候，每次都有效。",
+    "whyHn": "HN 用户纯粹用它开玩笑回应，通常是在有人引用不可靠或只是偶尔成立的说法时。"
+  },
+  "rGgG-0lOJjk": {
+    "title": "马友友演奏巴赫 G 大调第 1 号大提琴组曲",
+    "summary": "马友友（Yo-Yo Ma）在 2015 年 BBC Proms 演奏巴赫 G 大调第 1 号大提琴组曲。这是整部组曲的大提琴独奏演出。",
+    "whyHn": "HN 评论者把它作为巴赫大提琴组曲的入门，称赞这些作品能从单一旋律线中唤起丰富的和声。"
+  },
+  "1eIxUuuJX7Y": {
+    "title": "其实，苏式住宅楼还挺不错",
+    "summary": "Adam Something 用简短而带调侃意味的视频，为苏联时代的预制公寓楼辩护。他认为，这类住宅密度高、效率好，附近还配建学校和生活服务设施。",
+    "whyHn": "HN 用户在住房和城市规划讨论中分享它，认为这是一种有趣且刻意挑衅的观点：高密度住宅楼比人们通常认为的更好。"
+  },
+  "grA5XmBRC6g": {
+    "title": "Monty Python《匈牙利语会话手册》：“我的气垫船里全是鳗鱼”（1971）1080p HD",
+    "summary": "Monty Python 的喜剧小品《Dirty Hungarian Phrasebook》中，一本错误百出的会话手册，制造出“我的气垫船里全是鳗鱼”之类的句子。",
+    "whyHn": "HN 用户在讨论翻译、语言和机器翻译失败时，把它作为笑话回应。"
+  },
+  "ztpcWUqVpIg": {
+    "title": "这里连小城镇都很棒：在荷兰生活 5 年",
+    "summary": "Not Just Bikes 回顾在荷兰生活的五年，走访从 Haarlem 到 Veenendaal 的小城镇。他认为，适合步行的街道、自行车设施和公共交通等良好城市设计，几乎遍布荷兰，而非只存在于阿姆斯特丹。",
+    "whyHn": "HN 用户在讨论汽车依赖时，经常用它说明小城镇和乡村地区也可以不依靠汽车运行。"
+  },
+  "mmfjM-SGlGs": {
+    "title": "80 岁的我，站在这里",
+    "summary": "超文本和 Project Xanadu 的创始者 Ted Nelson 在 80 岁时回顾自己的理想、职业生涯，以及糟糕的职业规划如何带来发现与冒险。这也是个人计算和超文本历史的另一种叙述。",
+    "whyHn": "HN 用户推荐 Nelson 对自己人生、Xanadu 的失败及所获教训的坦诚讲述，认为这是他亲口留下的历史记录。"
+  }
+}

@@ -1,5 +1,7 @@
 /* The collection stays quiet; light and motion are concentrated around search. */
 #main-content { outline: none; min-height: 60vh; }
+.catalog-locale-notice { display:flex; align-items:center; flex-wrap:wrap; gap:8px 14px; width:calc(100% - 40px); max-width:1240px; margin:12px auto; padding:12px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.8; }
+.catalog-locale-notice > span { flex:1 1 230px; }
 .hero { position: relative; isolation: isolate; }
 .search-atmosphere {
   --light-x: 50%; --light-y: 70%;

@@ -21,7 +21,12 @@ Recommendation counts describe the exported sample, which caps mentions at 20
 per video. Only `rec` and `strong_rec` comments count as recommendations.
 
 Offbranch changes field names, computes cosine-neighbor links, selects actual HN
-recommendation excerpts, and adds four editorial starter routes. Relatedness is
+recommendation excerpts, and adds twelve editorial playlists. The static Chinese
+metadata in `catalog-zh.json` is a translation of that same licensed source data;
+its original text remains available in the application. Translations are generated
+offline with a pinned Qwen3 model and reviewed overrides, as recorded in
+`catalog-zh.meta.json`. They may contain errors and are not a separate factual
+source. Relatedness is
 not a prerequisite claim. The export excludes YouTube durations, view counts,
 upload dates and current availability. These are not fabricated or imported from
 HackerTube's separate API.

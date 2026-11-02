@@ -22,14 +22,15 @@ export interface SearchFilters {
 }
 export const DEFAULT_FILTERS: SearchFilters = { topic: '', area: '', type: '', level: '', evidence: 'recommended', shelfLife: 'not-news', state: 'all' };
 export interface SearchRequest { requestId: number; query: string; filters: SearchFilters; watchedIds: string[]; savedIds: string[]; }
-export interface SearchHit { id: string; score: number; reason: string; kind: 'direct' | 'related'; }
+export interface SearchHit { id: string; score: number; reason: string; kind: 'direct' | 'related'; anchorId?: string; }
 export interface SearchResponse {
   requestId: number; hits: SearchHit[]; total: number;
   facets: { topics: Record<string, number>; types: Record<string, number>; levels: Record<string, number> };
   interpretation: { target: string; background: string; correction?: string };
   suggestions: string[]; elapsedMs: number;
 }
-export type SearchWorkerInput = { type: 'init'; catalog: Catalog; related: RelatedIndex } | { type: 'search'; payload: SearchRequest };
+export type SearchTranslations = Record<string, { title?: string; summary: string; whyHn: string }>;
+export type SearchWorkerInput = { type: 'init'; catalog: Catalog; related: RelatedIndex; translations?: SearchTranslations } | { type: 'search'; payload: SearchRequest };
 export type SearchWorkerOutput = { type: 'ready' } | { type: 'result'; payload: SearchResponse } | { type: 'error'; message: string; requestId?: number };
 export interface RoadmapStep { videoId: string; reason: string; }
 export interface Roadmap { version: 1; id: string; title: string; steps: RoadmapStep[]; createdAt: string; updatedAt: string; }

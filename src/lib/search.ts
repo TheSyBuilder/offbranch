@@ -1,8 +1,12 @@
 import MiniSearch from 'minisearch';
-import type { Catalog, RelatedIndex, SearchFilters, SearchHit, SearchRequest, SearchResponse, Video } from '../types';
+import type { Catalog, RelatedIndex, SearchFilters, SearchHit, SearchRequest, SearchResponse, SearchTranslations, Video } from '../types';
 import { normalizeChineseQuery } from './taxonomy-zh';
 
 const STOP_WORDS = new Set('a an the and or of to for in on with from about is are was were i me my it its this that these those how what why want know learn understand understanding explain explained video videos talk talks good best works'.split(' '));
+for (const word of '我 我们 你 你们 他 他们 它 它们 的 地 得 了 着 过 是 在 和 与 及 或 从 中 有 对 把 被 将 让 就 都 也 又 而 但 想 想要 希望 打算 知道 了解 理解 学习 学会 掌握 探索 请 帮 帮我 找 看 看看 推荐 一些 一个 一下 关于 有关 如何 怎么 怎样 为什么 什么 为何 通过 能 能够 可以 会 可能 更 里 里面 出来 来 时 视频 教程 课程 讲解 介绍 吗 呢'.split(' ')) STOP_WORDS.add(word);
+const HAN = /\p{Script=Han}/u;
+const SOURCE_FIELDS = ['title', 'channel', 'topic', 'tagsText', 'summary', 'whyHn'];
+const TRANSLATED_FIELDS = ['titleZh', 'summaryZh', 'whyHnZh'];
 const ALIASES: Record<string, string> = {
   ml: 'machine learning', ai: 'artificial intelligence', llm: 'large language models', llms: 'large language models',
   js: 'javascript', ts: 'typescript', cpp: 'cplusplus', 'c sharp': 'csharp', 'c plus plus': 'cplusplus',
@@ -16,9 +20,26 @@ function normalize(value: string): string {
     .replace(/\bc\+\+/g, 'cplusplus').replace(/\bc#/g, 'csharp').replace(/(^|[^a-z0-9])\.net\b/g, '$1dotnet')
     .replace(/\bnode\.js\b/g, 'nodejs').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/\s+/g, ' ');
 }
-function tokenize(value: string): string[] { return normalize(value).split(' ').filter(Boolean); }
-function terms(value: string): string[] { return tokenize(value).filter(token => !STOP_WORDS.has(token)); }
+function createTokenizer(): (value: string) => string[] {
+  let segmenter: Intl.Segmenter | undefined;
+  try { if (typeof Intl.Segmenter === 'function') segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' }); } catch { /* Older browsers use character bigrams. */ }
+  return value => normalize(value).split(/(\p{Script=Han}+)/u).flatMap(part => {
+    if (!part) return [];
+    if (!HAN.test(part)) return part.split(' ').filter(Boolean);
+    if (segmenter) return [...segmenter.segment(part)].filter(item => item.isWordLike).map(item => item.segment);
+    const characters = Array.from(part);
+    return characters.length === 1 ? characters : characters.slice(0, -1).map((character, index) => character + characters[index + 1]);
+  });
+}
 function displayTerm(term: string): string { return ({ cplusplus: 'C++', csharp: 'C#', dotnet: '.NET' } as Record<string, string>)[term] ?? term; }
+function expandAliases(value: string): string {
+  let expanded = normalize(value);
+  // Longest aliases first so "neural nets" stays a phrase rather than a pair of guesses.
+  for (const [alias, expansion] of Object.entries(ALIASES).sort((a, b) => b[0].length - a[0].length)) {
+    expanded = expanded.replace(new RegExp(`\\b${alias}\\b`, 'g'), expansion);
+  }
+  return expanded;
+}
 
 function distance(a: string, b: string): number {
   const rows = Array.from({ length: a.length + 1 }, () => new Array<number>(b.length + 1).fill(0));
@@ -33,12 +54,20 @@ function distance(a: string, b: string): number {
 
 function interpret(query: string): { target: string; background: string } {
   const clean = query.trim().slice(0, 400);
+  const chineseGoal = /(?:我(?:想|希望|打算|要)|想要?|希望|打算|要)(?:去|先|进一步)?(?:学会|学习|学|了解|理解|探索|研究|掌握|入门|搞懂|知道|看看)\s*/u.exec(clean);
+  if (chineseGoal) {
+    const before = clean.slice(0, chineseGoal.index).replace(/[，,、；;。\s]+$/u, '');
+    const background = /^(?:我)?(?:已经|已)?(?:会|懂|了解|知道|熟悉|掌握|用过|学过)(?:一些|一点|点)?\s*(.+)$/u.exec(before)?.[1]?.trim() ?? '';
+    return { target: clean.slice(chineseGoal.index + chineseGoal[0].length).replace(/[?!.？！。]+$/, '').trim(), background };
+  }
   const background = clean.match(/^(?:i\s+)?(?:already\s+)?(?:know|understand|use)\s+(.+?)\s+(?:and|but)\s+/i)?.[1]?.trim() ?? '';
   const goal = clean.match(/\b(?:want|would like)\s+to\s+(?:learn|understand|explore|study|build)\s+(.+)$/i)?.[1];
   return { target: (goal ?? clean).replace(/[?!.]+$/, '').trim(), background };
 }
 
-export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { search(request: SearchRequest): SearchResponse } {
+export function createSearchEngine(catalog: Catalog, related: RelatedIndex, translations: SearchTranslations = {}): { search(request: SearchRequest): SearchResponse } {
+  const tokenize = createTokenizer();
+  const terms = (value: string) => tokenize(value).filter(token => !STOP_WORDS.has(token));
   const byId = new Map(catalog.videos.map(video => [video.id, video]));
   const topicById = new Map(catalog.topics.map(topic => [topic.id, topic]));
   const vocabulary = new Map<string, number>();
@@ -47,13 +76,15 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
   };
   const documents = catalog.videos.map(video => {
     remember(`${video.title} ${video.channel} ${video.topic} ${video.tags.join(' ')}`);
-    return { ...video, tagsText: video.tags.join(' ') };
+    const translated = translations[video.id];
+    return { ...video, tagsText: video.tags.join(' '), titleZh: translated?.title || '', summaryZh: translated?.summary || '', whyHnZh: translated?.whyHn || '' };
   });
+  const hasTranslations = documents.some(document => document.titleZh || document.summaryZh || document.whyHnZh);
   for (const topic of catalog.topics) remember(`${topic.name} ${topic.description}`, 3);
   const index = new MiniSearch({
-    idField: 'id', fields: ['title', 'channel', 'topic', 'tagsText', 'summary', 'whyHn'],
+    idField: 'id', fields: [...SOURCE_FIELDS, ...TRANSLATED_FIELDS],
     tokenize, processTerm: term => STOP_WORDS.has(term) ? null : term,
-    searchOptions: { boost: { title: 7, channel: 5, topic: 6, tagsText: 5, summary: 1.5, whyHn: 1 }, prefix: true },
+    searchOptions: { boost: { title: 7, titleZh: 7, channel: 5, topic: 6, tagsText: 5, summary: 1.5, summaryZh: 1.5, whyHn: 1, whyHnZh: 1 }, prefix: true },
   });
   index.addAll(documents);
   const vocabularyByLength = new Map<number, string[]>();
@@ -63,7 +94,7 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
   }
   const corrections = new Map<string, string>();
   function correct(token: string): string {
-    if (vocabulary.has(token) || token.length < 4 || /\d/.test(token)) return token;
+    if (HAN.test(token) || vocabulary.has(token) || token.length < 4 || /\d/.test(token)) return token;
     if (corrections.has(token)) return corrections.get(token)!;
     const limit = token.length >= 8 ? 2 : 1;
     let best = token, bestDistance = limit + 1, bestFrequency = 0;
@@ -81,18 +112,23 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
   function search(request: SearchRequest): SearchResponse {
     const started = performance.now();
     const interpretation: SearchResponse['interpretation'] = interpret(normalizeChineseQuery(request.query.slice(0, 400)));
-    const normalized = normalize(interpretation.target);
-    let expanded = ALIASES[normalized] ?? normalized;
-    // Longest aliases first so "neural nets" stays a phrase rather than a pair of guesses.
-    for (const [alias, expansion] of Object.entries(ALIASES).sort((a, b) => b[0].length - a[0].length)) {
-      expanded = expanded.replace(new RegExp(`\\b${alias}\\b`, 'g'), expansion);
-    }
+    const expanded = expandAliases(interpretation.target);
     const originalTerms = terms(expanded).slice(0, 24);
     const correctedTerms = originalTerms.map(correct);
     const queryTerms = [...new Set(correctedTerms)];
     if (originalTerms.some((term, i) => term !== correctedTerms[i])) {
       interpretation.correction = queryTerms.map(displayTerm).join(' ');
     }
+    // Alias expansion helps the untranslated catalog, but must never erase the
+    // original Chinese wording when translated metadata is available.
+    const rawTarget = interpret(request.query).target;
+    const chineseQuery = HAN.test(rawTarget);
+    const rawTerms = chineseQuery && hasTranslations ? [...new Set(terms(expandAliases(rawTarget)).slice(0, 24).map(correct))] : [];
+    // A named language or product in a Chinese question is an explicit target:
+    // matching its surrounding Chinese words must not turn C++ into C#.
+    const requiredTerms = rawTerms.filter(term => !HAN.test(term));
+    const queries = [{ terms: queryTerms, phrase: HAN.test(expanded) ? normalize(expanded) : queryTerms.join(' '), chinese: chineseQuery }];
+    if (rawTerms.length && rawTerms.join(' ') !== queryTerms.join(' ')) queries.push({ terms: rawTerms, phrase: normalize(rawTarget), chinese: true });
     const watched = new Set(request.watchedIds), saved = new Set(request.savedIds);
     function matches(video: Video, omit?: 'topic' | 'type' | 'level'): boolean {
       const filters: SearchFilters = request.filters;
@@ -110,24 +146,30 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
     }
 
     const ranked = new Map<string, { score: number; reason: string }>();
-    const hasQuery = queryTerms.length > 0;
+    const hasQuery = queries.some(query => query.terms.length > 0);
     if (hasQuery) {
-      const results = index.search(queryTerms.join(' '), { combineWith: 'OR', prefix: term => term.length > 2, fuzzy: false });
-      for (const result of results) {
-        const video = byId.get(String(result.id));
-        if (!video) continue;
-        // Require all short-query terms and a majority of longer queries. A broad
-        // word such as "systems" must not silently replace "distributed systems".
-        const matched = new Set(result.queryTerms);
-        const coverage = queryTerms.filter(term => [...matched].some(match => match === term || match.startsWith(term))).length;
-        if (coverage < (queryTerms.length <= 2 ? queryTerms.length : Math.ceil(queryTerms.length * 0.6))) continue;
-        const title = normalize(video.title), channel = normalize(video.channel), target = queryTerms.join(' ');
-        const titlePhrase = title.includes(target), channelPhrase = channel.includes(target);
-        const topicPhrase = normalize(video.topic).includes(target) || video.tags.some(tag => normalize(tag) === target);
-        const score = result.score + (titlePhrase ? 24 : 0) + (channel === target ? 1000 : channelPhrase ? 20 : 0) + (topicPhrase ? 12 : 0) + Math.log1p(video.score) * 1.5;
-        const fields = new Set(Object.values(result.match).flat());
-        const reason = titlePhrase ? 'Title matches your search' : channelPhrase ? `From ${video.channel}` : topicPhrase ? 'Matches the topic you asked for' : fields.has('title') ? 'Relevant words in the title' : fields.has('tagsText') || fields.has('topic') ? 'Connected by its topics' : 'Mentioned in the summary or HN context';
-        ranked.set(video.id, { score, reason });
+      for (const query of queries) {
+        if (!query.terms.length) continue;
+        const results = index.search(query.terms.join(' '), { fields: query.chinese ? [...SOURCE_FIELDS, ...TRANSLATED_FIELDS] : SOURCE_FIELDS, combineWith: 'OR', prefix: term => !HAN.test(term) && term.length > 2, fuzzy: false });
+        for (const result of results) {
+          const video = byId.get(String(result.id));
+          if (!video) continue;
+          // Require all short-query terms and a majority of longer queries. A broad
+          // word such as "systems" must not silently replace "distributed systems".
+          const matched = new Set(result.queryTerms);
+          const matchesTerm = (term: string) => [...matched].some(match => match === term || (!HAN.test(term) && match.startsWith(term)));
+          if (requiredTerms.some(term => !matchesTerm(term))) continue;
+          const coverage = query.terms.filter(matchesTerm).length;
+          if (coverage < (query.terms.length <= 2 ? query.terms.length : Math.ceil(query.terms.length * 0.6))) continue;
+          const title = normalize(video.title), channel = normalize(video.channel), target = query.phrase;
+          const translatedTitle = query.chinese ? normalize(translations[video.id]?.title || '') : '';
+          const titlePhrase = title.includes(target) || (!!translatedTitle && translatedTitle.includes(target)), channelPhrase = channel.includes(target);
+          const topicPhrase = normalize(video.topic).includes(target) || video.tags.some(tag => normalize(tag) === target);
+          const score = result.score + (titlePhrase ? 24 : 0) + (channel === target ? 1000 : channelPhrase ? 20 : 0) + (topicPhrase ? 12 : 0) + Math.log1p(video.score) * 1.5;
+          const fields = new Set(Object.values(result.match).flat());
+          const reason = titlePhrase ? 'Title matches your search' : channelPhrase ? `From ${video.channel}` : topicPhrase ? 'Matches the topic you asked for' : fields.has('title') || fields.has('titleZh') ? 'Relevant words in the title' : fields.has('tagsText') || fields.has('topic') ? 'Connected by its topics' : 'Mentioned in the summary or HN context';
+          if ((ranked.get(video.id)?.score ?? -Infinity) < score) ranked.set(video.id, { score, reason });
+        }
       }
     } else if (!request.query.trim()) {
       for (const video of catalog.videos) ranked.set(video.id, { score: video.score + Math.log1p(video.recommenders) / 10, reason: `Recommended in ${video.recMonths} distinct months on HN` });
@@ -151,7 +193,7 @@ export function createSearchEngine(catalog: Catalog, related: RelatedIndex): { s
         if (!video || ranked.has(video.id) || !matches(video) || neighbor.similarity < 0.66) continue;
         const score = neighbor.similarity / (rank + 1);
         if ((discovered.get(video.id)?.score ?? -1) >= score) continue;
-        discovered.set(video.id, { id: video.id, score, kind: 'related', reason: `Similar to “${byId.get(anchor.id)!.title}”${neighbor.sharedRecommenders ? ` · ${neighbor.sharedRecommenders} shared HN recommender${neighbor.sharedRecommenders === 1 ? '' : 's'}` : ''}` });
+        discovered.set(video.id, { id: video.id, score, kind: 'related', anchorId: anchor.id, reason: `Similar to “${byId.get(anchor.id)!.title}”${neighbor.sharedRecommenders ? ` · ${neighbor.sharedRecommenders} shared HN recommender${neighbor.sharedRecommenders === 1 ? '' : 's'}` : ''}` });
       }
     }
     const nearby = [...discovered.values()].sort((a, b) => b.score - a.score || a.id.localeCompare(b.id)).slice(0, 12);

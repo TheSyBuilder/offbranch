@@ -1,0 +1,9 @@
+{
+  "sourceVersion": "2026-10-31",
+  "sourceSha256": "d63449e870f749b592ccf39a3b227c4874b30870f5f885667cb558fe98aed570",
+  "translationSha256": "310d3b36129551b95ba83d163c646c2b98ac2f93730155a8c7e7e6365a95fd30",
+  "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit@50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "method": "Offline machine translation with reviewed editorial overrides; originals retained",
+  "generatedAt": "2026-11-02T09:48:22.278307+00:00",
+  "manualOverrideCount": 242
+}
